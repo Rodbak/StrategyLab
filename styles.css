@@ -87,14 +87,63 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
+/* Gold particles */
+.loader-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.loader-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #e5c76b, #c9a227 50%, #9a7b20);
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.6);
+  animation: particleFloat 3s ease-in-out infinite;
+}
+.loader-particle:nth-child(1)  { left: 12%;  top: 18%; animation-delay: 0s; }
+.loader-particle:nth-child(2)  { left: 88%;  top: 22%; animation-delay: 0.4s; }
+.loader-particle:nth-child(3)  { left: 25%;  top: 75%; animation-delay: 0.8s; }
+.loader-particle:nth-child(4)  { left: 72%;  top: 68%; animation-delay: 0.2s; }
+.loader-particle:nth-child(5)  { left: 5%;   top: 45%; animation-delay: 1.2s; }
+.loader-particle:nth-child(6)  { left: 95%;  top: 52%; animation-delay: 0.6s; }
+.loader-particle:nth-child(7)  { left: 42%;  top: 12%; animation-delay: 1s; }
+.loader-particle:nth-child(8)  { left: 58%;  top: 88%; animation-delay: 0.3s; }
+.loader-particle:nth-child(9)  { left: 18%;  top: 38%; animation-delay: 1.4s; }
+.loader-particle:nth-child(10) { left: 82%;  top: 35%; animation-delay: 0.5s; }
+.loader-particle:nth-child(11) { left: 35%;  top: 55%; animation-delay: 1.1s; }
+.loader-particle:nth-child(12) { left: 65%;  top: 15%; animation-delay: 0.1s; }
+.loader-particle:nth-child(13) { left: 50%;  top: 28%; animation-delay: 0.9s; width: 3px; height: 3px; }
+.loader-particle:nth-child(14) { left: 8%;  top: 62%; animation-delay: 0.7s; }
+.loader-particle:nth-child(15) { left: 92%;  top: 78%; animation-delay: 1.3s; }
+.loader-particle:nth-child(16) { left: 30%;  top: 8%;  animation-delay: 0.25s; width: 3px; height: 3px; }
+.loader-particle:nth-child(17) { left: 70%;  top: 42%; animation-delay: 1.15s; }
+.loader-particle:nth-child(18) { left: 45%;  top: 72%; animation-delay: 0.55s; }
+.loader-particle:nth-child(19) { left: 55%;  top: 48%; animation-delay: 0.85s; width: 3px; height: 3px; }
+.loader-particle:nth-child(20) { left: 15%;  top: 85%; animation-delay: 1.35s; }
+.loader-particle:nth-child(21) { left: 85%;  top: 8%;  animation-delay: 0.15s; }
+.loader-particle:nth-child(22) { left: 38%;  top: 42%; animation-delay: 0.95s; }
+.loader-particle:nth-child(23) { left: 62%;  top: 62%; animation-delay: 0.45s; }
+.loader-particle:nth-child(24) { left: 78%;  top: 92%; animation-delay: 1.25s; }
+@keyframes particleFloat {
+  0%, 100% { opacity: 0.4; transform: translate(0, 0) scale(1); }
+  25%      { opacity: 0.9; transform: translate(4px, -8px) scale(1.1); }
+  50%      { opacity: 0.6; transform: translate(-3px, -4px) scale(0.95); }
+  75%      { opacity: 0.85; transform: translate(2px, 4px) scale(1.05); }
+}
+
 .loader-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
-/* Wordmark reveal: fade + slide up, slight letter-spacing expand */
+/* Wordmark reveal: after clash, fade + slide up */
 .loader-wordmark {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
@@ -125,6 +174,13 @@ body {
   position: relative;
   width: min(50vmin, 200px);
   height: min(50vmin, 200px);
+  opacity: 0;
+  transform: scale(0.85);
+  animation: loaderGlobeReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+@keyframes loaderGlobeReveal {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
 }
 .loader-globe-glow {
   position: absolute;
