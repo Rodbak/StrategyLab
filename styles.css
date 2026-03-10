@@ -71,6 +71,99 @@ body {
   background-attachment: fixed;
 }
 
+/* Molten globe intro loader */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+.page-loader.exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+/* Wordmark reveal: fade + slide up, slight letter-spacing expand */
+.loader-wordmark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.35em;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: loaderWordmarkReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+}
+.loader-wordmark .gold {
+  color: var(--gold);
+}
+@keyframes loaderWordmarkReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    letter-spacing: 0.2em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.35em;
+  }
+}
+.loader-globe-wrap {
+  position: relative;
+  width: min(50vmin, 200px);
+  height: min(50vmin, 200px);
+}
+.loader-globe-glow {
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(218, 165, 32, 0.25) 0%,
+    rgba(201, 162, 39, 0.1) 40%,
+    transparent 70%
+  );
+  animation: loaderPulse 2.5s ease-in-out infinite;
+}
+.loader-globe {
+  position: absolute;
+  inset: 0;
+  border-radius: 48% 52% 55% 45% / 45% 48% 52% 55%;
+  animation: meltMorph 5s ease-in-out infinite;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 236, 180, 0.95) 0%,
+    rgba(255, 215, 120, 0.9) 15%,
+    rgba(218, 165, 32, 0.85) 30%,
+    rgba(201, 162, 39, 0.75) 50%,
+    rgba(184, 134, 11, 0.4) 75%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 40px 15px rgba(218, 165, 32, 0.35),
+    0 0 80px 30px rgba(201, 162, 39, 0.15),
+    inset -15px -15px 30px rgba(0, 0, 0, 0.15),
+    inset 10px 10px 25px rgba(255, 236, 180, 0.15);
+  opacity: 0.92;
+}
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.05); }
+}
+
 main {
   position: relative;
   z-index: 1;

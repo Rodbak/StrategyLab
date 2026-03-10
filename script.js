@@ -1,6 +1,33 @@
 (function () {
   'use strict';
 
+  // ——— Molten globe intro loader: exit after load + minimum display time ———
+  (function () {
+    var loaderEl = document.getElementById('page-loader');
+    if (!loaderEl) return;
+    var loaderMinMs = 2200;
+    var loaderExitDelayMs = 600;
+    var loadDone = false;
+    var minTimeDone = false;
+
+    function tryExit() {
+      if (!loadDone || !minTimeDone) return;
+      loaderEl.classList.add('exit');
+      setTimeout(function () {
+        if (loaderEl.parentNode) loaderEl.parentNode.removeChild(loaderEl);
+      }, loaderExitDelayMs);
+    }
+
+    window.addEventListener('load', function () {
+      loadDone = true;
+      tryExit();
+    });
+    setTimeout(function () {
+      minTimeDone = true;
+      tryExit();
+    }, loaderMinMs);
+  })();
+
   // ——— Molten globe: interact only when mouse is ON the globe ———
   (function () {
     var globeGroup = document.getElementById('globe-group');
