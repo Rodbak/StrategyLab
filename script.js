@@ -206,4 +206,22 @@
     }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
     revealSections.forEach(function (el) { observer.observe(el); });
   }
+
+  // Portfolio: load iframe only when card enters viewport (saves initial load)
+  var portfolioIframes = document.querySelectorAll('.portfolio-visual iframe[data-src]');
+  if (portfolioIframes.length && 'IntersectionObserver' in window) {
+    var iframeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var iframe = entry.target;
+        var src = iframe.getAttribute('data-src');
+        if (src) {
+          iframe.setAttribute('src', src);
+          iframe.removeAttribute('data-src');
+        }
+        iframeObserver.unobserve(iframe);
+      });
+    }, { rootMargin: '100px 0px', threshold: 0 });
+    portfolioIframes.forEach(function (iframe) { iframeObserver.observe(iframe); });
+  }
 })();

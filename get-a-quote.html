@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Get a Quote | StrategyLab — Website & Digital Marketing Estimate</title>
+  <meta name="description" content="Get a quick estimate for your website, landing page, or ads project. See what’s possible within your budget and request a full quote from StrategyLab.">
+  <link rel="canonical" href="https://www.strategylab.com/get-a-quote.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="quote.css">
+</head>
+<body class="page-quote">
+  <a href="#quote-main" class="skip-link">Skip to estimator</a>
+
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="StrategyLab home">Strategy<span class="gold">Lab</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#why-us">Why Us</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="btn btn-gold">Book Free Consultation</a>
+      </nav>
+      <button type="button" class="menu-btn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#contact" class="btn btn-gold">Book Free Consultation</a>
+    </nav>
+  </header>
+
+  <main id="quote-main" class="quote-main" role="main">
+    <!-- 1. Intro -->
+    <section class="quote-intro section">
+      <div class="container container-narrow">
+        <h1 class="quote-title">Get a Quick Estimate for Your Project</h1>
+        <p class="quote-intro-desc">
+          Use this tool to see what’s realistically possible within your budget. You’ll get an instant breakdown of recommended scope, what’s included, and optional add-ons. Final pricing may vary based on complexity, timeline, and specific requirements — we’ll confirm everything when you request a full quote.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Input step -->
+    <section class="quote-form-section section" id="quote-form-section">
+      <div class="container">
+        <form id="quote-estimator" class="quote-estimator" aria-labelledby="estimator-heading">
+          <h2 id="estimator-heading" class="quote-section-title">Your project details</h2>
+
+          <div class="quote-card">
+            <label class="quote-label" for="budget">Estimated budget (GHS)</label>
+            <div class="budget-row">
+              <input type="range" id="budget-slider" class="budget-slider" min="800" max="80000" step="100" value="10000" aria-valuetext="GHS 10,000">
+              <input type="number" id="budget-input" class="budget-input" min="800" max="150000" step="100" value="10000" aria-label="Budget amount in GHS">
+            </div>
+            <p class="budget-display" id="budget-display" aria-live="polite">GHS 10,000</p>
+          </div>
+
+          <div class="quote-card">
+            <label class="quote-label" for="business-type">Business type</label>
+            <select id="business-type" name="business_type">
+              <option value="">Select</option>
+              <option value="gym">Gym / Fitness</option>
+              <option value="school">School / Training</option>
+              <option value="restaurant">Restaurant / Food</option>
+              <option value="clinic">Clinic / Health</option>
+              <option value="salon">Salon / Beauty</option>
+              <option value="realestate">Real estate</option>
+              <option value="events">Events / Entertainment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="quote-card">
+            <span class="quote-label">Project type</span>
+            <div class="option-grid" role="group" aria-label="Project type">
+              <label class="option-chip"><input type="radio" name="project_type" value="simple-website" checked> Simple business website</label>
+              <label class="option-chip"><input type="radio" name="project_type" value="multi-page"> Multi-page company website</label>
+              <label class="option-chip"><input type="radio" name="project_type" value="landing"> Landing page</label>
+              <label class="option-chip"><input type="radio" name="project_type" value="redesign"> Website redesign</label>
+              <label class="option-chip"><input type="radio" name="project_type" value="website-ads"> Website + ads package</label>
+              <label class="option-chip"><input type="radio" name="project_type" value="ads-only"> Ads management only</label>
+            </div>
+          </div>
+
+          <div class="quote-card">
+            <label class="quote-label" for="timeline">Timeline</label>
+            <select id="timeline" name="timeline">
+              <option value="1-2">1–2 weeks</option>
+              <option value="2-4" selected>2–4 weeks</option>
+              <option value="4-8">4–8 weeks</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+
+          <div class="quote-card">
+            <span class="quote-label">Options</span>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" name="has_branding" id="has-branding"> I already have branding / content</label>
+              <label class="checkbox-label"><input type="checkbox" name="need_domain_hosting" id="need-domain-hosting"> I need domain and hosting</label>
+              <label class="checkbox-label"><input type="checkbox" name="want_ads" id="want-ads"> I want ads management</label>
+              <label class="checkbox-label"><input type="checkbox" name="want_landing_pages" id="want-landing-pages"> I want landing pages</label>
+              <label class="checkbox-label"><input type="checkbox" name="want_seo" id="want-seo"> I want SEO setup</label>
+              <label class="checkbox-label"><input type="checkbox" name="want_maintenance" id="want-maintenance"> I want ongoing maintenance</label>
+            </div>
+          </div>
+
+          <div class="quote-actions">
+            <button type="submit" class="btn btn-gold btn-lg">Get my estimate</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. Loading state -->
+    <section class="quote-loading section" id="quote-loading" aria-live="polite" hidden>
+      <div class="container container-narrow">
+        <div class="loading-content">
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <p class="loading-text" id="loading-text">Reviewing your requirements...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Results -->
+    <section class="quote-results section" id="quote-results" hidden>
+      <div class="container container-narrow">
+        <h2 class="quote-section-title">Your estimate</h2>
+        <div class="results-card" id="results-card">
+          <p class="results-package gold" id="results-package"></p>
+          <dl class="results-list" id="results-included"></dl>
+          <dl class="results-list results-list--excluded" id="results-excluded"></dl>
+          <dl class="results-list results-list--addons" id="results-addons"></dl>
+          <p class="results-timeline" id="results-timeline"></p>
+          <p class="results-next" id="results-next"></p>
+        </div>
+
+        <!-- 5. Third-party / live cost -->
+        <div class="quote-third-party quote-card" id="quote-third-party">
+          <h3 class="quote-subtitle">Third-party & ongoing costs</h3>
+          <dl class="results-list" id="results-third-party"></dl>
+          <p class="third-party-note" id="third-party-ads-note"></p>
+        </div>
+
+        <!-- 7. Transparency -->
+        <div class="quote-transparency quote-card">
+          <h3 class="quote-subtitle">Important to know</h3>
+          <ul class="transparency-list">
+            <li>This is an <strong>estimate</strong>, not a final invoice. Final pricing depends on scope agreed in discovery.</li>
+            <li>Strategy, copywriting, custom integrations, large page counts, and rush delivery may affect pricing.</li>
+            <li><strong>Ad spend is separate</strong> from our management fees — you control the ad budget.</li>
+            <li>Domain and hosting are third-party costs; we can recommend and set them up for you.</li>
+          </ul>
+        </div>
+
+        <!-- 8. Conversion CTAs -->
+        <div class="quote-ctas">
+          <a href="index.html#contact" class="btn btn-gold">Request full quote</a>
+          <a href="index.html#contact" class="btn btn-outline">Book a free consultation</a>
+          <a href="https://wa.me/233530402249" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          <button type="button" class="btn btn-outline" id="btn-send-estimate">Send me this estimate</button>
+        </div>
+
+        <!-- 9. Lead capture -->
+        <div class="quote-lead-capture quote-card" id="quote-lead-capture" hidden>
+          <h3 class="quote-subtitle">Send this estimate to my inbox</h3>
+          <p class="quote-lead-desc">We’ll email your estimate and follow up to discuss your project.</p>
+          <form id="quote-lead-form" action="https://formspree.io/f/xjgayrwe" method="post" aria-label="Send estimate form">
+            <input type="hidden" name="_subject" value="StrategyLab – Quote estimate request">
+            <input type="hidden" name="estimate_summary" id="lead-estimate-summary">
+            <label for="lead-name">Name</label>
+            <input type="text" id="lead-name" name="name" required placeholder="Your name" autocomplete="name">
+            <label for="lead-business">Business name</label>
+            <input type="text" id="lead-business" name="business" placeholder="Your business" autocomplete="organization">
+            <label for="lead-email">Email</label>
+            <input type="email" id="lead-email" name="email" required placeholder="you@company.com" autocomplete="email">
+            <label for="lead-phone">Phone / WhatsApp</label>
+            <input type="tel" id="lead-phone" name="phone" placeholder="+233 ..." autocomplete="tel">
+            <label for="lead-goal">Project goal (short)</label>
+            <input type="text" id="lead-goal" name="project_goal" placeholder="e.g. more inquiries, bookings" autocomplete="off">
+            <button type="submit" class="btn btn-gold btn-full">Send my estimate</button>
+            <p class="form-status" id="lead-form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo" aria-label="StrategyLab home">Strategy<span class="gold">Lab</span></a>
+      <p class="footer-tagline">Websites and ad funnels built for lead generation.</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#portfolio">Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a href="index.html#contact" class="btn btn-outline">Book free consultation</a>
+      <p class="footer-copy">© 2025 StrategyLab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="quote.js"></script>
+</body>
+</html>
