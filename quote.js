@@ -337,7 +337,7 @@
         })
         .catch(function () {
           if (status) {
-            status.textContent = 'Something went wrong. Please email hello@strategylab.com or message us on WhatsApp.';
+            status.textContent = 'Something went wrong. Please email bakorodolph@gmail.com or message us on WhatsApp.';
             status.className = 'form-status form-status-error';
           }
           if (btn) btn.textContent = originalText;
