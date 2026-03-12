@@ -153,7 +153,7 @@
         })
         .catch(function () {
           if (formStatus) {
-            formStatus.textContent = 'Something went wrong. Please email us at hello@strategylab.com';
+            formStatus.textContent = 'Something went wrong. Please email us at bakorodolph@gmail.com';
             formStatus.className = 'form-status form-status-error';
           }
           btn.textContent = originalText;
@@ -221,6 +221,16 @@
     }
     window.addEventListener('scroll', function () { checkSticky(); }, { passive: true });
     checkSticky();
+  }
+
+  // Header: add .scrolled for shadow when page is scrolled
+  var header = document.querySelector('.header');
+  if (header) {
+    function checkHeader() {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    }
+    window.addEventListener('scroll', function () { checkHeader(); }, { passive: true });
+    checkHeader();
   }
 
   // Scroll reveal: sections fade in when they enter the viewport
