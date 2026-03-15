@@ -217,7 +217,9 @@
   if (stickyCta && hero) {
     var heroHeight = hero.offsetHeight;
     function checkSticky() {
-      stickyCta.classList.toggle('visible', window.scrollY > heroHeight * 0.6);
+      var visible = window.scrollY > heroHeight * 0.6;
+      stickyCta.classList.toggle('visible', visible);
+      document.body.classList.toggle('sticky-cta-visible', visible);
     }
     window.addEventListener('scroll', function () { checkSticky(); }, { passive: true });
     checkSticky();

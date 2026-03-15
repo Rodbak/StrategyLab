@@ -409,10 +409,55 @@
   font-size: 0.9rem;
 }
 
+@media (max-width: 768px) {
+  .page-quote .quote-main {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .quote-intro {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .quote-title {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+  }
+  .quote-intro-desc {
+    font-size: 1rem;
+  }
+  .quote-form-section .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .quote-card {
+    padding: 1.25rem 1.25rem;
+  }
+  .quote-section-title {
+    font-size: 1.35rem;
+  }
+  .results-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .quote-ctas {
+    gap: 0.75rem;
+  }
+  .quote-ctas .btn {
+    min-height: 44px;
+  }
+}
+
 @media (max-width: 600px) {
+  .page-quote .quote-main {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
   .budget-row {
     flex-direction: column;
     align-items: stretch;
+  }
+  .budget-slider {
+    min-width: 100%;
   }
   .budget-input {
     width: 100%;
@@ -422,11 +467,51 @@
   }
   .option-chip {
     justify-content: flex-start;
+    min-height: 44px;
+    padding: 0.65rem 1rem;
   }
   .quote-ctas {
     flex-direction: column;
+    margin-bottom: 2rem;
   }
   .quote-ctas .btn {
     width: 100%;
+  }
+  .quote-third-party,
+  .quote-transparency {
+    padding: 1.25rem;
+  }
+  .quote-lead-capture {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-quote .quote-main {
+    padding-top: 3rem;
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+    padding-bottom: max(2.5rem, env(safe-area-inset-bottom));
+  }
+  .quote-title {
+    font-size: clamp(1.5rem, 6vw, 1.9rem);
+  }
+  .quote-card {
+    padding: 1rem 1rem;
+  }
+  .quote-section-title {
+    font-size: 1.2rem;
+  }
+  .results-card {
+    padding: 1.25rem 1rem;
+  }
+  .btn-lg {
+    padding: 0.9rem 1.5rem;
+    min-height: 48px;
+  }
+  .checkbox-label {
+    font-size: 0.9rem;
+    min-height: 44px;
+    align-items: center;
   }
 }
