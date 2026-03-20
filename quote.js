@@ -1,36 +1,35 @@
 (function () {
   'use strict';
 
-  var CURRENCY = 'GHS';
-  // Domain pricing: fallback estimates. Replace with API fetch when integrating a registrar/pricing API.
-  var DOMAIN_PRICES = {
-    'com': 120,
-    'org': 110,
-    'net': 110,
-    'com.gh': 85,
-    'gh': 180
-  };
+  var DOMAIN_PRICES = { com: 120, org: 110, net: 110, 'com.gh': 85, gh: 180 };
   var HOSTING_ESTIMATE = 400;
-  var LOADING_MESSAGES = [
-    'Reviewing your requirements...',
-    'Calculating the best fit for your budget...',
-    'Preparing your estimate...'
-  ];
   var LOADING_DURATION = 3200;
 
-  function formatGHS(num) {
-    return CURRENCY + ' ' + Number(num).toLocaleString('en-GB');
+  function I() {
+    return window.StrategyLabI18n;
   }
 
-  function getBudget() {
+  function qc(k) {
+    return I() ? I().t('quote.c.' + k) : '';
+  }
+
+  function fmtGhs(ghs) {
+    return I() ? I().formatMoneyRounded(I().ghsToDisplay(ghs)) : 'GHS ' + ghs;
+  }
+
+  function getBudgetGhs() {
     var el = document.getElementById('budget-input');
-    return el ? parseInt(el.value, 10) || 10000 : 10000;
+    var n = el ? parseInt(el.value, 10) : 10000;
+    if (isNaN(n)) n = 10000;
+    if (I()) n = I().displayToGhs(n);
+    var L = I() ? I().getSliderLimitsGhs() : { min: 800, max: 150000 };
+    return Math.min(L.maxInput || 150000, Math.max(L.min, n));
   }
 
   function getSelections() {
     var projectType = (document.querySelector('input[name="project_type"]:checked') || {}).value || 'simple-website';
     return {
-      budget: getBudget(),
+      budget: getBudgetGhs(),
       businessType: document.getElementById('business-type').value,
       projectType: projectType,
       timeline: document.getElementById('timeline').value,
@@ -50,85 +49,88 @@
     var addons = [];
     var packageName = '';
     var timelineText = '';
-    var nextStep = 'Request a full quote or book a free consultation so we can confirm scope and deliver a final proposal.';
+    var nextStep = qc('next_step');
 
     if (sel.projectType === 'ads-only') {
-      packageName = 'Ads management package';
-      included.push('Campaign setup (Meta and/or Google)');
-      included.push('Audience targeting and ad creative direction');
-      included.push('Landing page or destination review');
-      if (budget >= 8000) {
-        included.push('Ongoing optimization and reporting');
-      }
-      excluded.push('Website design or build');
-      excluded.push('Ad spend (you set and control your ad budget separately)');
-      if (sel.wantLandingPages) addons.push('Dedicated landing page(s) for campaigns');
-      if (sel.wantSeo) addons.push('SEO is separate from ads; we can quote it as an add-on');
-      timelineText = 'Setup: 1–2 weeks. Ongoing management: monthly.';
+      packageName = qc('pkg_ads');
+      included.push(qc('inc_ads_0'));
+      included.push(qc('inc_ads_1'));
+      included.push(qc('inc_ads_2'));
+      if (budget >= 8000) included.push(qc('inc_ads_3'));
+      excluded.push(qc('exc_ads_0'));
+      excluded.push(qc('exc_ads_1'));
+      if (sel.wantLandingPages) addons.push(qc('add_ads_land'));
+      if (sel.wantSeo) addons.push(qc('add_ads_seo'));
+      timelineText = qc('time_ads');
     } else if (budget < 4000) {
-      packageName = 'Starter — Landing page or simple site';
-      included.push('Single landing page or very simple 1–3 page site');
-      included.push('Mobile-responsive design');
-      included.push('Contact / inquiry form');
-      excluded.push('Multi-page company website');
-      excluded.push('Advanced integrations or custom features');
-      if (sel.needDomainHosting) addons.push('Domain and hosting (see third-party costs below)');
-      if (sel.wantAds) addons.push('Ads management can be added; discuss in consultation');
-      timelineText = '1–2 weeks typical.';
+      packageName = qc('pkg_starter');
+      included.push(qc('inc_st_0'));
+      included.push(qc('inc_st_1'));
+      included.push(qc('inc_st_2'));
+      excluded.push(qc('exc_st_0'));
+      excluded.push(qc('exc_st_1'));
+      if (sel.needDomainHosting) addons.push(qc('add_st_dh'));
+      if (sel.wantAds) addons.push(qc('add_st_ads'));
+      timelineText = qc('time_st');
     } else if (budget < 12000) {
-      packageName = 'Business website — Essential';
-      included.push('Multi-page business website (typically 5–7 pages)');
-      included.push('Mobile-first, responsive design');
-      included.push('Clear calls to action and lead capture');
-      included.push('Basic SEO setup (titles, meta)');
-      if (sel.hasBranding) included.push('Use of your existing branding and content');
-      excluded.push('Heavy custom functionality or large page counts');
-      if (sel.wantAds) addons.push('Ads management — separate fee; we’ll quote based on scope');
-      if (sel.wantLandingPages) addons.push('Additional landing pages for campaigns');
-      if (sel.wantMaintenance) addons.push('Ongoing maintenance and updates');
-      if (sel.needDomainHosting) addons.push('Domain and hosting (see below)');
-      timelineText = '2–4 weeks typical.';
+      packageName = qc('pkg_ess');
+      included.push(qc('inc_es_0'));
+      included.push(qc('inc_es_1'));
+      included.push(qc('inc_es_2'));
+      included.push(qc('inc_es_3'));
+      if (sel.hasBranding) included.push(qc('inc_es_brand'));
+      excluded.push(qc('exc_es_0'));
+      if (sel.wantAds) addons.push(qc('add_es_ads'));
+      if (sel.wantLandingPages) addons.push(qc('add_es_land'));
+      if (sel.wantMaintenance) addons.push(qc('add_es_maint'));
+      if (sel.needDomainHosting) addons.push(qc('add_es_dh'));
+      timelineText = qc('time_es');
     } else if (budget < 25000) {
-      packageName = 'Business website — Growth';
-      included.push('Full business or company website (up to 10–12 pages)');
-      included.push('Mobile-first, conversion-oriented design');
-      included.push('Lead capture, forms, and clear CTAs');
-      included.push('SEO setup and basic optimization');
-      if (sel.wantLandingPages) included.push('1–2 campaign landing pages');
-      if (sel.hasBranding) included.push('Use of your existing branding');
-      excluded.push('Custom app or complex integrations without separate quote');
-      if (sel.wantAds) addons.push('Ads management — we’ll quote setup + monthly management');
-      if (sel.wantMaintenance) addons.push('Ongoing maintenance package');
-      if (sel.needDomainHosting) addons.push('Domain and hosting (see below)');
-      timelineText = '2–4 or 4–6 weeks depending on scope.';
+      packageName = qc('pkg_growth');
+      included.push(qc('inc_gr_0'));
+      included.push(qc('inc_gr_1'));
+      included.push(qc('inc_gr_2'));
+      included.push(qc('inc_gr_3'));
+      if (sel.wantLandingPages) included.push(qc('inc_gr_land'));
+      if (sel.hasBranding) included.push(qc('inc_gr_brand'));
+      excluded.push(qc('exc_gr_0'));
+      if (sel.wantAds) addons.push(qc('add_gr_ads'));
+      if (sel.wantMaintenance) addons.push(qc('add_gr_maint'));
+      if (sel.needDomainHosting) addons.push(qc('add_gr_dh'));
+      timelineText = qc('time_gr');
     } else {
-      packageName = 'Website + growth package — Premium';
-      included.push('Full website (multi-page, conversion-focused)');
-      included.push('Landing pages for campaigns');
-      included.push('SEO setup and optimization');
-      included.push('Mobile-first, professional design');
-      if (sel.wantAds) included.push('Ads management setup and strategy (management fee separate from ad spend)');
-      if (sel.wantMaintenance) included.push('Ongoing maintenance and support');
-      if (sel.needDomainHosting) included.push('Domain and hosting guidance and setup');
-      excluded.push('Custom development beyond agreed scope (we’ll quote separately)');
-      timelineText = '4–8 weeks typical for full delivery.';
+      packageName = qc('pkg_prem');
+      included.push(qc('inc_pr_0'));
+      included.push(qc('inc_pr_1'));
+      included.push(qc('inc_pr_2'));
+      included.push(qc('inc_pr_3'));
+      if (sel.wantAds) included.push(qc('inc_pr_ads'));
+      if (sel.wantMaintenance) included.push(qc('inc_pr_maint'));
+      if (sel.needDomainHosting) included.push(qc('inc_pr_dh'));
+      excluded.push(qc('exc_pr_0'));
+      timelineText = qc('time_pr');
     }
 
     if (sel.projectType === 'redesign') {
-      packageName = 'Website redesign — ' + (packageName.split('—')[1] || packageName);
-      included.unshift('Audit of current site and strategy');
-      included.unshift('Content migration and structure improvement');
+      var parts = packageName.split('—');
+      var part = parts.length > 1 ? parts.slice(1).join('—').trim() : packageName;
+      packageName = I() ? I().t('quote.c.pkg_redesign', { part: part }) : 'Website redesign — ' + part;
+      included.unshift(qc('redesign_audit'));
+      included.unshift(qc('redesign_migrate'));
     }
+
     if (sel.projectType === 'website-ads' && budget >= 15000) {
-      packageName = 'Website + Ads growth package';
-      if (included.indexOf('Ads management setup and strategy') === -1) {
-        included.push('Ads management setup (management fee separate from ad spend)');
+      packageName = qc('pkg_combo');
+      var lineFull = qc('inc_pr_ads');
+      var lineSetup = qc('add_combo_ads');
+      if (included.indexOf(lineFull) === -1 && included.indexOf(lineSetup) === -1) {
+        included.push(lineSetup);
       }
     }
 
     return {
       packageName: packageName,
-      included: included,
+      included: included.filter(Boolean),
       excluded: excluded,
       addons: addons,
       timelineText: timelineText,
@@ -137,20 +139,40 @@
   }
 
   function getThirdParty(sel) {
+    if (!I()) return { lines: [], adsNote: '' };
     var lines = [];
     if (sel.needDomainHosting) {
-      lines.push({ term: 'Domain (approx. per year)', detail: '.com ' + formatGHS(DOMAIN_PRICES.com) + ', .com.gh ' + formatGHS(DOMAIN_PRICES['com.gh']) + ', .gh ' + formatGHS(DOMAIN_PRICES.gh) });
-      lines.push({ term: 'Hosting (approx. per year)', detail: formatGHS(HOSTING_ESTIMATE) + ' – we can recommend a plan' });
+      lines.push({
+        term: I().t('quote.tp.domain'),
+        detail:
+          '.com ' +
+          fmtGhs(DOMAIN_PRICES.com) +
+          ', .com.gh ' +
+          fmtGhs(DOMAIN_PRICES['com.gh']) +
+          ', .gh ' +
+          fmtGhs(DOMAIN_PRICES.gh)
+      });
+      lines.push({
+        term: I().t('quote.tp.hosting'),
+        detail: fmtGhs(HOSTING_ESTIMATE) + I().t('quote.tp.hosting_suffix')
+      });
     }
-    lines.push({ term: 'Optional premium tools/plugins', detail: 'Quoted per project if needed' });
+    lines.push({
+      term: I().t('quote.tp.plugins'),
+      detail: I().t('quote.tp.plugins_d')
+    });
     var adsNote = '';
     if (sel.wantAds) {
-      adsNote = 'Ad spend is separate from our fees. We typically recommend starting with a test budget (e.g. ' + formatGHS(500) + '–' + formatGHS(2000) + '+/month) and scaling based on results.';
+      adsNote = I().t('quote.tp.ads_note', {
+        low: fmtGhs(500),
+        high: fmtGhs(2000)
+      });
     }
     return { lines: lines, adsNote: adsNote };
   }
 
   function renderResults(estimate, thirdParty) {
+    if (!I()) return;
     var pkg = document.getElementById('results-package');
     var inc = document.getElementById('results-included');
     var exc = document.getElementById('results-excluded');
@@ -160,11 +182,11 @@
     var third = document.getElementById('results-third-party');
     var adsNoteEl = document.getElementById('third-party-ads-note');
 
-    if (pkg) pkg.textContent = 'Recommended: ' + estimate.packageName;
+    if (pkg) pkg.textContent = I().t('quote.r.recommended', { pkg: estimate.packageName });
     if (inc) {
       inc.innerHTML = '';
       var incDt = document.createElement('dt');
-      incDt.textContent = 'Included in your budget';
+      incDt.textContent = I().t('quote.r.included_dt');
       var incDd = document.createElement('dd');
       incDd.textContent = estimate.included.join(' · ');
       inc.appendChild(incDt);
@@ -174,7 +196,7 @@
       exc.innerHTML = '';
       if (estimate.excluded.length) {
         var excDt = document.createElement('dt');
-        excDt.textContent = 'Not included (or add separately)';
+        excDt.textContent = I().t('quote.r.excluded_dt');
         var excDd = document.createElement('dd');
         excDd.textContent = estimate.excluded.join(' · ');
         exc.appendChild(excDt);
@@ -185,15 +207,15 @@
       add.innerHTML = '';
       if (estimate.addons.length) {
         var addDt = document.createElement('dt');
-        addDt.textContent = 'Possible add-ons';
+        addDt.textContent = I().t('quote.r.addons_dt');
         var addDd = document.createElement('dd');
         addDd.textContent = estimate.addons.join(' · ');
         add.appendChild(addDt);
         add.appendChild(addDd);
       }
     }
-    if (time) time.textContent = 'Estimated timeline: ' + estimate.timelineText;
-    if (next) next.textContent = 'Best next step: ' + estimate.nextStep;
+    if (time) time.textContent = I().t('quote.r.timeline', { text: estimate.timelineText });
+    if (next) next.textContent = I().t('quote.r.next', { text: estimate.nextStep });
 
     if (third) {
       third.innerHTML = '';
@@ -217,6 +239,8 @@
     var loadSec = document.getElementById('quote-loading');
     var resultsSec = document.getElementById('quote-results');
     var textEl = document.getElementById('loading-text');
+    var msgs = I() ? I().tArray('quote_page.loading') : [];
+    if (!msgs.length) msgs = ['…'];
     if (formSec) formSec.setAttribute('aria-hidden', 'true');
     if (loadSec) {
       loadSec.hidden = false;
@@ -224,11 +248,11 @@
     }
     var step = 0;
     var interval = setInterval(function () {
-      if (textEl && LOADING_MESSAGES[step]) {
-        textEl.textContent = LOADING_MESSAGES[step];
+      if (textEl && msgs[step]) {
+        textEl.textContent = msgs[step];
         step++;
       }
-    }, LOADING_DURATION / LOADING_MESSAGES.length);
+    }, LOADING_DURATION / msgs.length);
     setTimeout(function () {
       clearInterval(interval);
       if (loadSec) {
@@ -244,16 +268,19 @@
   }
 
   function buildSummaryText(sel, estimate) {
+    if (!I()) return '';
+    var T = I().t.bind(I());
     var parts = [
-      'Budget: ' + formatGHS(sel.budget),
-      'Project: ' + (sel.projectType || ''),
-      'Package: ' + estimate.packageName
+      T('quote.sum.budget') + ': ' + I().formatMoneyRounded(I().ghsToDisplay(sel.budget)),
+      T('quote.sum.project') + ': ' + (sel.projectType || ''),
+      T('quote.sum.package') + ': ' + estimate.packageName
     ];
-    if (sel.needDomainHosting) parts.push('Needs domain & hosting');
-    if (sel.wantAds) parts.push('Wants ads management');
-    if (sel.wantLandingPages) parts.push('Wants landing pages');
-    if (sel.wantSeo) parts.push('Wants SEO');
-    if (sel.wantMaintenance) parts.push('Wants maintenance');
+    if (sel.needDomainHosting) parts.push(T('quote.sum.domain'));
+    if (sel.wantAds) parts.push(T('quote.sum.ads'));
+    if (sel.wantLandingPages) parts.push(T('quote.sum.land'));
+    if (sel.wantSeo) parts.push(T('quote.sum.seo'));
+    if (sel.wantMaintenance) parts.push(T('quote.sum.maint'));
+    parts.push('locale:' + I().getLang() + ' currency:' + I().getCurrency());
     return parts.join(' | ');
   }
 
@@ -262,101 +289,165 @@
   var budgetDisplay = document.getElementById('budget-display');
 
   function syncBudget(fromSlider) {
+    if (!I()) return;
+    var L = I().getSliderLimitsDisplay();
     var val = fromSlider ? parseInt(budgetSlider.value, 10) : parseInt(budgetInput.value, 10);
-    val = Math.min(150000, Math.max(800, isNaN(val) ? 10000 : val));
-    if (budgetSlider) budgetSlider.value = val;
-    if (budgetInput) budgetInput.value = val;
-    if (budgetDisplay) budgetDisplay.textContent = formatGHS(val);
-    if (budgetSlider) budgetSlider.setAttribute('aria-valuetext', formatGHS(val));
+    val = Math.min(L.maxInput, Math.max(L.min, isNaN(val) ? Math.round((L.min + L.max) / 2) : val));
+    if (budgetSlider) {
+      budgetSlider.min = L.min;
+      budgetSlider.max = L.max;
+      budgetSlider.value = val;
+    }
+    if (budgetInput) {
+      budgetInput.min = L.min;
+      budgetInput.max = L.maxInput;
+      budgetInput.value = val;
+    }
+    if (budgetDisplay) budgetDisplay.textContent = I().formatMoneyRounded(val);
+    if (budgetSlider) {
+      budgetSlider.setAttribute('aria-valuetext', I().formatMoneyRounded(val));
+    }
+    var bl = document.getElementById('budget-label-tpl');
+    if (bl) bl.textContent = I().t('quote_page.budget_label', { currency: I().getCurrency() });
+    if (budgetInput) {
+      budgetInput.setAttribute('aria-label', I().t('quote_page.budget_aria', { currency: I().getCurrency() }));
+    }
   }
 
-  if (budgetSlider) {
-    budgetSlider.addEventListener('input', function () { syncBudget(true); });
+  function onCurrencyOrLocaleChange() {
+    var ghs = getBudgetGhs();
+    var disp = I().ghsToDisplay(ghs);
+    var rounded = Math.round(disp);
+    if (budgetSlider) budgetSlider.value = rounded;
+    if (budgetInput) budgetInput.value = rounded;
+    syncBudget(true);
+    if (window.__quoteEstimate) {
+      var q = window.__quoteEstimate;
+      renderResults(q.estimate, q.thirdParty);
+      var leadSummary = document.getElementById('lead-estimate-summary');
+      if (leadSummary) leadSummary.value = buildSummaryText(q.sel, q.estimate);
+    }
   }
-  if (budgetInput) {
-    budgetInput.addEventListener('change', function () { syncBudget(false); });
-    budgetInput.addEventListener('blur', function () { syncBudget(false); });
-  }
-  syncBudget(true);
 
-  var estimatorForm = document.getElementById('quote-estimator');
-  var leadCapture = document.getElementById('quote-lead-capture');
-  var leadForm = document.getElementById('quote-lead-form');
-  var leadSummary = document.getElementById('lead-estimate-summary');
-  var btnSendEstimate = document.getElementById('btn-send-estimate');
-
-  if (estimatorForm) {
-    estimatorForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var sel = getSelections();
-      var estimate = computeEstimate(sel);
-      var thirdParty = getThirdParty(sel);
-      window.__quoteEstimate = { sel: sel, estimate: estimate, thirdParty: thirdParty };
-      showLoading(function () {
-        renderResults(estimate, thirdParty);
-        if (leadSummary) leadSummary.value = buildSummaryText(sel, estimate);
+  function bindBudget() {
+    if (budgetSlider) budgetSlider.addEventListener('input', function () {
+      syncBudget(true);
+    });
+    if (budgetInput) {
+      budgetInput.addEventListener('change', function () {
+        syncBudget(false);
       });
-    });
+      budgetInput.addEventListener('blur', function () {
+        syncBudget(false);
+      });
+    }
+    if (I()) I().onChange(onCurrencyOrLocaleChange);
   }
 
-  if (btnSendEstimate) {
-    btnSendEstimate.addEventListener('click', function () {
-      if (leadCapture) {
-        leadCapture.hidden = false;
-        leadCapture.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  }
+  function runQuoteApp() {
+    bindBudget();
+    syncBudget(true);
 
-  if (leadForm) {
-    leadForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = leadForm.querySelector('button[type="submit"]');
-      var status = document.getElementById('lead-form-status');
-      var originalText = btn ? btn.textContent : '';
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-      if (status) status.textContent = '';
+    var estimatorForm = document.getElementById('quote-estimator');
+    var leadCapture = document.getElementById('quote-lead-capture');
+    var leadForm = document.getElementById('quote-lead-form');
+    var leadSummary = document.getElementById('lead-estimate-summary');
+    var btnSendEstimate = document.getElementById('btn-send-estimate');
 
-      fetch(leadForm.action, {
-        method: 'POST',
-        body: new FormData(leadForm),
-        headers: { Accept: 'application/json' }
-      })
-        .then(function (r) {
-          if (r.ok) {
-            if (status) {
-              status.textContent = 'Thanks! We’ve received your details and will send your estimate and follow up shortly.';
-              status.className = 'form-status form-status-success';
-            }
-            if (btn) btn.textContent = 'Sent!';
-            leadForm.reset();
-            if (leadSummary) leadSummary.value = '';
-          } else {
-            throw new Error('Submit failed');
-          }
-        })
-        .catch(function () {
-          if (status) {
-            status.textContent = 'Something went wrong. Please email bakorodolph@gmail.com or message us on WhatsApp.';
-            status.className = 'form-status form-status-error';
-          }
-          if (btn) btn.textContent = originalText;
-        })
-        .finally(function () {
-          if (btn) {
-            btn.disabled = false;
-            setTimeout(function () { btn.textContent = originalText; }, 3000);
-          }
+    if (estimatorForm) {
+      estimatorForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var sel = getSelections();
+        var estimate = computeEstimate(sel);
+        var thirdParty = getThirdParty(sel);
+        window.__quoteEstimate = { sel: sel, estimate: estimate, thirdParty: thirdParty };
+        showLoading(function () {
+          renderResults(estimate, thirdParty);
+          if (leadSummary) leadSummary.value = buildSummaryText(sel, estimate);
         });
-    });
+      });
+    }
+
+    if (btnSendEstimate) {
+      btnSendEstimate.addEventListener('click', function () {
+        if (leadCapture) {
+          leadCapture.hidden = false;
+          leadCapture.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    if (leadForm) {
+      leadForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = leadForm.querySelector('button[type="submit"]');
+        var status = document.getElementById('lead-form-status');
+        var originalText = btn ? btn.textContent : '';
+        var sending = I() ? I().t('common.sending') : 'Sending…';
+        if (btn) {
+          btn.disabled = true;
+          btn.textContent = sending;
+        }
+        if (status) status.textContent = '';
+        if (I()) I().syncHiddenFormFields();
+
+        fetch(leadForm.action, {
+          method: 'POST',
+          body: new FormData(leadForm),
+          headers: { Accept: 'application/json' }
+        })
+          .then(function (r) {
+            if (r.ok) {
+              if (status) {
+                status.textContent = I().t('quote_page.lead_success');
+                status.className = 'form-status form-status-success';
+              }
+              if (btn) btn.textContent = I().t('common.sent');
+              leadForm.reset();
+              if (leadSummary) leadSummary.value = '';
+            } else {
+              throw new Error('Submit failed');
+            }
+          })
+          .catch(function () {
+            if (status) {
+              status.textContent = I().t('quote_page.lead_error');
+              status.className = 'form-status form-status-error';
+            }
+            if (btn) btn.textContent = originalText;
+          })
+          .finally(function () {
+            if (btn) {
+              btn.disabled = false;
+              setTimeout(function () {
+                btn.textContent = originalText;
+              }, 3000);
+            }
+          });
+      });
+    }
+
+    var menuBtn = document.querySelector('.menu-btn');
+    var navMobile = document.querySelector('.nav-mobile');
+    if (menuBtn && navMobile) {
+      menuBtn.addEventListener('click', function () {
+        navMobile.classList.toggle('open');
+        menuBtn.classList.toggle('open');
+      });
+    }
   }
 
-  var menuBtn = document.querySelector('.menu-btn');
-  var navMobile = document.querySelector('.nav-mobile');
-  if (menuBtn && navMobile) {
-    menuBtn.addEventListener('click', function () {
-      navMobile.classList.toggle('open');
-      menuBtn.classList.toggle('open');
-    });
-  }
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!window.StrategyLabI18n) {
+      runQuoteApp();
+      return;
+    }
+    window.StrategyLabI18n.init()
+      .then(function () {
+        runQuoteApp();
+      })
+      .catch(function () {
+        runQuoteApp();
+      });
+  });
 })();

@@ -476,6 +476,37 @@ a:hover { color: var(--gold); }
   opacity: 0.6;
 }
 
+/* Language & currency (header) */
+.locale-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.locale-controls .locale-select {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--black-card);
+  color: var(--muted);
+  cursor: pointer;
+  max-width: 7rem;
+}
+.locale-controls .locale-select:focus {
+  outline: none;
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 0 2px var(--gold-bg);
+}
+@media (max-width: 768px) {
+  .locale-controls {
+    margin-left: auto;
+    margin-right: 0.35rem;
+  }
+}
+
 .menu-btn {
   display: none;
   flex-direction: column;

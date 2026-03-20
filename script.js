@@ -131,8 +131,12 @@
       var btn = form.querySelector('button[type="submit"]');
       var originalText = btn.textContent;
       if (formStatus) formStatus.textContent = '';
+      if (window.StrategyLabI18n) window.StrategyLabI18n.syncHiddenFormFields();
       btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.textContent =
+        window.StrategyLabI18n && window.StrategyLabI18n.t('common.sending')
+          ? window.StrategyLabI18n.t('common.sending')
+          : 'Sending…';
 
       fetch(form.action, {
         method: 'POST',
@@ -142,18 +146,28 @@
         .then(function (r) {
           if (r.ok) {
             if (formStatus) {
-              formStatus.textContent = 'Thanks! We\'ll be in touch within 24 hours.';
+              formStatus.textContent =
+                window.StrategyLabI18n && window.StrategyLabI18n.t('contact.success')
+                  ? window.StrategyLabI18n.t('contact.success')
+                  : "Thanks! We'll be in touch within 24 hours.";
               formStatus.className = 'form-status form-status-success';
             }
-            btn.textContent = 'Sent!';
+            btn.textContent =
+              window.StrategyLabI18n && window.StrategyLabI18n.t('common.sent')
+                ? window.StrategyLabI18n.t('common.sent')
+                : 'Sent!';
             form.reset();
+            if (window.StrategyLabI18n) window.StrategyLabI18n.applyDom(form);
           } else {
             throw new Error('Submit failed');
           }
         })
         .catch(function () {
           if (formStatus) {
-            formStatus.textContent = 'Something went wrong. Please email us at bakorodolph@gmail.com';
+            formStatus.textContent =
+              window.StrategyLabI18n && window.StrategyLabI18n.t('contact.error')
+                ? window.StrategyLabI18n.t('contact.error')
+                : 'Something went wrong. Please email us at bakorodolph@gmail.com';
             formStatus.className = 'form-status form-status-error';
           }
           btn.textContent = originalText;
