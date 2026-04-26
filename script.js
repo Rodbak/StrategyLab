@@ -1,98 +1,6 @@
 (function () {
   'use strict';
 
-  // ——— Molten globe intro loader: exit after load + minimum display time ———
-  (function () {
-    var loaderEl = document.getElementById('page-loader');
-    if (!loaderEl) return;
-    var loaderMinMs = 2200;
-    var loaderExitDelayMs = 600;
-    var loadDone = false;
-    var minTimeDone = false;
-
-    function tryExit() {
-      if (!loadDone || !minTimeDone) return;
-      loaderEl.classList.add('exit');
-      setTimeout(function () {
-        if (loaderEl.parentNode) loaderEl.parentNode.removeChild(loaderEl);
-      }, loaderExitDelayMs);
-    }
-
-    window.addEventListener('load', function () {
-      loadDone = true;
-      tryExit();
-    });
-    setTimeout(function () {
-      minTimeDone = true;
-      tryExit();
-    }, loaderMinMs);
-  })();
-
-  // ——— Molten globe: interact only when mouse is ON the globe ———
-  (function () {
-    var globeGroup = document.getElementById('globe-group');
-    var globeGlow = document.getElementById('globe-glow');
-    var globeHit = document.getElementById('globe-hit');
-    if (!globeGroup || !globeGlow || !globeHit) return;
-
-    var mouseX = 0.5;
-    var mouseY = 0.5;
-    var currentX = 0;
-    var currentY = 0;
-    var isOverGlobe = false;
-    var strength = 0.06;
-    var smooth = 0.08;
-    var smoothReturn = 0.04;
-
-    function onMove(e) {
-      mouseX = e.clientX / window.innerWidth;
-      mouseY = e.clientY / window.innerHeight;
-    }
-
-    function onEnter() {
-      isOverGlobe = true;
-      globeGroup.classList.add('globe-hover');
-    }
-
-    function onLeave() {
-      isOverGlobe = false;
-      globeGroup.classList.remove('globe-hover');
-    }
-
-    function lerp(a, b, t) {
-      return a + (b - a) * t;
-    }
-
-    function tick() {
-      var targetX, targetY;
-      if (isOverGlobe) {
-        targetX = (mouseX - 0.5) * 2 * strength * 100;
-        targetY = (mouseY - 0.5) * 2 * strength * 100;
-        currentX = lerp(currentX, targetX, smooth);
-        currentY = lerp(currentY, targetY, smooth);
-      } else {
-        targetX = 0;
-        targetY = 0;
-        currentX = lerp(currentX, targetX, smoothReturn);
-        currentY = lerp(currentY, targetY, smoothReturn);
-      }
-
-      var tx = -50 + currentX;
-      var ty = -50 + currentY;
-      var tr = 'translate(' + tx + '%, ' + ty + '%)';
-
-      globeGroup.style.transform = tr;
-      globeGlow.style.transform = tr;
-      globeHit.style.transform = tr;
-      requestAnimationFrame(tick);
-    }
-
-    globeHit.addEventListener('mouseenter', onEnter);
-    globeHit.addEventListener('mouseleave', onLeave);
-    window.addEventListener('mousemove', onMove, { passive: true });
-    requestAnimationFrame(tick);
-  })();
-
   // Mobile menu
   var menuBtn = document.querySelector('.menu-btn');
   var navMobile = document.querySelector('.nav-mobile');
@@ -260,9 +168,9 @@
     revealSections.forEach(function (el) { observer.observe(el); });
   }
 
-  // Portfolio: load iframe only when card enters viewport (saves initial load)
-  var portfolioIframes = document.querySelectorAll('.portfolio-visual iframe[data-src]');
-  if (portfolioIframes.length && 'IntersectionObserver' in window) {
+  // Previews: load iframes only when cards enter viewport (saves initial load)
+  var previewIframes = document.querySelectorAll('.portfolio-visual iframe[data-src], .graphics-visual iframe[data-src]');
+  if (previewIframes.length && 'IntersectionObserver' in window) {
     var iframeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
@@ -275,6 +183,34 @@
         iframeObserver.unobserve(iframe);
       });
     }, { rootMargin: '100px 0px', threshold: 0 });
-    portfolioIframes.forEach(function (iframe) { iframeObserver.observe(iframe); });
+    previewIframes.forEach(function (iframe) { iframeObserver.observe(iframe); });
   }
+
+  // Pricing amounts: display in selected currency (base GHS)
+  (function () {
+    function applyMoney() {
+      if (!window.StrategyLabI18n) return;
+      document.querySelectorAll('[data-money-ghs]').forEach(function (el) {
+        var raw = el.getAttribute('data-money-ghs');
+        var ghs = Number(raw);
+        if (!isFinite(ghs)) return;
+        el.textContent = window.StrategyLabI18n.formatMoneyRounded(window.StrategyLabI18n.ghsToDisplay(ghs));
+      });
+    }
+
+    // Apply once (after DOM ready). i18n init runs on DOMContentLoaded as well.
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        applyMoney();
+        if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) {
+          window.StrategyLabI18n.onChange(applyMoney);
+        }
+      });
+    } else {
+      applyMoney();
+      if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) {
+        window.StrategyLabI18n.onChange(applyMoney);
+      }
+    }
+  })();
 })();

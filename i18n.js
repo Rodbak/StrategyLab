@@ -22,8 +22,17 @@
   var controlsWired = false;
 
   function detectLang() {
-    var nav = (navigator.language || 'en').split('-')[0].toLowerCase();
-    if (SUPPORTED_LANGS.indexOf(nav) !== -1) return nav;
+    var langs = [];
+    try {
+      if (Array.isArray(navigator.languages)) langs = navigator.languages.slice(0);
+    } catch (e) {}
+    if (!langs.length) langs = [navigator.language || 'en'];
+    for (var i = 0; i < langs.length; i++) {
+      var base = String(langs[i] || '')
+        .split('-')[0]
+        .toLowerCase();
+      if (SUPPORTED_LANGS.indexOf(base) !== -1) return base;
+    }
     return 'en';
   }
 
@@ -307,6 +316,7 @@
   function init() {
     if (initPromise) return initPromise;
     try {
+      // If user didn't explicitly choose a language yet, auto-detect from browser (fr-CA, fr-FR, etc.).
       currentLang = localStorage.getItem(STORAGE_LANG) || detectLang();
       currentCur = localStorage.getItem(STORAGE_CUR) || detectCurrencyFromLang(currentLang);
     } catch (e) {

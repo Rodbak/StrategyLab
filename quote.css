@@ -1,22 +1,23 @@
 /* StrategyLab — Get a Quote page */
 
 .page-quote .quote-main {
-  padding-top: 5rem;
+  padding-top: calc(var(--header-h) + 2rem);
   padding-bottom: 4rem;
   min-height: 80vh;
 }
 
 .quote-intro {
-  padding-bottom: 2rem;
+  padding-bottom: 1.25rem;
 }
 
 .quote-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.85rem);
+  font-weight: 800;
   text-align: center;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
 }
 
 .quote-intro-desc {
@@ -39,16 +40,17 @@
 }
 
 .quote-form-section .container {
-  max-width: 640px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .quote-section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 900;
   margin-bottom: 1.5rem;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
 .quote-estimator {
@@ -58,23 +60,23 @@
 }
 
 .quote-card {
-  background: var(--black-card);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.35rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .quote-card:focus-within {
-  border-color: rgba(201, 162, 39, 0.4);
-  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.15);
+  border-color: rgba(167, 139, 250, 0.40);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16);
 }
 
 .quote-label {
   display: block;
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--white);
+  font-weight: 900;
+  color: var(--text);
   margin-bottom: 0.75rem;
 }
 
@@ -91,7 +93,7 @@
   height: 8px;
   -webkit-appearance: none;
   appearance: none;
-  background: var(--border);
+  background: rgba(238, 242, 255, 0.16);
   border-radius: 4px;
   outline: none;
 }
@@ -101,10 +103,10 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background: var(--gold);
+  background: var(--brand);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 12px var(--gold-dim);
+  box-shadow: 0 14px 30px rgba(167, 139, 250, 0.22);
   transition: transform 0.15s ease;
 }
 
@@ -115,20 +117,20 @@
 .budget-slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: var(--gold);
+  background: var(--brand);
   border-radius: 50%;
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 12px var(--gold-dim);
+  box-shadow: 0 14px 30px rgba(167, 139, 250, 0.22);
 }
 
 .budget-input {
   width: 140px;
   padding: 0.65rem 0.9rem;
-  background: var(--black);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--white);
+  border-radius: 14px;
+  color: var(--text);
   font-family: inherit;
   font-size: 1rem;
   text-align: right;
@@ -142,17 +144,17 @@
 .budget-display {
   margin-top: 0.5rem;
   font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--gold);
+  font-weight: 900;
+  color: var(--text);
 }
 
 .quote-card select {
   width: 100%;
   padding: 0.85rem 1rem;
-  background: var(--black);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--white);
+  border-radius: 14px;
+  color: var(--text);
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
@@ -172,10 +174,10 @@
 .option-chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  background: var(--black);
+  padding: 0.6rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 14px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
@@ -187,13 +189,13 @@
 
 .option-chip input {
   margin-right: 0.5rem;
-  accent-color: var(--gold);
+  accent-color: var(--brand);
 }
 
 .option-chip input:checked + span,
 .option-chip:has(input:checked) {
-  border-color: var(--gold);
-  background: var(--gold-bg);
+  border-color: rgba(34, 211, 238, 0.30);
+  background: rgba(34, 211, 238, 0.10);
 }
 
 .checkbox-group {
@@ -212,7 +214,7 @@
 }
 
 .checkbox-label input {
-  accent-color: var(--gold);
+  accent-color: var(--brand);
   width: 1.1em;
   height: 1.1em;
 }
@@ -269,9 +271,9 @@
 }
 
 .results-card {
-  background: var(--black-card);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -294,7 +296,7 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gold);
+  color: rgba(238, 242, 255, 0.78);
   margin-bottom: 0.35rem;
 }
 
@@ -302,7 +304,7 @@
   margin: 0 0 0.75rem;
   padding-left: 0;
   font-size: 0.95rem;
-  color: var(--white);
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -310,8 +312,8 @@
   margin-bottom: 0;
 }
 
-.results-list--excluded dt { color: var(--muted); }
-.results-list--addons dt { color: var(--gold-light); }
+.results-list--excluded dt { color: var(--muted-2); }
+.results-list--addons dt { color: rgba(34, 211, 238, 0.85); }
 
 .results-timeline,
 .results-next {
@@ -322,7 +324,7 @@
 
 .results-next {
   font-weight: 600;
-  color: var(--gold);
+  color: var(--text);
 }
 
 .quote-subtitle {
@@ -421,7 +423,7 @@
 
 @media (max-width: 768px) {
   .page-quote .quote-main {
-    padding-top: 4rem;
+    padding-top: calc(var(--header-h) + 1.25rem);
     padding-bottom: 3rem;
     padding-left: max(1rem, env(safe-area-inset-left));
     padding-right: max(1rem, env(safe-area-inset-right));
@@ -441,7 +443,7 @@
     padding-right: 0.5rem;
   }
   .quote-card {
-    padding: 1.25rem 1.25rem;
+    padding: 1.15rem 1.15rem;
   }
   .quote-section-title {
     font-size: 1.35rem;
