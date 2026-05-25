@@ -97,7 +97,15 @@
     "o1_aria": "Aperçu One Man Thousand — Rassemblement strongmen",
     "o1_title": "Aperçu : One Man Thousand",
     "o1_cat": "Communauté",
-    "o1p": "Le rassemblement des strongmen. Fraternité, santé mentale, bien-être physique et spirituel."
+    "o1p": "Le rassemblement des strongmen. Fraternité, santé mentale, bien-être physique et spirituel.",
+    "t1_aria": "Aperçu TMTODDS — Paris football Ghana",
+    "t1_title": "Aperçu : TMTODDS",
+    "t1_cat": "Sport & paris",
+    "t1p": "Paris football Ghana : tableau quotidien, offres VIP, preuves de résultats et tarifs en GHS — pensé pour les parieurs locaux.",
+    "v1_aria": "Aperçu TMT Votes — Vote public en direct",
+    "v1_title": "Aperçu : TMT Votes",
+    "v1_cat": "Application web",
+    "v1p": "Vote public sans compte : choisir un sujet, voter par e-mail ou téléphone, résultats mis à jour en temps réel."
   },
   "why": {
     "title_html": "Pourquoi choisir <span class=\"gold\">StrategyLab</span>",
