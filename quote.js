@@ -435,6 +435,33 @@
         menuBtn.classList.toggle('open');
       });
     }
+
+    // Nav "More" dropdown — same behaviour as the home page
+    var moreToggle = document.querySelector('.nav-dropdown-toggle');
+    var moreMenu = document.getElementById('nav-more-menu');
+    if (moreToggle && moreMenu) {
+      var setMoreOpen = function (open) {
+        moreToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) moreMenu.removeAttribute('hidden');
+        else moreMenu.setAttribute('hidden', '');
+      };
+      moreToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setMoreOpen(moreToggle.getAttribute('aria-expanded') !== 'true');
+      });
+      moreMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setMoreOpen(false); });
+      });
+      document.addEventListener('click', function (e) {
+        if (moreToggle.getAttribute('aria-expanded') === 'true' &&
+            !moreMenu.contains(e.target) && !moreToggle.contains(e.target)) {
+          setMoreOpen(false);
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMoreOpen(false);
+      });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {

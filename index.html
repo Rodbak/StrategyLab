@@ -26,7 +26,7 @@
   <meta name="theme-color" content="#07090f">
 
   <!-- Favicon (replace with favicon.ico or PNG for production) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2307090f' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='22' fill='%23a78bfa' font-family='system-ui,sans-serif' font-size='15' font-weight='800' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2307090f' width='32' height='32' rx='8'/%3E%3Ctext x='16' y='22' fill='%23d4af37' font-family='system-ui,sans-serif' font-size='15' font-weight='800' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" type="image/svg+xml">
   <!-- OG image: add a 1200×630 image at /og-image.png and uncomment below -->
   <!-- <meta property="og:image" content="https://www.strategylab.com/og-image.png">
   <meta name="twitter:image" content="https://www.strategylab.com/og-image.png"> -->
@@ -92,6 +92,9 @@
 <body>
   <a href="#main-content" class="skip-link" data-i18n="skip">Skip to main content</a>
 
+  <!-- Animated WebGL background (FloatingLines, gold theme) -->
+  <div id="floating-lines-bg" aria-hidden="true"></div>
+
   <header class="header" role="banner">
     <div class="header-inner">
       <a href="#home" class="logo" data-i18n-aria="nav.home_aria" aria-label="StrategyLab home">Strategy<span class="gold">Lab</span></a>
@@ -100,9 +103,17 @@
         <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
         <a href="#portfolio" data-i18n="nav.work">Work</a>
         <a href="get-a-quote.html" data-i18n="nav.quote">Get a Quote</a>
-        <a href="#why-us" data-i18n="nav.why">Why Us</a>
-        <a href="#process" data-i18n="nav.process">Process</a>
-        <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-more-menu">
+            <span data-i18n="nav.more">More</span>
+            <span class="nav-dropdown-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" id="nav-more-menu" role="menu" hidden>
+            <a href="#why-us" role="menuitem" data-i18n="nav.why">Why Us</a>
+            <a href="#process" role="menuitem" data-i18n="nav.process">Process</a>
+            <a href="#testimonials" role="menuitem" data-i18n="nav.testimonials">Testimonials</a>
+          </div>
+        </div>
         <a href="#contact" class="btn btn-gold" data-i18n="nav.book">Book strategy call</a>
       </nav>
       <div class="locale-controls">
@@ -798,5 +809,6 @@
 
   <script defer src="i18n.js"></script>
   <script defer src="script.js"></script>
+  <script type="module" src="floating-lines.js"></script>
 </body>
 </html>
