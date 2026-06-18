@@ -184,15 +184,71 @@
     checkHeader();
   }
 
-  // Scroll reveal: sections fade in when they enter the viewport
+  // Scroll reveal: sections fade in when they enter the viewport.
+  // Robust against fast scrolling and missing/disabled JS — content must
+  // never stay permanently hidden, so we always have a fallback that reveals all.
   var revealSections = document.querySelectorAll('.section-reveal');
-  if (revealSections.length && 'IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) entry.target.classList.add('revealed');
-      });
-    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
-    revealSections.forEach(function (el) { observer.observe(el); });
+  if (revealSections.length) {
+    var revealAll = function () {
+      revealSections.forEach(function (el) { el.classList.add('revealed'); });
+    };
+
+    var prefersReducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+      // No observer support, or the visitor opted out of motion: show everything.
+      revealAll();
+    } else {
+      var pending = Array.prototype.slice.call(revealSections);
+      var reveal = function (el) {
+        el.classList.add('revealed');
+        var i = pending.indexOf(el);
+        if (i !== -1) pending.splice(i, 1);
+      };
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          // threshold:0 means this fires the moment any part enters, so normal
+          // scrolling reveals sections with the intended staggered animation.
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+
+      // Backstop: reveal any section whose top has scrolled into view. This
+      // catches cases the observer can miss — very fast flings and instant
+      // jumps from anchor links (#pricing etc.) deep into the page — where a
+      // section can enter and leave between observer samples.
+      var sweep = function () {
+        if (!pending.length) return;
+        var vh = window.innerHeight;
+        pending.slice().forEach(function (el) {
+          if (el.getBoundingClientRect().top < vh) {
+            reveal(el);
+            observer.unobserve(el);
+          }
+        });
+      };
+
+      var ticking = false;
+      var onScroll = function () {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(function () { sweep(); ticking = false; });
+      };
+
+      revealSections.forEach(function (el) { observer.observe(el); });
+      sweep(); // reveal whatever is already in view on load
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+
+      // Final safety net: nothing should ever stay invisible. If the page is
+      // restored mid-way or an observer hiccup leaves anything hidden, show it.
+      window.setTimeout(revealAll, 3000);
+    }
   }
 
   // Previews: load iframes only when cards enter viewport (saves initial load)
