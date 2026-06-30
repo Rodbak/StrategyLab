@@ -17,7 +17,7 @@
     });
   }
 
-  // Nav "More" dropdown — tuck secondary links away to declutter the bar
+  // Nav "More" dropdown
   var moreToggle = document.querySelector('.nav-dropdown-toggle');
   var moreMenu = document.getElementById('nav-more-menu');
   if (moreToggle && moreMenu) {
@@ -44,7 +44,7 @@
     });
   }
 
-  // Smooth scroll for anchor links (already in CSS, but ensure no jump)
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener('click', function (e) {
       var targetId = this.getAttribute('href');
@@ -57,7 +57,7 @@
     });
   });
 
-  // Contact form: submit to Formspree so messages are sent to your email
+  // Contact form: submit to Formspree
   var form = document.querySelector('.contact-form');
   var formStatus = document.getElementById('form-status');
   if (form) {
@@ -68,10 +68,8 @@
       if (formStatus) formStatus.textContent = '';
       if (window.StrategyLabI18n) window.StrategyLabI18n.syncHiddenFormFields();
       btn.disabled = true;
-      btn.textContent =
-        window.StrategyLabI18n && window.StrategyLabI18n.t('common.sending')
-          ? window.StrategyLabI18n.t('common.sending')
-          : 'Sending…';
+      btn.textContent = window.StrategyLabI18n && window.StrategyLabI18n.t('common.sending')
+        ? window.StrategyLabI18n.t('common.sending') : 'Sending…';
 
       fetch(form.action, {
         method: 'POST',
@@ -81,16 +79,12 @@
         .then(function (r) {
           if (r.ok) {
             if (formStatus) {
-              formStatus.textContent =
-                window.StrategyLabI18n && window.StrategyLabI18n.t('contact.success')
-                  ? window.StrategyLabI18n.t('contact.success')
-                  : "Thanks! We'll be in touch within 24 hours.";
+              formStatus.textContent = window.StrategyLabI18n && window.StrategyLabI18n.t('contact.success')
+                ? window.StrategyLabI18n.t('contact.success') : "Thanks! We'll be in touch within 24 hours.";
               formStatus.className = 'form-status form-status-success';
             }
-            btn.textContent =
-              window.StrategyLabI18n && window.StrategyLabI18n.t('common.sent')
-                ? window.StrategyLabI18n.t('common.sent')
-                : 'Sent!';
+            btn.textContent = window.StrategyLabI18n && window.StrategyLabI18n.t('common.sent')
+              ? window.StrategyLabI18n.t('common.sent') : 'Sent!';
             form.reset();
             if (window.StrategyLabI18n) window.StrategyLabI18n.applyDom(form);
           } else {
@@ -99,10 +93,8 @@
         })
         .catch(function () {
           if (formStatus) {
-            formStatus.textContent =
-              window.StrategyLabI18n && window.StrategyLabI18n.t('contact.error')
-                ? window.StrategyLabI18n.t('contact.error')
-                : 'Something went wrong. Please email us at bakorodolph@gmail.com';
+            formStatus.textContent = window.StrategyLabI18n && window.StrategyLabI18n.t('contact.error')
+              ? window.StrategyLabI18n.t('contact.error') : 'Something went wrong. Please email us at bakorodolph@gmail.com';
             formStatus.className = 'form-status form-status-error';
           }
           btn.textContent = originalText;
@@ -111,26 +103,31 @@
           btn.disabled = false;
           setTimeout(function () {
             btn.textContent = originalText;
-            if (formStatus) {
-              formStatus.textContent = '';
-              formStatus.className = 'form-status';
-            }
+            if (formStatus) { formStatus.textContent = ''; formStatus.className = 'form-status'; }
           }, 5000);
         });
     });
   }
 
-  // Portfolio preview: card click opens modal with iframe so user can preview without leaving
+  // Portfolio preview modal
+  // Supports BOTH old anchor .portfolio-card-link[href] and new div .portfolio-card[data-preview-url]
   var modal = document.getElementById('preview-modal');
   var modalIframe = document.getElementById('preview-modal-iframe');
   var visitLink = document.getElementById('preview-modal-visit');
+  var visitTop  = document.getElementById('preview-modal-visit-top');
+  var titleEl   = document.getElementById('preview-modal-title');
+  var urlLabel  = document.getElementById('preview-modal-url-label');
   var closeBtns = document.querySelectorAll('.preview-modal-close, .preview-modal-close-btn');
-  var backdrop = document.querySelector('.preview-modal-backdrop');
+  var backdrop  = document.querySelector('.preview-modal-backdrop');
 
-  function openPreview(url) {
-    if (!modal || !modalIframe || !visitLink) return;
-    modalIframe.src = url;
-    visitLink.href = url;
+  function openPreview(url, name) {
+    if (!modal || !modalIframe) return;
+    if (titleEl && name) titleEl.textContent = name;
+    if (urlLabel && url) urlLabel.textContent = url.replace('https://','');
+    if (visitLink) visitLink.href = url;
+    if (visitTop)  visitTop.href  = url;
+    modalIframe.src = '';
+    setTimeout(function() { modalIframe.src = url; }, 60);
     modal.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
   }
@@ -142,158 +139,122 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.portfolio-card-link').forEach(function (card) {
+  // New div-based cards (data-preview-url)
+  document.querySelectorAll('.portfolio-card[data-preview-url]').forEach(function (card) {
     card.addEventListener('click', function (e) {
-      e.preventDefault();
-      var url = this.getAttribute('href') || this.getAttribute('data-preview-url');
-      if (url) openPreview(url);
+      if (e.target.closest('.portfolio-visit-link')) return;
+      var url  = this.getAttribute('data-preview-url');
+      var name = this.getAttribute('data-site-name') || 'Preview';
+      if (url) openPreview(url, name);
     });
   });
 
-  closeBtns.forEach(function (btn) {
-    if (btn) btn.addEventListener('click', closePreview);
+  // Legacy anchor-based cards (href)
+  document.querySelectorAll('.portfolio-card-link[href]').forEach(function (card) {
+    if (!card.hasAttribute('data-preview-url')) { // only if not already handled above
+      card.addEventListener('click', function (e) {
+        e.preventDefault();
+        var url = this.getAttribute('data-preview-url') || this.getAttribute('href');
+        if (url) openPreview(url, '');
+      });
+    }
   });
-  if (backdrop) backdrop.addEventListener('click', closePreview);
-  if (visitLink) visitLink.addEventListener('click', function () { closePreview(); });
 
+  closeBtns.forEach(function (btn) { if (btn) btn.addEventListener('click', closePreview); });
+  if (backdrop) backdrop.addEventListener('click', closePreview);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal && !modal.hasAttribute('hidden')) closePreview();
   });
 
-  // Sticky CTA: show bar after scrolling past hero so CTA is always one click away
+  // Sticky CTA — show after scrolling past hero
   var stickyCta = document.getElementById('sticky-cta');
   var hero = document.getElementById('home');
   if (stickyCta && hero) {
-    var heroHeight = hero.offsetHeight;
     function checkSticky() {
-      var visible = window.scrollY > heroHeight * 0.6;
+      var heroH = hero.offsetHeight;
+      var visible = window.scrollY > heroH * 0.6;
       stickyCta.classList.toggle('visible', visible);
+      stickyCta.setAttribute('aria-hidden', !visible);
       document.body.classList.toggle('sticky-cta-visible', visible);
     }
-    window.addEventListener('scroll', function () { checkSticky(); }, { passive: true });
+    window.addEventListener('scroll', checkSticky, { passive: true });
     checkSticky();
   }
 
-  // Header: add .scrolled for shadow when page is scrolled
+  // Header scrolled class
   var header = document.querySelector('.header');
   if (header) {
-    function checkHeader() {
-      header.classList.toggle('scrolled', window.scrollY > 20);
-    }
-    window.addEventListener('scroll', function () { checkHeader(); }, { passive: true });
+    function checkHeader() { header.classList.toggle('scrolled', window.scrollY > 20); }
+    window.addEventListener('scroll', checkHeader, { passive: true });
     checkHeader();
   }
 
-  // Scroll reveal: sections fade in when they enter the viewport.
-  // Robust against fast scrolling and missing/disabled JS — content must
-  // never stay permanently hidden, so we always have a fallback that reveals all.
+  // Scroll reveal: sections + individual items
   var revealSections = document.querySelectorAll('.section-reveal');
   if (revealSections.length) {
     var revealAll = function () {
-      revealSections.forEach(function (el) { el.classList.add('revealed'); });
+      document.querySelectorAll('.section-reveal .reveal-item, .section-reveal .reveal-list > *').forEach(function(el){
+        el.classList.add('visible');
+      });
     };
-
-    var prefersReducedMotion = window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (!('IntersectionObserver' in window) || prefersReducedMotion) {
-      // No observer support, or the visitor opted out of motion: show everything.
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!('IntersectionObserver' in window) || prefersReduced) {
       revealAll();
     } else {
-      var pending = Array.prototype.slice.call(revealSections);
-      var reveal = function (el) {
-        el.classList.add('revealed');
-        var i = pending.indexOf(el);
-        if (i !== -1) pending.splice(i, 1);
-      };
-
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          // threshold:0 means this fires the moment any part enters, so normal
-          // scrolling reveals sections with the intended staggered animation.
-          if (entry.isIntersecting) {
-            reveal(entry.target);
-            observer.unobserve(entry.target);
+      // Observe individual reveal-item elements for staggered entry
+      var itemObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            itemObs.unobserve(entry.target);
           }
         });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0 });
+      }, { rootMargin: '0px 0px -5% 0px', threshold: 0.08 });
 
-      // Backstop: reveal any section whose top has scrolled into view. This
-      // catches cases the observer can miss — very fast flings and instant
-      // jumps from anchor links (#pricing etc.) deep into the page — where a
-      // section can enter and leave between observer samples.
-      var sweep = function () {
-        if (!pending.length) return;
-        var vh = window.innerHeight;
-        pending.slice().forEach(function (el) {
-          if (el.getBoundingClientRect().top < vh) {
-            reveal(el);
-            observer.unobserve(el);
-          }
-        });
-      };
+      document.querySelectorAll('.section-reveal .reveal-item, .section-reveal .reveal-list > *').forEach(function(el, i){
+        // Stagger via CSS delay already on class; observe each item
+        itemObs.observe(el);
+      });
 
-      var ticking = false;
-      var onScroll = function () {
-        if (ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(function () { sweep(); ticking = false; });
-      };
-
-      revealSections.forEach(function (el) { observer.observe(el); });
-      sweep(); // reveal whatever is already in view on load
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-
-      // Final safety net: nothing should ever stay invisible. If the page is
-      // restored mid-way or an observer hiccup leaves anything hidden, show it.
+      // Backstop
       window.setTimeout(revealAll, 3000);
     }
   }
 
-  // Previews: load iframes only when cards enter viewport (saves initial load)
+  // Lazy-load preview iframes on scroll (performance)
   var previewIframes = document.querySelectorAll('.portfolio-visual iframe[data-src], .graphics-visual iframe[data-src]');
   if (previewIframes.length && 'IntersectionObserver' in window) {
-    var iframeObserver = new IntersectionObserver(function (entries) {
+    var iframeObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         var iframe = entry.target;
         var src = iframe.getAttribute('data-src');
-        if (src) {
-          iframe.setAttribute('src', src);
-          iframe.removeAttribute('data-src');
-        }
-        iframeObserver.unobserve(iframe);
+        if (src) { iframe.setAttribute('src', src); iframe.removeAttribute('data-src'); }
+        iframeObs.unobserve(iframe);
       });
-    }, { rootMargin: '100px 0px', threshold: 0 });
-    previewIframes.forEach(function (iframe) { iframeObserver.observe(iframe); });
+    }, { rootMargin: '120px 0px', threshold: 0 });
+    previewIframes.forEach(function (iframe) { iframeObs.observe(iframe); });
   }
 
-  // Pricing amounts: display in selected currency (base GHS)
+  // Currency display
   (function () {
     function applyMoney() {
       if (!window.StrategyLabI18n) return;
       document.querySelectorAll('[data-money-ghs]').forEach(function (el) {
-        var raw = el.getAttribute('data-money-ghs');
-        var ghs = Number(raw);
+        var ghs = Number(el.getAttribute('data-money-ghs'));
         if (!isFinite(ghs)) return;
         el.textContent = window.StrategyLabI18n.formatMoneyRounded(window.StrategyLabI18n.ghsToDisplay(ghs));
       });
     }
-
-    // Apply once (after DOM ready). i18n init runs on DOMContentLoaded as well.
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', function () {
         applyMoney();
-        if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) {
-          window.StrategyLabI18n.onChange(applyMoney);
-        }
+        if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) window.StrategyLabI18n.onChange(applyMoney);
       });
     } else {
       applyMoney();
-      if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) {
-        window.StrategyLabI18n.onChange(applyMoney);
-      }
+      if (window.StrategyLabI18n && window.StrategyLabI18n.onChange) window.StrategyLabI18n.onChange(applyMoney);
     }
   })();
+
 })();
