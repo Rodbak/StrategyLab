@@ -41,6 +41,51 @@
       });
     }
 
+    /* ---- Contact form: submit in place, show inline confirmation ---- */
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm && window.fetch) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fields = document.getElementById('form-fields');
+        var status = document.getElementById('form-status');
+        var submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        var i18n = window.StrategyLabI18n;
+        var successMsg = (i18n && i18n.t('contact.success')) || "Thanks! We'll be in touch within 24 hours.";
+        var errorMsg = (i18n && i18n.t('contact.error')) || 'Something went wrong. Please email us at bakorodolph@gmail.com';
+
+        function showStatus(kind, msg) {
+          if (!status) return;
+          if (fields) fields.hidden = kind === 'success';
+          status.hidden = false;
+          status.className = 'form-status is-visible is-' + kind;
+          var icon = kind === 'success'
+            ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>';
+          status.innerHTML = icon + '<p></p>';
+          status.querySelector('p').textContent = msg;
+        }
+
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            contactForm.reset();
+            showStatus('success', successMsg);
+          } else {
+            showStatus('error', errorMsg);
+            if (submitBtn) submitBtn.disabled = false;
+          }
+        }).catch(function () {
+          showStatus('error', errorMsg);
+          if (submitBtn) submitBtn.disabled = false;
+        });
+      });
+    }
+
     /* ---- Count-up stats when scrolled into view ---- */
     var counters = document.querySelectorAll('[data-counter]');
     if (counters.length && 'IntersectionObserver' in window) {
