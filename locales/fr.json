@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "StrategyLab | Sites web et tunnels publicitaires pour générer plus de leads",
-    "description": "StrategyLab aide les entreprises en croissance à obtenir plus de leads, demandes et ventes grâce à des sites web, pages d’atterrissage et gestion d’annonces à fort taux de conversion. Réservez une consultation gratuite ou écrivez sur WhatsApp."
+    "title": "StrategyLab | Agence Web, Logiciel, IA et Publicité Meta",
+    "description": "StrategyLab conçoit des sites web, logiciels et systèmes pilotés par l'IA qui transforment le trafic en prospects — pour les entreprises en croissance au Ghana et en Afrique de l'Ouest."
   },
   "common": {
     "sending": "Envoi…",
@@ -113,7 +113,8 @@
     "v1_aria": "Aperçu TMT Votes — Vote public en direct",
     "v1_title": "Aperçu : TMT Votes",
     "v1_cat": "Application web",
-    "v1p": "Vote public sans compte : choisir un sujet, voter par e-mail ou téléphone, résultats mis à jour en temps réel."
+    "v1p": "Vote public sans compte : choisir un sujet, voter par e-mail ou téléphone, résultats mis à jour en temps réel.",
+    "b1_cat": "Événementiel · Image de marque"
   },
   "why": {
     "title_html": "Pourquoi choisir <span class=\"gold\">StrategyLab</span>",
@@ -506,5 +507,56 @@
     "k1": "Dépense (7 j)",
     "k2": "Leads",
     "k3": "CPL"
+  },
+  "home": {
+    "hero": {
+      "title_html": "Conçu pour transformer votre trafic en <span class=\"gold\">clients payants</span>.",
+      "sub": "Nous concevons des sites web, développons des logiciels et automatisons les systèmes qui transforment les clics en messages WhatsApp, réservations et ventes — pour les entreprises en croissance au Ghana et en Afrique de l'Ouest.",
+      "cta_secondary": "Réserver un appel stratégique",
+      "trust": "La confiance de salles de sport, écoles, restaurants et marques événementielles à travers le Ghana."
+    },
+    "stats": {
+      "revenue": "Chiffre d'affaires généré",
+      "leads": "Prospects générés",
+      "adspend": "Budget publicitaire géré"
+    },
+    "services": {
+      "eyebrow": "Nos services",
+      "sub": "Quatre services, un seul objectif : plus de demandes, de réservations et de ventes.",
+      "web_h": "Développement web",
+      "web_p": "Des sites web et tunnels de conversion pensés pour transformer les visiteurs en demandes — rapides à charger, clairs à l'action.",
+      "software_h": "Développement logiciel",
+      "software_p": "Des applications web et outils internes conçus autour du fonctionnement réel de votre entreprise — pas un modèle générique.",
+      "ai_h": "IA et automatisation des systèmes",
+      "ai_p": "Des flux de travail pilotés par l'IA qui gèrent les relances, réservations et tâches répétitives — pour qu'aucun prospect ne passe à travers les mailles du filet.",
+      "ads_h": "Publicité Meta",
+      "ads_p": "Des campagnes Facebook et Instagram pensées pour les prospects, pas les indicateurs de vanité — ciblage, création et pages d'atterrissage alignés."
+    },
+    "why": {
+      "eyebrow": "Pourquoi StrategyLab",
+      "t1": "Priorité aux prospects",
+      "t2": "Exécution moderne",
+      "t3": "Processus clair",
+      "t4": "Expertise locale"
+    },
+    "process": {
+      "eyebrow": "Notre méthode"
+    },
+    "pricing": {
+      "eyebrow": "Tarifs"
+    },
+    "portfolio": {
+      "eyebrow": "Réalisations",
+      "b1_cat": "Événementiel · Image de marque"
+    },
+    "contact": {
+      "eyebrow": "Contactez-nous"
+    },
+    "footer": {
+      "tagline": "Sites web, logiciels et systèmes d'IA conçus pour la génération de prospects — au service des entreprises locales et régionales au Ghana et en Afrique de l'Ouest.",
+      "col_site": "Site",
+      "col_contact": "Contact",
+      "rights": "Tous droits réservés."
+    }
   }
 }

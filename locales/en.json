@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "StrategyLab | Websites & Ad Funnels Built to Bring Your Business More Leads",
-    "description": "StrategyLab helps growing businesses get more leads, inquiries, and sales through high-converting websites, landing pages, and ads management. Book a free consultation or chat on WhatsApp."
+    "title": "StrategyLab | Web, Software, AI & Meta Ads Agency",
+    "description": "StrategyLab builds websites, software, and AI-driven systems that turn traffic into leads — for growing businesses across Ghana and West Africa."
   },
   "common": {
     "sending": "Sending…",
@@ -113,7 +113,8 @@
     "v1_aria": "Preview TMT Votes — Live Public Voting",
     "v1_title": "Preview: TMT Votes",
     "v1_cat": "Web app",
-    "v1p": "Public voting without accounts: pick a topic, vote by email or phone, and see live results update instantly."
+    "v1p": "Public voting without accounts: pick a topic, vote by email or phone, and see live results update instantly.",
+    "b1_cat": "Events · Branding"
   },
   "why": {
     "title_html": "Why Choose <span class=\"gold\">StrategyLab</span>",
@@ -506,5 +507,56 @@
     "k1": "Spend (7d)",
     "k2": "Leads",
     "k3": "CPL"
+  },
+  "home": {
+    "hero": {
+      "title_html": "Built to turn your traffic into <span class=\"gold\">paying customers</span>.",
+      "sub": "We design websites, build software, and automate the systems that turn clicks into WhatsApp messages, bookings, and sales — for growing businesses across Ghana and West Africa.",
+      "cta_secondary": "Book a Strategy Call",
+      "trust": "Trusted by gyms, schools, restaurants, and event brands across Ghana."
+    },
+    "stats": {
+      "revenue": "Revenue generated",
+      "leads": "Leads driven",
+      "adspend": "Ad spend managed"
+    },
+    "services": {
+      "eyebrow": "What we offer",
+      "sub": "Four services, one goal: more inquiries, bookings, and sales.",
+      "web_h": "Web Development",
+      "web_p": "Conversion-first websites and landing funnels that turn visitors into inquiries — fast to load, clear to act on.",
+      "software_h": "Software Development",
+      "software_p": "Custom web apps and internal tools built around how your business actually runs — not a generic template.",
+      "ai_h": "AI & System Automation",
+      "ai_p": "AI-powered workflows that handle follow-ups, bookings, and repetitive admin — so leads stop slipping through the cracks.",
+      "ads_h": "Meta Ads",
+      "ads_p": "Facebook and Instagram campaigns built for leads, not vanity metrics — targeting, creative, and landing pages aligned."
+    },
+    "why": {
+      "eyebrow": "Why StrategyLab",
+      "t1": "Leads-first",
+      "t2": "Modern execution",
+      "t3": "Clear process",
+      "t4": "Local expertise"
+    },
+    "process": {
+      "eyebrow": "How we work"
+    },
+    "pricing": {
+      "eyebrow": "Pricing"
+    },
+    "portfolio": {
+      "eyebrow": "Selected work",
+      "b1_cat": "Events · Branding"
+    },
+    "contact": {
+      "eyebrow": "Get in touch"
+    },
+    "footer": {
+      "tagline": "Websites, software, and AI systems built for lead generation — serving local and regional businesses across Ghana and West Africa.",
+      "col_site": "Site",
+      "col_contact": "Contact",
+      "rights": "All rights reserved."
+    }
   }
 }

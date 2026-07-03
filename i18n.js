@@ -8,11 +8,11 @@
   var STORAGE_LANG = 'strategylab_locale';
   var STORAGE_CUR = 'strategylab_currency';
 
-  /** How many GHS one unit of this currency equals (approximate). */
-  var GHS_PER_UNIT = { GHS: 1, USD: 15, EUR: 16, GBP: 19 };
+  /** How many GHS one unit of this currency equals (approximate, as of Jul 2026). */
+  var GHS_PER_UNIT = { GHS: 1, XOF: 0.0196 };
 
   var SUPPORTED_LANGS = ['en', 'fr'];
-  var SUPPORTED_CUR = ['GHS', 'USD', 'EUR', 'GBP'];
+  var SUPPORTED_CUR = ['GHS', 'XOF'];
 
   var bundle = {};
   var currentLang = 'en';
@@ -37,12 +37,8 @@
   }
 
   function detectCurrencyFromLang(lang) {
-    if (lang === 'fr') return 'EUR';
-    var r = (navigator.language || 'en').toUpperCase();
-    if (r.indexOf('GH') !== -1) return 'GHS';
-    if (r.indexOf('GB') !== -1) return 'GBP';
-    if (r.indexOf('US') !== -1) return 'USD';
-    return 'USD';
+    /* French-speaking visitors are more likely in the CFA (XOF) zone; everyone else defaults to GHS. */
+    return lang === 'fr' ? 'XOF' : 'GHS';
   }
 
   function getAtPath(obj, path) {
@@ -131,6 +127,7 @@
     document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
     applyDom(document);
     updateMeta();
+    syncControls();
     notify();
   }
 
@@ -142,6 +139,7 @@
     } catch (e) {}
     syncHiddenFormFields();
     applyDom(document);
+    syncControls();
     notify();
   }
 
@@ -270,12 +268,20 @@
     });
   }
 
+  function syncControls() {
+    document.querySelectorAll('.locale-select').forEach(function (ls) {
+      ls.value = currentLang;
+    });
+    document.querySelectorAll('.currency-select').forEach(function (cs) {
+      cs.value = currentCur;
+    });
+  }
+
   function wireControls() {
     if (controlsWired) return;
     controlsWired = true;
-    var ls = document.getElementById('locale-select');
-    var cs = document.getElementById('currency-select');
-    if (ls) {
+    /* Supports multiple instances of each control (e.g. desktop nav + mobile nav), kept in sync. */
+    document.querySelectorAll('.locale-select').forEach(function (ls) {
       ls.value = currentLang;
       ls.addEventListener('change', function () {
         var next = ls.value;
@@ -287,13 +293,13 @@
             setLang('en');
           });
       });
-    }
-    if (cs) {
+    });
+    document.querySelectorAll('.currency-select').forEach(function (cs) {
       cs.value = currentCur;
       cs.addEventListener('change', function () {
         setCurrency(cs.value);
       });
-    }
+    });
   }
 
   function loadBundle(lang) {

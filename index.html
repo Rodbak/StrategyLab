@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
-  <title>StrategyLab | Web, Software, AI & Meta Ads Agency</title>
-  <meta name="description" content="Websites, AI automation, and Meta Ads that drive leads.">
-  
-  <link rel="stylesheet" href="App.css">
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2X0BZXXEEJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -16,353 +13,504 @@
     gtag('js', new Date());
     gtag('config', 'G-2X0BZXXEEJ');
   </script>
+
+  <!-- Shown.io metrics -->
+  <script defer src="https://shown.io/metrics/vg8VlELK0k" type="text/javascript"></script>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%230F766E'/%3E%3Crect x='9' y='21' width='5' height='11' rx='2.5' fill='%23F5FAF8'/%3E%3Crect x='17.5' y='15' width='5' height='17' rx='2.5' fill='%23F5FAF8'/%3E%3Crect x='26' y='9' width='5' height='23' rx='2.5' fill='%232DD4BF'/%3E%3C/svg%3E" type="image/svg+xml">
+
+  <title>StrategyLab | Web, Software, AI &amp; Meta Ads Agency</title>
+  <meta name="description" content="StrategyLab builds websites, software, and AI-driven systems that turn traffic into leads — for growing businesses across Ghana and West Africa.">
+  <link rel="canonical" href="https://strategylab.it.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-  <div id="root">
-    <div style="font-family:Georgia,serif;color:#c9a84c;text-align:center;padding:100px 20px">
-      <h1>Loading StrategyLab...</h1>
+  <a href="#main-content" class="skip-link" data-i18n="skip">Skip to main content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <div class="nav-float-outer">
+    <div class="nav-float">
+      <a href="#home" class="brand" data-i18n-aria="nav.home_aria" aria-label="StrategyLab home">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="11" fill="#0F766E"/>
+          <rect x="9" y="21" width="5" height="11" rx="2.5" fill="#F5FAF8"/>
+          <rect x="17.5" y="15" width="5" height="17" rx="2.5" fill="#F5FAF8"/>
+          <rect x="26" y="9" width="5" height="23" rx="2.5" fill="#2DD4BF"/>
+        </svg>
+        <span class="brand-word">Strategy<span>Lab</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#portfolio" data-i18n="nav.work">Work</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="nav-locale">
+          <select class="locale-select" aria-label="Language">
+            <option value="en">EN</option>
+            <option value="fr">FR</option>
+          </select>
+          <select class="currency-select" aria-label="Currency">
+            <option value="GHS">GHS</option>
+            <option value="XOF">CFA</option>
+          </select>
+        </div>
+        <a href="get-a-quote.html" class="btn btn-primary btn-sm">
+          <span class="long" data-i18n="nav.quote">Get a Quote</span>
+        </a>
+        <button class="nav-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-i18n-aria="nav.menu" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
   </div>
-  
-  <script type="module">
-    const React = await import('https://esm.sh/react@18').then(m => m.default);
-    const { createRoot } = await import('https://esm.sh/react-dom@18/client');
-    const ogl = await import('https://esm.sh/ogl').then(m => m.default);
-    const { useState, useEffect, useRef } = React;
-    
-    function SoftAurora(props) {
-      const { speed = 0.4, scale = 1.2, brightness = 0.8, color1 = '#ffffff', color2 = '#c9a84c' } = props;
-      const containerRef = useRef(null);
-      
-      useEffect(() => {
-        if (!containerRef.current) return;
-        const container = containerRef.current;
-        const renderer = new ogl.Renderer({ alpha: true, premultipliedAlpha: false });
-        const gl = renderer.gl;
-        gl.clearColor(0, 0, 0, 0);
 
-        let program;
-        let currentMouse = [0.5, 0.5];
-        let targetMouse = [0.5, 0.5];
-        
-        function hexToVec3(hex) {
-          const h = hex.replace('#', '');
-          return [parseInt(h.slice(0, 2), 16) / 255, parseInt(h.slice(2, 4), 16) / 255, parseInt(h.slice(4, 6), 16) / 255];
-        }
+  <div class="nav-mobile" id="mobile-nav">
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#process" data-i18n="nav.process">Process</a>
+    <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+    <a href="#portfolio" data-i18n="nav.work">Work</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="nav-mobile-locale">
+      <select class="locale-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <select class="currency-select" aria-label="Currency">
+        <option value="GHS">GHS</option>
+        <option value="XOF">CFA</option>
+      </select>
+    </div>
+    <a href="get-a-quote.html" class="btn btn-primary btn-block" data-i18n="nav.quote">Get a Quote</a>
+  </div>
 
-        const vertexShader = `
-          attribute vec2 uv;
-          attribute vec2 position;
-          varying vec2 vUv;
-          void main() { vUv = uv; gl_Position = vec4(position, 0, 1); }
-        `;
+  <main id="main-content">
 
-        const fragmentShader = `
-          precision highp float;
-          uniform float uTime;
-          uniform vec3 uResolution;
-          uniform float uSpeed;
-          uniform float uScale;
-          uniform float uBrightness;
-          uniform vec3 uColor1;
-          uniform vec3 uColor2;
-          uniform float uNoiseFreq;
-          uniform float uNoiseAmp;
-          uniform float uBandHeight;
-          uniform float uBandSpread;
-          uniform float uOctaveDecay;
-          uniform float uLayerOffset;
-          uniform float uColorSpeed;
-          uniform vec2 uMouse;
-          uniform float uMouseInfluence;
-          uniform bool uEnableMouse;
-          #define TAU 6.28318
-          vec3 gradientHash(vec3 p) {
-            p = vec3(dot(p, vec3(127.1, 311.7, 234.6)), dot(p, vec3(269.5, 183.3, 198.3)), dot(p, vec3(169.5, 283.3, 156.9)));
-            vec3 h = fract(sin(p) * 43758.5453123);
-            float phi = acos(2.0 * h.x - 1.0);
-            float theta = TAU * h.y;
-            return vec3(cos(theta) * sin(phi), sin(theta) * cos(phi), cos(phi));
-          }
-          float quinticSmooth(float t) { float t2 = t * t; float t3 = t * t2; return 6.0 * t3 * t2 - 15.0 * t2 * t2 + 10.0 * t3; }
-          vec3 cosineGradient(float t, vec3 a, vec3 b, vec3 c, vec3 d) { return a + b * cos(TAU * (c * t + d)); }
-          float perlin3D(float amplitude, float frequency, float px, float py, float pz) {
-            float x = px * frequency; float y = py * frequency;
-            float fx = floor(x); float fy = floor(y); float fz = floor(pz);
-            float cx = ceil(x); float cy = ceil(y); float cz = ceil(pz);
-            vec3 g000 = gradientHash(vec3(fx, fy, fz)); vec3 g100 = gradientHash(vec3(cx, fy, fz));
-            vec3 g010 = gradientHash(vec3(fx, cy, fz)); vec3 g110 = gradientHash(vec3(cx, cy, fz));
-            vec3 g001 = gradientHash(vec3(fx, fy, cz)); vec3 g101 = gradientHash(vec3(cx, fy, cz));
-            vec3 g011 = gradientHash(vec3(fx, cy, cz)); vec3 g111 = gradientHash(vec3(cx, cy, cz));
-            float d000 = dot(g000, vec3(x - fx, y - fy, pz - fz)); float d100 = dot(g100, vec3(x - cx, y - fy, pz - fz));
-            float d010 = dot(g010, vec3(x - fx, y - cy, pz - fz)); float d110 = dot(g110, vec3(x - cx, y - cy, pz - fz));
-            float d001 = dot(g001, vec3(x - fx, y - fy, pz - cz)); float d101 = dot(g101, vec3(x - cx, y - fy, pz - cz));
-            float d011 = dot(g011, vec3(x - fx, y - cy, pz - cz)); float d111 = dot(g111, vec3(x - cx, y - cy, pz - cz));
-            float sx = quinticSmooth(x - fx); float sy = quinticSmooth(y - fy); float sz = quinticSmooth(pz - fz);
-            float lx00 = mix(d000, d100, sx); float lx10 = mix(d010, d110, sx);
-            float lx01 = mix(d001, d101, sx); float lx11 = mix(d011, d111, sx);
-            float ly0 = mix(lx00, lx10, sy); float ly1 = mix(lx01, lx11, sy);
-            return amplitude * mix(ly0, ly1, sz);
-          }
-          float auroraGlow(float t, vec2 shift) {
-            vec2 uv = gl_FragCoord.xy / uResolution.y;
-            uv += shift; float noiseVal = 0.0; float freq = uNoiseFreq; float amp = uNoiseAmp;
-            vec2 samplePos = uv * uScale;
-            for (float i = 0.0; i < 3.0; i += 1.0) { noiseVal += perlin3D(amp, freq, samplePos.x, samplePos.y, t); amp *= uOctaveDecay; freq *= 2.0; }
-            float yBand = uv.y * 10.0 - uBandHeight * 10.0;
-            return 0.3 * max(exp(uBandSpread * (1.0 - 1.1 * abs(noiseVal + yBand))), 0.0);
-          }
-          void main() {
-            vec2 uv = gl_FragCoord.xy / uResolution.xy; float t = uSpeed * 0.4 * uTime;
-            vec2 shift = vec2(0.0);
-            if (uEnableMouse) { shift = (uMouse - 0.5) * uMouseInfluence; }
-            vec3 col = vec3(0.0);
-            col += 0.99 * auroraGlow(t, shift) * cosineGradient(uv.x + uTime * uSpeed * 0.2 * uColorSpeed, vec3(0.5), vec3(0.5), vec3(1.0), vec3(0.3, 0.20, 0.20)) * uColor1;
-            col += 0.99 * auroraGlow(t + uLayerOffset, shift) * cosineGradient(uv.x + uTime * uSpeed * 0.1 * uColorSpeed, vec3(0.5), vec3(0.5), vec3(2.0, 1.0, 0.0), vec3(0.5, 0.20, 0.25)) * uColor2;
-            col *= uBrightness; float alpha = clamp(length(col), 0.0, 1.0); gl_FragColor = vec4(col, alpha);
-          }
-        `;
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">WEB · SOFTWARE · AI · META ADS</span>
+          <h1 class="hero-title" data-i18n-html="home.hero.title_html">Built to turn your traffic into <span class="text-accent">paying customers</span>.</h1>
+          <p class="hero-sub" data-i18n="home.hero.sub">We design websites, build software, and automate the systems that turn clicks into WhatsApp messages, bookings, and sales — for growing businesses across Ghana and West Africa.</p>
+          <div class="hero-cta">
+            <a href="https://wa.me/233530402249" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              <span data-i18n="hero.wa">Chat on WhatsApp</span>
+            </a>
+            <a href="#contact" class="btn btn-outline" data-i18n="home.hero.cta_secondary">Book a Strategy Call</a>
+          </div>
+          <div class="hero-trust">
+            <span class="avatars" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span data-i18n="home.hero.trust">Trusted by gyms, schools, restaurants, and event brands across Ghana.</span>
+          </div>
+        </div>
 
-        function handleMouseMove(e) {
-          const rect = gl.canvas.getBoundingClientRect();
-          targetMouse = [(e.clientX - rect.left) / rect.width, 1.0 - (e.clientY - rect.top) / rect.height];
-        }
-        function handleMouseLeave() { targetMouse = [0.5, 0.5]; }
-        function resize() { renderer.setSize(container.offsetWidth, container.offsetHeight); }
-        window.addEventListener('resize', resize);
-        resize();
+        <div class="hero-stage" aria-hidden="true">
+          <div class="float-card fc-lead floaty-wrap" style="--delay:-1s">
+            <div class="float-card-inner">
+              <div class="fc-head">
+                <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a6 6 0 00-6 6c0 5-2 6-2 6h16s-2-1-2-6a6 6 0 00-6-6z"/><path d="M10 20a2 2 0 004 0"/></svg></span>
+                <span>
+                  <span class="fc-title">New lead</span>
+                  <span class="fc-sub">2 min ago</span>
+                </span>
+              </div>
+              <p class="fc-body">Website contact form · Growth package inquiry</p>
+            </div>
+          </div>
 
-        const geometry = new ogl.Triangle(gl);
-        program = new ogl.Program(gl, {
-          vertex: vertexShader,
-          fragment: fragmentShader,
-          uniforms: {
-            uTime: { value: 0 },
-            uResolution: { value: [gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height] },
-            uSpeed: { value: speed },
-            uScale: { value: scale },
-            uBrightness: { value: brightness },
-            uColor1: { value: hexToVec3(color1) },
-            uColor2: { value: hexToVec3(color2) },
-            uNoiseFreq: { value: 2.0 },
-            uNoiseAmp: { value: 0.8 },
-            uBandHeight: { value: 0.4 },
-            uBandSpread: { value: 0.8 },
-            uOctaveDecay: { value: 0.15 },
-            uLayerOffset: { value: 0 },
-            uColorSpeed: { value: 1.0 },
-            uMouse: { value: new Float32Array([0.5, 0.5]) },
-            uMouseInfluence: { value: 0.15 },
-            uEnableMouse: { value: true }
-          }
-        });
+          <div class="float-card fc-chart floaty-wrap" style="--delay:-3.2s">
+            <div class="float-card-inner">
+              <div class="fc-head">
+                <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
+                <span>
+                  <span class="fc-title">Leads this month</span>
+                  <span class="fc-sub">Live tracking</span>
+                </span>
+              </div>
+              <svg class="fc-chart-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+                <polyline points="4,50 40,38 76,44 112,20 148,26 196,6" fill="none" stroke="#C74722" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p class="fc-stat">+38% <span>vs last month</span></p>
+            </div>
+          </div>
 
-        const mesh = new ogl.Mesh(gl, { geometry, program });
-        container.appendChild(gl.canvas);
-        gl.canvas.addEventListener('mousemove', handleMouseMove);
-        gl.canvas.addEventListener('mouseleave', handleMouseLeave);
+          <div class="float-card fc-wa floaty-wrap" style="--delay:-5.4s">
+            <div class="float-card-inner">
+              <div class="fc-head">
+                <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
+                <span>
+                  <span class="fc-title">WhatsApp</span>
+                  <span class="fc-sub">Fastest way to reach us</span>
+                </span>
+              </div>
+              <p class="fc-bubble">"Hi! I'd like a quote for a new website 👋"</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        let animationFrameId;
-        function update(time) {
-          animationFrameId = requestAnimationFrame(update);
-          program.uniforms.uTime.value = time * 0.001;
-          currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
-          currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
-          program.uniforms.uMouse.value[0] = currentMouse[0];
-          program.uniforms.uMouse.value[1] = currentMouse[1];
-          renderer.render({ scene: mesh });
-        }
-        requestAnimationFrame(update);
+      <div class="container">
+        <div class="stats-strip">
+          <div class="stat-chip"><span class="num"><span data-counter="2.4" data-prefix="GHS " data-suffix="M+" data-decimals="1">GHS 0.0M+</span></span><span class="label" data-i18n="home.stats.revenue">Revenue generated</span></div>
+          <div class="stat-chip"><span class="num"><span data-counter="14000" data-suffix="+">0+</span></span><span class="label" data-i18n="home.stats.leads">Leads driven</span></div>
+          <div class="stat-chip"><span class="num"><span data-counter="380" data-prefix="GHS " data-suffix="K+">GHS 0K+</span></span><span class="label" data-i18n="home.stats.adspend">Ad spend managed</span></div>
+        </div>
+      </div>
+    </section>
 
-        return () => {
-          cancelAnimationFrame(animationFrameId);
-          window.removeEventListener('resize', resize);
-          gl.canvas.removeEventListener('mousemove', handleMouseMove);
-          gl.canvas.removeEventListener('mouseleave', handleMouseLeave);
-          container.removeChild(gl.canvas);
-        };
-      }, []);
+    <!-- ===================== SERVICES ===================== -->
+    <section id="services" class="section-pad section-dark">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="home.services.eyebrow">What we offer</span>
+          <h2 class="section-title" data-i18n-html="services.title_html">What We <span class="gold">Offer</span></h2>
+          <p class="section-sub" data-i18n="home.services.sub">Four services, one goal: more inquiries, bookings, and sales.</p>
+        </div>
 
-      return React.createElement('div', { ref: containerRef, className: 'soft-aurora-container' });
-    }
+        <div class="services-grid">
+          <article class="card service-card">
+            <span class="icon-badge floaty-wrap" style="--delay:-0.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6L2 12L8 18"/><path d="M16 6L22 12L16 18"/></svg></span>
+            <h3 data-i18n="home.services.web_h">Web Development</h3>
+            <p data-i18n="home.services.web_p">Conversion-first websites and landing funnels that turn visitors into inquiries — fast to load, clear to act on.</p>
+            <div class="fx"><span>Websites</span><span>Funnels</span><span>SEO</span></div>
+            <a href="#contact" class="learn"><span data-i18n="services.link">Get a quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
 
-    function App() {
-      const [scrolled, setScrolled] = useState(false);
-      
-      useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
+          <article class="card service-card">
+            <span class="icon-badge floaty-wrap" style="--delay:-2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+            <h3 data-i18n="home.services.software_h">Software Development</h3>
+            <p data-i18n="home.services.software_p">Custom web apps and internal tools built around how your business actually runs — not a generic template.</p>
+            <div class="fx"><span>Web apps</span><span>Dashboards</span><span>Integrations</span></div>
+            <a href="#contact" class="learn"><span data-i18n="services.link">Get a quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
 
-      return React.createElement('div', null,
-        React.createElement('a', { href: "#main-content", className: "skip-link" }, "Skip to main content"),
-        React.createElement('header', { className: `header ${scrolled ? 'scrolled' : ''}`, role: "banner" },
-          React.createElement('div', { className: "header-inner container" },
-            React.createElement('a', { href: "#home", className: "logo" }, "Strategy", React.createElement('span', { className: "gold" }, "Lab")),
-            React.createElement('nav', { className: "nav" },
-              React.createElement('a', { href: "#services" }, "Services"),
-              React.createElement('a', { href: "#pricing" }, "Pricing"),
-              React.createElement('a', { href: "#portfolio" }, "Work"),
-              React.createElement('a', { href: "get-a-quote.html" }, "Quote"),
-              React.createElement('a', { href: "#contact" }, "Contact")
-            )
-          )
-        ),
-        React.createElement('main', { id: "main-content", role: "main" },
-          React.createElement('section', { id: "home", className: "hero" },
-            React.createElement('div', { className: "hero-background" },
-              React.createElement(SoftAurora, { color1: "#ffffff", color2: "#c9a84c" })
-            ),
-            React.createElement('div', { className: "hero-content" },
-              React.createElement('h1', { className: "hero-title" }, 
-                "Websites, Ads & AI Systems", React.createElement('br'), 
-                React.createElement('span', { className: "gold" }, "That Generate Leads")
-              ),
-              React.createElement('div', { className: "hero-cta" },
-                React.createElement('a', { href: "https://wa.me/233530402249", className: "btn btn-whatsapp btn-hero-primary" }, "WhatsApp — Reach Out"),
-                React.createElement('a', { href: "#contact", className: "btn btn-outline btn-hero-secondary" }, "Strategy Call")
-              )
-            )
-          ),
-          React.createElement('div', { className: "gold-rule" }),
-          React.createElement('section', { className: "section-stats" },
-            React.createElement('div', { className: "container" },
-              React.createElement('div', { className: "stats-row" },
-                React.createElement('div', { className: "stat-card" },
-                  React.createElement('span', { className: "stat-num" }, React.createElement('span', { className: "counter", "data-target": "2.4", "data-prefix": "GHS ", "data-suffix": "M+" }, "GHS 0")),
-                  React.createElement('span', { className: "stat-label" }, "Revenue generated")
-                ),
-                React.createElement('div', { className: "stat-card" },
-                  React.createElement('span', { className: "stat-num" }, React.createElement('span', { className: "counter", "data-target": "14000", "data-suffix": "+" }, "0")),
-                  React.createElement('span', { className: "stat-label" }, "Leads driven")
-                ),
-                React.createElement('div', { className: "stat-card" },
-                  React.createElement('span', { className: "stat-num" }, React.createElement('span', { className: "counter", "data-target": "380", "data-prefix": "GHS ", "data-suffix": "K+" }, "GHS 0")),
-                  React.createElement('span', { className: "stat-label" }, "Ad spend managed")
-                )
-              )
-            )
-          ),
-          React.createElement('div', { className: "gold-rule" }),
-          React.createElement('section', { id: "services", className: "section section-dark" },
-            React.createElement('div', { className: "container" },
-              React.createElement('span', { className: "section-label-tag" }, "What we offer"),
-              React.createElement('h2', { className: "section-title" }, "Four pillars of ", React.createElement('em', null, "growth")),
-              React.createElement('div', { className: "services-grid" },
-                React.createElement('article', { className: "card" }, React.createElement('span', { className: "card-num gold" }, "01"), React.createElement('h3', null, "Web Development"), React.createElement('p', null, "Conversion-first websites and landing funnels."), React.createElement('a', { href: "#contact", className: "link-gold" }, "Get a quote →")),
-                React.createElement('article', { className: "card" }, React.createElement('span', { className: "card-num gold" }, "02"), React.createElement('h3', null, "Software Development"), React.createElement('p', null, "Custom web apps and platforms."), React.createElement('a', { href: "#contact", className: "link-gold" }, "Get a quote →")),
-                React.createElement('article', { className: "card" }, React.createElement('span', { className: "card-num gold" }, "03"), React.createElement('h3', null, "AI Automation"), React.createElement('p', null, "AI-powered workflows and pipelines."), React.createElement('a', { href: "#contact", className: "link-gold" }, "Get a quote →")),
-                React.createElement('article', { className: "card" }, React.createElement('span', { className: "card-num gold" }, "04"), React.createElement('h3', null, "Meta Ads"), React.createElement('p', null, "FB/IG campaigns built for leads."), React.createElement('a', { href: "#contact", className: "link-gold" }, "Get a quote →"))
-              ),
-              React.createElement('div', { className: "section-cta" },
-                React.createElement('a', { href: "https://wa.me/233530402249", className: "btn btn-whatsapp" }, "WhatsApp us"),
-                React.createElement('a', { href: "#contact", className: "btn btn-gold" }, "Book strategy call")
-              )
-            )
-          ),
-          React.createElement('section', { id: "why-us", className: "section section-light" },
-            React.createElement('div', { className: "container container-narrow" },
-              React.createElement('span', { className: "section-label-tag" }, "Why StrategyLab"),
-              React.createElement('h2', { className: "section-title" }, "Growth-focused ", React.createElement('em', null, "partner")),
-              React.createElement('ul', { className: "why-us-list" },
-                React.createElement('li', null, React.createElement('strong', { className: "gold" }, "Leads-first"), " — Every decision drives inquiries."),
-                React.createElement('li', null, React.createElement('strong', { className: "gold" }, "Modern execution"), " — Professional, device-ready work."),
-                React.createElement('li', null, React.createElement('strong', { className: "gold" }, "Clear process"), " — No jargon, you stay in the loop."),
-                React.createElement('li', null, React.createElement('strong', { className: "gold" }, "Local expertise"), " — SMEs, gyms, schools, restaurants.")
-              )
-            )
-          ),
-          React.createElement('section', { id: "process", className: "section section-dark" },
-            React.createElement('div', { className: "container" },
-              React.createElement('span', { className: "section-label-tag" }, "How we work"),
-              React.createElement('h2', { className: "section-title" }, "From brief to ", React.createElement('em', null, "launch"), " in 4 steps"),
-              React.createElement('ol', { className: "process-list" },
-                React.createElement('li', { className: "process-step" }, React.createElement('span', { className: "process-num" }, "01"), React.createElement('h3', null, "Discovery"), React.createElement('p', null, "We learn your business and goals.")),
-                React.createElement('li', { className: "process-step" }, React.createElement('span', { className: "process-num" }, "02"), React.createElement('h3', null, "Strategy"), React.createElement('p', null, "We define the approach.")),
-                React.createElement('li', { className: "process-step" }, React.createElement('span', { className: "process-num" }, "03"), React.createElement('h3', null, "Build & Launch"), React.createElement('p', null, "We design and launch.")),
-                React.createElement('li', { className: "process-step" }, React.createElement('span', { className: "process-num" }, "04"), React.createElement('h3', null, "Optimize"), React.createElement('p', null, "We monitor and improve."))
-              )
-            )
-          ),
-          React.createElement('section', { id: "pricing", className: "section section-light" },
-            React.createElement('div', { className: "container" },
-              React.createElement('span', { className: "section-label-tag" }, "Pricing"),
-              React.createElement('h2', { className: "section-title" }, "Pricing that fits your ", React.createElement('em', null, "budget")),
-              React.createElement('div', { className: "pricing-dual" },
-                React.createElement('article', { className: "pricing-dual-card" }, React.createElement('h3', { className: "pricing-dual-title" }, "One-time projects"), React.createElement('p', { className: "pricing-dual-note" }, "Fixed scope for launches."), React.createElement('a', { href: "get-a-quote.html", className: "btn btn-gold btn-full" }, "Get estimate")),
-                React.createElement('article', { className: "pricing-dual-card pricing-dual-card--accent" }, React.createElement('h3', { className: "pricing-dual-title" }, "Monthly retainers"), React.createElement('p', { className: "pricing-dual-note" }, "Consistency and growth."), React.createElement('a', { href: "#contact", className: "btn btn-outline btn-full btn-outline--dark" }, "Book strategy call"))
-              ),
-              React.createElement('div', { className: "pricing-grid" },
-                React.createElement('article', { className: "pricing-card" }, React.createElement('h3', { className: "pricing-name" }, "Launch"), React.createElement('p', { className: "pricing-for" }, "Social consistency"), React.createElement('ul', { className: "pricing-features" }, React.createElement('li', null, "Content calendar"), React.createElement('li', null, "Creative direction"), React.createElement('li', null, "Performance snapshot"))),
-                React.createElement('article', { className: "pricing-card pricing-card--featured" }, React.createElement('span', { className: "pricing-ribbon" }, "Most booked"), React.createElement('h3', { className: "pricing-name" }, "Growth"), React.createElement('p', { className: "pricing-for" }, "Organic + paid"), React.createElement('ul', { className: "pricing-features" }, React.createElement('li', null, "Everything in Launch"), React.createElement('li', null, "Paid ads setup"), React.createElement('li', null, "Bi-weekly reviews"), React.createElement('li', null, "Landing alignment"))),
-                React.createElement('article', { className: "pricing-card" }, React.createElement('h3', { className: "pricing-name" }, "Scale"), React.createElement('p', { className: "pricing-for" }, "Aggressive growth"), React.createElement('ul', { className: "pricing-features" }, React.createElement('li', null, "Multi-platform content"), React.createElement('li', null, "Full-funnel ads"), React.createElement('li', null, "Priority turnaround")))
-              )
-            )
-          ),
-          React.createElement('section', { id: "portfolio", className: "section section-reveal" },
-            React.createElement('div', { className: "container" },
-              React.createElement('span', { className: "section-label-tag" }, "Selected work"),
-              React.createElement('h2', { className: "section-title" }, "Live projects"),
-              React.createElement('div', { className: "portfolio-grid" },
-                React.createElement('a', { href: "https://kaizennights.com/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "Kaizen Nights"), React.createElement('span', { className: "portfolio-cat" }, "Events · Web Dev")),
-                React.createElement('a', { href: "https://rodbak.github.io/EATME/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "EAT ME"), React.createElement('span', { className: "portfolio-cat" }, "Food · Web Dev")),
-                React.createElement('a', { href: "https://rodbak.github.io/BoothAndBeyond/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "Booths & Beyond"), React.createElement('span', { className: "portfolio-cat" }, "Events · Branding")),
-                React.createElement('a', { href: "https://rodbak.github.io/OneManThousandWebsite/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "One Man Thousand"), React.createElement('span', { className: "portfolio-cat" }, "Community · Web Dev")),
-                React.createElement('a', { href: "https://tmtodds.vercel.app/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "TMTODDS"), React.createElement('span', { className: "portfolio-cat" }, "Sports · Software")),
-                React.createElement('a', { href: "https://tmtvotes.vercel.app/", target: "_blank", rel: "noopener noreferrer", className: "portfolio-card" }, React.createElement('h3', null, "TMT Votes"), React.createElement('span', { className: "portfolio-cat" }, "Web App · Software"))
-              )
-            )
-          ),
-          React.createElement('section', { id: "contact", className: "contact-section" },
-            React.createElement('div', { className: "container container-narrow" },
-              React.createElement('span', { className: "section-label-tag" }, "Get in touch"),
-              React.createElement('h2', { className: "section-title" }, "Ready to ", React.createElement('em', null, "grow")),
-              React.createElement('div', { className: "contact-grid" },
-                React.createElement('div', { className: "contact-aside" },
-                  React.createElement('a', { href: "https://wa.me/233530402249", className: "btn btn-whatsapp btn-full" }, "WhatsApp — Chat now"),
-                  React.createElement('div', { className: "contact-info" },
-                    React.createElement('p', null, React.createElement('strong', { className: "gold" }, "WhatsApp:"), React.createElement('br'), React.createElement('a', { href: "https://wa.me/233530402249" }, "+233 530 402 249")),
-                    React.createElement('p', null, React.createElement('strong', { className: "gold" }, "Email:"), React.createElement('br'), React.createElement('a', { href: "mailto:bakorodolph@gmail.com" }, "bakorodolph@gmail.com"))
-                  )
-                ),
-                React.createElement('form', { className: "contact-form", action: "https://formspree.io/f/xjgayrwe", method: "post" },
-                  React.createElement('label', { htmlFor: "name" }, "Name"),
-                  React.createElement('input', { type: "text", id: "name", name: "name", required: true, placeholder: "Your name" }),
-                  React.createElement('label', { htmlFor: "contact-email" }, "Email"),
-                  React.createElement('input', { type: "email", id: "contact-email", name: "email", required: true, placeholder: "you@company.com" }),
-                  React.createElement('label', { htmlFor: "service" }, "Service needed"),
-                  React.createElement('select', { id: "service", name: "service", required: true },
-                    React.createElement('option', { value: "" }, "Select one"),
-                    React.createElement('option', { value: "Web Development" }, "Web Development"),
-                    React.createElement('option', { value: "Software Development" }, "Software Development"),
-                    React.createElement('option', { value: "AI & System Automation" }, "AI & System Automation"),
-                    React.createElement('option', { value: "Meta Ads" }, "Meta Ads")
-                  ),
-                  React.createElement('button', { type: "submit", className: "btn btn-gold btn-full" }, "Send request")
-                )
-              )
-            )
-          )
-        ),
-        React.createElement('footer', { className: "footer" },
-          React.createElement('div', { className: "container footer-inner" },
-            React.createElement('a', { href: "#home", className: "logo" }, "Strategy", React.createElement('span', { className: "gold" }, "Lab")),
-            React.createElement('p', { className: "footer-tagline" }, "Web, software, AI & ads for lead generation in Ghana."),
-            React.createElement('nav', { className: "footer-nav" },
-              React.createElement('a', { href: "#services" }, "Services"),
-              React.createElement('a', { href: "#pricing" }, "Pricing"),
-              React.createElement('a', { href: "#portfolio" }, "Work"),
-              React.createElement('a', { href: "get-a-quote.html" }, "Quote"),
-              React.createElement('a', { href: "#contact" }, "Contact")
-            ),
-            React.createElement('p', { className: "footer-copy" }, "© 2026 StrategyLab. All rights reserved.")
-          )
-        )
-      );
-    }
+          <article class="card service-card">
+            <span class="icon-badge floaty-wrap" style="--delay:-3.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2 2-8z"/></svg></span>
+            <h3 data-i18n="home.services.ai_h">AI &amp; System Automation</h3>
+            <p data-i18n="home.services.ai_p">AI-powered workflows that handle follow-ups, bookings, and repetitive admin — so leads stop slipping through the cracks.</p>
+            <div class="fx"><span>Chatbots</span><span>Workflows</span><span>CRM</span></div>
+            <a href="#contact" class="learn"><span data-i18n="services.link">Get a quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
 
-    createRoot(document.getElementById('root')).render(React.createElement(App));
-  </script>
+          <article class="card service-card">
+            <span class="icon-badge floaty-wrap" style="--delay:-1.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            <h3 data-i18n="home.services.ads_h">Meta Ads</h3>
+            <p data-i18n="home.services.ads_p">Facebook and Instagram campaigns built for leads, not vanity metrics — targeting, creative, and landing pages aligned.</p>
+            <div class="fx"><span>Facebook</span><span>Instagram</span><span>Retargeting</span></div>
+            <a href="#contact" class="learn"><span data-i18n="services.link">Get a quote</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHY US ===================== -->
+    <section id="why-us" class="section-pad">
+      <div class="container why-grid">
+        <div>
+          <div class="section-head">
+            <span class="eyebrow" data-i18n="home.why.eyebrow">Why StrategyLab</span>
+            <h2 class="section-title" data-i18n-html="why.title_html">Why Choose <span class="gold">StrategyLab</span></h2>
+            <p class="section-sub" data-i18n="why.desc">We focus on leads and conversion, not just visuals.</p>
+          </div>
+          <div class="why-list">
+            <div class="why-item">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+              <div><h4 data-i18n="home.why.t1">Leads-first</h4><p data-i18n-html="why.li1_html"><strong class="gold">Leads-first approach</strong> — Every decision is geared toward inquiries, bookings, and sales.</p></div>
+            </div>
+            <div class="why-item">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
+              <div><h4 data-i18n="home.why.t2">Modern execution</h4><p data-i18n-html="why.li2_html"><strong class="gold">Modern, professional execution</strong> — Websites and funnels that look credible and work on every device.</p></div>
+            </div>
+            <div class="why-item">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+              <div><h4 data-i18n="home.why.t3">Clear process</h4><p data-i18n-html="why.li5_html"><strong class="gold">Clear communication, simple process</strong> — No jargon overload; you stay in the loop from start to launch.</p></div>
+            </div>
+            <div class="why-item">
+              <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+              <div><h4 data-i18n="home.why.t4">Local expertise</h4><p data-i18n-html="why.li6_html"><strong class="gold">Right fit for local, growth-focused businesses</strong> — Gyms, schools, clinics, restaurants, events, and SMEs that want to grow.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-panel floaty-wrap" style="--delay:-2.5s">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote data-i18n="testimonials.q1">StrategyLab didn't just build a site — they helped us think through conversion. Our inquiries went up and the site actually reflects our business.</blockquote>
+          <cite data-i18n="testimonials.a1">— Business owner</cite>
+          <div class="div"></div>
+          <blockquote data-i18n="testimonials.q2">Clear communication and a process that made sense. We got a landing page that converts and a partner we'd work with again.</blockquote>
+          <cite data-i18n="testimonials.a2">— Client, events</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section id="process" class="section-pad">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-i18n="home.process.eyebrow">How we work</span>
+          <h2 class="section-title" data-i18n-html="process.title_html">How We <span class="gold">Work</span></h2>
+          <p class="section-sub" data-i18n="process.desc">A simple, low-friction process from first conversation to launch and beyond.</p>
+        </div>
+        <div class="process-grid">
+          <article class="card process-step">
+            <span class="process-num">01</span>
+            <h4 data-i18n="process.s1h">Discovery</h4>
+            <p data-i18n="process.s1p">We learn your business, audience, and goals — what you offer, who you're trying to reach, what success looks like.</p>
+          </article>
+          <article class="card process-step">
+            <span class="process-num">02</span>
+            <h4 data-i18n="process.s2h">Strategy</h4>
+            <p data-i18n="process.s2p">We define the approach: site structure, key messages, lead capture points, and how ads fit in if needed.</p>
+          </article>
+          <article class="card process-step">
+            <span class="process-num">03</span>
+            <h4 data-i18n="process.s3h">Build &amp; Launch</h4>
+            <p data-i18n="process.s3p">We design and build your website or funnel, test on mobile, and launch — a conversion-ready system, not a placeholder.</p>
+          </article>
+          <article class="card process-step">
+            <span class="process-num">04</span>
+            <h4 data-i18n="process.s4h">Optimize &amp; Grow</h4>
+            <p data-i18n="process.s4p">After launch we monitor, tweak, and improve — better forms, clearer CTAs, and ongoing optimization so leads keep coming.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section id="pricing" class="section-pad">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="home.pricing.eyebrow">Pricing</span>
+          <h2 class="section-title" data-i18n-html="pricing.title_html">Pricing that fits your <span class="gold">budget</span></h2>
+          <p class="section-sub" data-i18n="pricing.desc">Use the estimator to see a realistic range for your budget. We confirm scope and final pricing in writing after a short strategy call.</p>
+        </div>
+
+        <div class="pricing-dual">
+          <article class="card price-panel">
+            <div class="pp-top">
+              <div>
+                <h3 data-i18n="pricing.dual_once_title">One-time projects</h3>
+                <p class="pp-desc" data-i18n="pricing.dual_once_note">Landing pages, site builds, audits, or launch sprints — fixed scope, clear deliverables.</p>
+              </div>
+            </div>
+            <ul class="pp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.dual_once_1">Milestone billing available on larger builds</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.dual_once_2">Estimator gives a fast range → we confirm in writing</span></li>
+            </ul>
+            <a href="get-a-quote.html" class="btn btn-primary btn-block" data-i18n="pricing.dual_once_cta">Estimate a project</a>
+          </article>
+
+          <article class="card price-panel">
+            <div class="pp-top">
+              <div>
+                <h3 data-i18n="pricing.dual_ret_title">Monthly retainers</h3>
+                <p class="pp-desc" data-i18n="pricing.dual_ret_note">Social + creative rhythm; add paid media management as scope grows.</p>
+              </div>
+            </div>
+            <ul class="pp-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.dual_ret_1">Results-tranche optional on eligible growth plans</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.dual_ret_2">WhatsApp check-ins + monthly reporting dashboard</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.dual_ret_cta">Book strategy call</a>
+          </article>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="card tier-card">
+            <span class="tier-badge" data-i18n="pricing.t1_for">Consistency on social</span>
+            <h4 data-i18n="pricing.t1_name">Launch</h4>
+            <p class="tier-hint" data-i18n="pricing.t1_price_hint">A lean starting scope to build consistency.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f1">Content calendar + posting workflow</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f2">Creative direction (static + short-form)</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f3">Monthly performance snapshot</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+          </article>
+
+          <article class="card tier-card is-featured">
+            <span class="tier-badge" data-i18n="pricing.ribbon">Most booked</span>
+            <h4 data-i18n="pricing.t2_name">Growth</h4>
+            <p class="tier-hint" data-i18n="pricing.t2_price_hint">Adds structured testing and optimization.</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f1">Everything in Launch</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f2">Paid social or search setup + optimization</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f3">Landing alignment for campaigns</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f4">Bi-weekly reviews + creative tests</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+          </article>
+
+          <article class="card tier-card">
+            <span class="tier-badge" data-i18n="pricing.t3_for">Launches &amp; aggressive growth</span>
+            <h4 data-i18n="pricing.t3_name">Scale</h4>
+            <p class="tier-hint" data-i18n="pricing.t3_price">Custom retainer + project fees</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f1">Multi-platform content + community</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f2">Full-funnel ads (prospect + retarget)</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f3">Conversion experiments prioritized</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+          </article>
+        </div>
+        <p class="form-note" style="margin-top:1.25rem;" data-i18n="common.currency_note">Amounts in your selected currency are indicative (approximate exchange vs. GHS). Final quotes may be in GHS or as agreed.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PORTFOLIO ===================== -->
+    <section id="portfolio" class="section-pad section-dark">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="home.portfolio.eyebrow">Selected work</span>
+          <h2 class="section-title" data-i18n-html="portfolio.title_html">Selected <span class="gold">Work</span></h2>
+          <p class="section-sub" data-i18n="portfolio.desc">Websites and campaigns we've built for events, food, photo booths, and community brands.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <a href="https://kaizennights.com/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">KN</span><span class="pf-tag" data-i18n="portfolio.k1_cat">Events</span></div>
+            <h4>Kaizen Nights</h4>
+            <p data-i18n="portfolio.k1p">Movie night events: waitlist, FIFA competition, secret screenings, after party.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+          <a href="https://rodbak.github.io/EATME/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">EM</span><span class="pf-tag" data-i18n="portfolio.e1_cat">Food &amp; catering</span></div>
+            <h4>EAT ME</h4>
+            <p data-i18n="portfolio.e1p">Weekly menu, catering, cocktails — order and get a taste.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+          <a href="https://rodbak.github.io/BoothAndBeyond/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">BB</span><span class="pf-tag" data-i18n="home.portfolio.b1_cat">Events · Branding</span></div>
+            <h4>Booths &amp; Beyond</h4>
+            <p data-i18n="portfolio.b1p">Magazine-style photo booths. Custom backdrops, VOGUE-style frames, unforgettable moments.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+          <a href="https://rodbak.github.io/OneManThousandWebsite/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">OM</span><span class="pf-tag" data-i18n="portfolio.o1_cat">Community</span></div>
+            <h4>One Man Thousand</h4>
+            <p data-i18n="portfolio.o1p">The strongmen gathering. Brotherhood, mental health, physical wellness.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+          <a href="https://tmtodds.vercel.app/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">TO</span><span class="pf-tag" data-i18n="portfolio.t1_cat">Sports &amp; betting</span></div>
+            <h4>TMTODDS</h4>
+            <p data-i18n="portfolio.t1p">Ghana football betting slips: daily board, VIP tiers, proof ledger.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+          <a href="https://tmtvotes.vercel.app/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
+            <div class="pf-top"><span class="pf-mark">TV</span><span class="pf-tag" data-i18n="portfolio.v1_cat">Web app</span></div>
+            <h4>TMT Votes</h4>
+            <p data-i18n="portfolio.v1p">Public voting without accounts — pick a topic, vote, see live results.</p>
+            <span class="pf-link" data-i18n="common.visit_site">Visit site</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section-pad">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="home.contact.eyebrow">Get in touch</span>
+          <h2 class="section-title" data-i18n-html="contact.title_html">Get in <span class="gold">Touch</span></h2>
+          <p class="section-sub" data-i18n="contact.lead">Short form, fast response. Tell us what you need and we'll get back within 24 hours.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <a href="https://wa.me/233530402249" class="btn btn-whatsapp btn-block">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+              <span data-i18n="hero.wa">Chat on WhatsApp</span>
+            </a>
+            <div class="contact-chan">
+              <div class="card chan-card">
+                <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
+                <div><div class="cc-title" data-i18n="contact.wa">WhatsApp</div><div class="cc-sub">+233 530 402 249</div></div>
+              </div>
+              <a href="mailto:bakorodolph@gmail.com" class="card chan-card">
+                <span class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+                <div><div class="cc-title" data-i18n="contact.em">Email</div><div class="cc-sub">bakorodolph@gmail.com</div></div>
+              </a>
+            </div>
+          </div>
+
+          <form class="card form-panel" action="https://formspree.io/f/xjgayrwe" method="post" data-i18n-aria="contact.form_aria" aria-label="Contact form">
+            <div class="form-row">
+              <div class="field">
+                <label for="name" data-i18n="contact.lbl_name">Name</label>
+                <input type="text" id="name" name="name" required data-i18n-placeholder="contact.ph_name" placeholder="Your name">
+              </div>
+              <div class="field">
+                <label for="contact-email" data-i18n="contact.lbl_email">Email</label>
+                <input type="email" id="contact-email" name="email" required placeholder="you@company.com">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="phone" data-i18n="contact.lbl_phone">Phone</label>
+                <input type="tel" id="phone" name="phone" data-i18n-placeholder="contact.ph_phone" placeholder="Optional">
+              </div>
+              <div class="field">
+                <label for="service" data-i18n="contact.lbl_service">Service needed</label>
+                <select id="service" name="service" required>
+                  <option value="" data-i18n="contact.svc_placeholder">Select one</option>
+                  <option value="Web Development" data-i18n="home.services.web_h">Web Development</option>
+                  <option value="Software Development" data-i18n="home.services.software_h">Software Development</option>
+                  <option value="AI & System Automation" data-i18n="home.services.ai_h">AI &amp; System Automation</option>
+                  <option value="Meta Ads" data-i18n="home.services.ads_h">Meta Ads</option>
+                </select>
+              </div>
+            </div>
+            <input type="hidden" name="locale" data-sync-locale value="en">
+            <input type="hidden" name="currency" data-sync-currency value="GHS">
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.submit">Send request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-word">Strategy<span style="color:var(--teal-bright)">Lab</span></span>
+          <p data-i18n="home.footer.tagline">Websites, software, and AI systems built for lead generation — serving local and regional businesses across Ghana and West Africa.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5 data-i18n="home.footer.col_site">Site</h5>
+            <a href="#services" data-i18n="nav.services">Services</a>
+            <a href="#process" data-i18n="nav.process">Process</a>
+            <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+            <a href="#portfolio" data-i18n="nav.work">Work</a>
+          </div>
+          <div class="footer-col">
+            <h5 data-i18n="home.footer.col_contact">Contact</h5>
+            <a href="https://wa.me/233530402249" data-i18n="contact.wa">WhatsApp</a>
+            <a href="mailto:bakorodolph@gmail.com" data-i18n="contact.em">Email</a>
+            <a href="get-a-quote.html" data-i18n="nav.quote">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> StrategyLab. <span data-i18n="home.footer.rights">All rights reserved.</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

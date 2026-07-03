@@ -1,6 +1,5 @@
-# StrategyLab — allow all crawlers (update Sitemap URL when you publish)
+# StrategyLab — allow all crawlers
 User-agent: *
 Allow: /
 
-# Replace with your live URL when published (e.g. https://username.github.io/STRATEGYLABWEB/sitemap.xml)
-Sitemap: https://www.strategylab.com/sitemap.xml
+Sitemap: https://strategylab.it.com/sitemap.xml
