@@ -35,7 +35,7 @@
     "text": "Get more leads. Book a free consultation or chat now."
   },
   "hero": {
-    "title_html": "Websites and Ad Funnels Built to Bring Your Business <span class=\"gold\">More Leads</span>",
+    "title_html": "Websites and Ad Funnels Built to Bring Your Business <span class=\"accent\">More Leads</span>",
     "desc": "StrategyLab helps growing businesses turn attention into inquiries, bookings, and sales through high-converting websites, landing pages, and ads management.",
     "book": "Book a Free Consultation",
     "wa_aria": "Chat on WhatsApp",
@@ -52,7 +52,7 @@
     "trusted_label": "Trusted setups for:"
   },
   "pain": {
-    "title_html": "Why Most Businesses <span class=\"gold\">Lose Leads</span>",
+    "title_html": "Why Most Businesses <span class=\"accent\">Lose Leads</span>",
     "desc": "Outdated sites, unclear next steps, and scattered efforts keep you from turning visitors into customers.",
     "li1_html": "<strong>Outdated or weak website</strong> — Visitors leave instead of inquiring or booking.",
     "li2_html": "<strong>No clear call to action</strong> — Traffic comes in but nothing converts.",
@@ -63,13 +63,13 @@
     "cta": "How we fix this"
   },
   "solution": {
-    "title_html": "The <span class=\"gold\">StrategyLab</span> Approach",
+    "title_html": "The <span class=\"accent\">StrategyLab</span> Approach",
     "desc": "We’re not just designers. We’re a growth-focused digital partner that builds conversion-ready online systems for local and regional businesses.",
     "text": "Gyms, schools, training centers, event brands, restaurants, clinics, salons, real estate, and other SMEs get stronger online presence and better lead generation — through modern websites, landing pages, and ads management built for real business goals.",
     "cta": "See our services"
   },
   "services": {
-    "title_html": "What We <span class=\"gold\">Offer</span>",
+    "title_html": "What We <span class=\"accent\">Offer</span>",
     "desc": "Four core services built for leads, inquiries, and growth.",
     "c1h": "Business Website Design",
     "c1p": "Professional, mobile-first websites that build trust and capture leads. Clear positioning, fast load, and clear calls to action so visitors become inquiries and bookings.",
@@ -87,7 +87,7 @@
     "cta": "Book a Free Consultation"
   },
   "portfolio": {
-    "title_html": "Selected <span class=\"gold\">Work</span>",
+    "title_html": "Selected <span class=\"accent\">Work</span>",
     "desc": "Websites and campaigns we’ve built for events, food, photo booths, and community brands — all focused on leads and conversion.",
     "hint": "Preview · View site →",
     "cta": "Get a Quote",
@@ -117,31 +117,18 @@
     "b1_cat": "Events · Branding"
   },
   "why": {
-    "title_html": "Why Choose <span class=\"gold\">StrategyLab</span>",
+    "title_html": "Why Choose <span class=\"accent\">StrategyLab</span>",
     "desc": "We focus on leads and conversion, not just visuals. Here’s what sets us apart from generic freelancers or template providers.",
-    "li1_html": "<strong class=\"gold\">Leads-first approach</strong> — Every decision is geared toward inquiries, bookings, and sales.",
-    "li2_html": "<strong class=\"gold\">Modern, professional execution</strong> — Websites and funnels that look credible and work on every device.",
-    "li3_html": "<strong class=\"gold\">Built for real business goals</strong> — Not one-size-fits-all; we align with your audience and offer.",
-    "li4_html": "<strong class=\"gold\">Ads and funnel thinking included</strong> — We think about where traffic comes from and how it converts.",
-    "li5_html": "<strong class=\"gold\">Clear communication, simple process</strong> — No jargon overload; you stay in the loop from start to launch.",
-    "li6_html": "<strong class=\"gold\">Right fit for local, growth-focused businesses</strong> — Gyms, schools, clinics, restaurants, events, and SMEs that want to grow.",
+    "li1_html": "<strong class=\"accent\">Leads-first approach</strong> — Every decision is geared toward inquiries, bookings, and sales.",
+    "li2_html": "<strong class=\"accent\">Modern, professional execution</strong> — Websites and funnels that look credible and work on every device.",
+    "li3_html": "<strong class=\"accent\">Built for real business goals</strong> — Not one-size-fits-all; we align with your audience and offer.",
+    "li4_html": "<strong class=\"accent\">Ads and funnel thinking included</strong> — We think about where traffic comes from and how it converts.",
+    "li5_html": "<strong class=\"accent\">Clear communication, simple process</strong> — No jargon overload; you stay in the loop from start to launch.",
+    "li6_html": "<strong class=\"accent\">Right fit for local, growth-focused businesses</strong> — Gyms, schools, clinics, restaurants, events, and SMEs that want to grow.",
     "cta": "Book a Free Consultation"
   },
-  "process": {
-    "title_html": "How We <span class=\"gold\">Work</span>",
-    "desc": "A simple, low-friction process from first conversation to launch and beyond.",
-    "s1h": "Discovery",
-    "s1p": "We learn your business, audience, and goals. What do you offer? Who are you trying to reach? What does success look like?",
-    "s2h": "Strategy",
-    "s2p": "We define the approach: site structure, key messages, lead capture points, and (if needed) how ads and landing pages fit in.",
-    "s3h": "Build & Launch",
-    "s3p": "We design and build your website or funnel, test on mobile, and launch. You get a conversion-ready system, not a placeholder.",
-    "s4h": "Optimize & Grow",
-    "s4p": "After launch we monitor, tweak, and improve. Better forms, clearer CTAs, and ongoing optimization so leads keep coming.",
-    "cta": "Start with a free consultation"
-  },
   "cases": {
-    "title_html": "Case <span class=\"gold\">studies</span>",
+    "title_html": "Case <span class=\"accent\">studies</span>",
     "desc": "Results across paid ads, websites, and landing pages.",
     "c1h": "1. Paid Ads Case Study",
     "c2h": "2. Website Redesign Case Study",
@@ -161,19 +148,19 @@
     "c1d3": "Decision-makers 25–44, interests in business tools and SaaS.",
     "c1d4": "3 ad formats: static, carousel, video — optimized for top performers.",
     "c1d5": "10k views · 40% conversion",
-    "c1d5_html": "<strong class=\"gold\">10k views · 40% conversion</strong>",
+    "c1d5_html": "<strong class=\"accent\">10k views · 40% conversion</strong>",
     "c2d1": "Improve load speed, UX, and lead capture.",
     "c2d2": "Full site audit, redesign, and migration.",
     "c2d3": "Existing traffic + new organic visitors.",
     "c2d4": "Mobile-first design, faster load, clearer CTAs.",
     "c2d5": "2× form submissions · 60% faster load",
-    "c2d5_html": "<strong class=\"gold\">2× form submissions · 60% faster load</strong>",
+    "c2d5_html": "<strong class=\"accent\">2× form submissions · 60% faster load</strong>",
     "c3d1": "Launch conversion-focused page for a product campaign.",
     "c3d2": "1–2 weeks from brief to launch.",
     "c3d3": "Paid traffic from Meta + Google.",
     "c3d4": "Hero variants, form placement, social proof.",
     "c3d5": "3× conversion lift vs. previous page",
-    "c3d5_html": "<strong class=\"gold\">3× conversion lift vs. previous page</strong>",
+    "c3d5_html": "<strong class=\"accent\">3× conversion lift vs. previous page</strong>",
     "cta": "Get similar results",
     "comp_goal_k": "Goal:",
     "comp_did_k": "What we did:",
@@ -189,7 +176,7 @@
     "c3_res": "Higher conversion rate from the same traffic."
   },
   "testimonials": {
-    "title_html": "What Clients <span class=\"gold\">Say</span>",
+    "title_html": "What Clients <span class=\"accent\">Say</span>",
     "desc": "Results and feedback from businesses we’ve helped get more leads and grow online.",
     "q1": "StrategyLab didn’t just build a site — they helped us think through conversion. Our inquiries went up and the site actually reflects our business.",
     "a1": "— Business owner",
@@ -198,12 +185,12 @@
     "cta": "Get a quote"
   },
   "final_cta": {
-    "title_html": "Ready to Get <span class=\"gold\">More Leads</span>?",
+    "title_html": "Ready to Get <span class=\"accent\">More Leads</span>?",
     "desc": "Book a free consultation, chat on WhatsApp, or send your details. We’ll respond within 24 hours.",
     "book": "Book a Free Consultation"
   },
   "contact": {
-    "title_html": "Get in <span class=\"gold\">Touch</span>",
+    "title_html": "Get in <span class=\"accent\">Touch</span>",
     "lead": "Short form, fast response. Tell us what you need and we’ll get back within 24 hours.",
     "intro": "Prefer to write? Use the form below and we’ll reply within 24 hours.",
     "wa": "WhatsApp",
@@ -315,7 +302,8 @@
     "ph_lead_goal": "e.g. more inquiries, bookings",
     "lead_submit": "Send my estimate",
     "lead_success": "Thanks! We’ve received your details and will send your estimate and follow up shortly.",
-    "lead_error": "Something went wrong. Please email bakorodolph@gmail.com or message us on WhatsApp."
+    "lead_error": "Something went wrong. Please email bakorodolph@gmail.com or message us on WhatsApp.",
+    "eyebrow": "Instant estimate"
   },
   "quote": {
     "r": {
@@ -427,7 +415,7 @@
     "contact_sidebar_cite": "— Client, events"
   },
   "graphics": {
-    "title_html": "Graphic <span class=\"gold\">Works</span>",
+    "title_html": "Graphic <span class=\"accent\">Works</span>",
     "desc": "Branding and marketing visuals designed to look premium and convert attention into action.",
     "c1h": "Logos & Brand marks",
     "c1p": "Clean identity options that work on social, signage, and print.",
@@ -456,7 +444,7 @@
     "note": "No pressure: use the estimator first, then we confirm scope in writing."
   },
   "pricing": {
-    "title_html": "Pricing that fits your <span class=\"gold\">budget</span>",
+    "title_html": "Pricing that fits your <span class=\"accent\">budget</span>",
     "results_head": "Performance-linked fees",
     "results_b1": "Clear scope and deliverables, confirmed in writing.",
     "results_b2": "Optional milestone/KPI-based tranches on eligible plans.",
@@ -500,7 +488,7 @@
     "note": "No surprises: we confirm scope, deliverables, and timelines in writing. Use the estimator for a realistic range, then we finalize on the call."
   },
   "reporting": {
-    "title_html": "Dashboards you can <span class=\"gold\">actually use</span>",
+    "title_html": "Dashboards you can <span class=\"accent\">actually use</span>",
     "desc": "Illustrative views — your live report pulls from Meta, Google, and on-site events so we optimize against the same numbers.",
     "cap1": "Sample overview dashboard",
     "cap2": "Sample ads breakdown",
@@ -510,7 +498,7 @@
   },
   "home": {
     "hero": {
-      "title_html": "Built to turn your traffic into <span class=\"gold\">paying customers</span>.",
+      "title_html": "Built to turn your traffic into <span class=\"accent\">paying customers</span>.",
       "sub": "We design websites, build software, and automate the systems that turn clicks into WhatsApp messages, bookings, and sales — for growing businesses across Ghana and West Africa.",
       "cta_secondary": "Book a Strategy Call",
       "trust": "Trusted by gyms, schools, restaurants, and event brands across Ghana."
@@ -538,9 +526,6 @@
       "t2": "Modern execution",
       "t3": "Clear process",
       "t4": "Local expertise"
-    },
-    "process": {
-      "eyebrow": "How we work"
     },
     "pricing": {
       "eyebrow": "Pricing"

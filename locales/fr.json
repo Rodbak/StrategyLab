@@ -35,7 +35,7 @@
     "text": "Obtenez plus de leads. Réservez une consultation gratuite ou écrivez-nous."
   },
   "hero": {
-    "title_html": "Sites web et tunnels publicitaires pour apporter à votre entreprise <span class=\"gold\">plus de leads</span>",
+    "title_html": "Sites web et tunnels publicitaires pour apporter à votre entreprise <span class=\"accent\">plus de leads</span>",
     "desc": "StrategyLab aide les entreprises en croissance à transformer l’attention en demandes, réservations et ventes grâce à des sites web, pages d’atterrissage et gestion d’annonces à fort taux de conversion.",
     "book": "Réserver une consultation gratuite",
     "wa_aria": "Discuter sur WhatsApp",
@@ -52,7 +52,7 @@
     "trusted_label": "Configurations maîtrisées pour :"
   },
   "pain": {
-    "title_html": "Pourquoi la plupart des entreprises <span class=\"gold\">perdent des leads</span>",
+    "title_html": "Pourquoi la plupart des entreprises <span class=\"accent\">perdent des leads</span>",
     "desc": "Sites obsolètes, prochaines étapes floues et efforts dispersés vous empêchent de transformer les visiteurs en clients.",
     "li1_html": "<strong>Site web faible ou dépassé</strong> — Les visiteurs partent au lieu de demander ou réserver.",
     "li2_html": "<strong>Pas d’appel à l’action clair</strong> — Le trafic arrive mais ne se convertit pas.",
@@ -63,13 +63,13 @@
     "cta": "Comment nous corrigeons cela"
   },
   "solution": {
-    "title_html": "L’approche <span class=\"gold\">StrategyLab</span>",
+    "title_html": "L’approche <span class=\"accent\">StrategyLab</span>",
     "desc": "Nous ne sommes pas que des designers. Nous sommes un partenaire digital orienté croissance qui construit des systèmes en ligne prêts à convertir pour les entreprises locales et régionales.",
     "text": "Salles de sport, écoles, centres de formation, marques événementielles, restaurants, cliniques, salons, immobilier et autres PME obtiennent une présence en ligne plus forte et une meilleure génération de leads — via sites modernes, pages d’atterrissage et gestion d’annonces alignés sur vos objectifs.",
     "cta": "Voir nos services"
   },
   "services": {
-    "title_html": "Ce que nous <span class=\"gold\">proposons</span>",
+    "title_html": "Ce que nous <span class=\"accent\">proposons</span>",
     "desc": "Quatre services centrés sur les leads, les demandes et la croissance.",
     "c1h": "Conception de site vitrine",
     "c1p": "Sites professionnels, mobile d’abord, qui inspirent confiance et capturent les leads. Positionnement clair, chargement rapide et appels à l’action pour transformer les visiteurs en demandes et réservations.",
@@ -87,7 +87,7 @@
     "cta": "Réserver une consultation gratuite"
   },
   "portfolio": {
-    "title_html": "Quelques <span class=\"gold\">réalisations</span>",
+    "title_html": "Quelques <span class=\"accent\">réalisations</span>",
     "desc": "Sites et campagnes pour l’événementiel, la restauration, les photobooths et la communauté — toujours orientés leads et conversion.",
     "hint": "Aperçu · Voir le site →",
     "cta": "Demander un devis",
@@ -117,31 +117,18 @@
     "b1_cat": "Événementiel · Image de marque"
   },
   "why": {
-    "title_html": "Pourquoi choisir <span class=\"gold\">StrategyLab</span>",
+    "title_html": "Pourquoi choisir <span class=\"accent\">StrategyLab</span>",
     "desc": "Nous visons les leads et la conversion, pas seulement le visuel. Ce qui nous distingue des freelances génériques ou des templates.",
-    "li1_html": "<strong class=\"gold\">Approche leads d’abord</strong> — Chaque décision vise les demandes, réservations et ventes.",
-    "li2_html": "<strong class=\"gold\">Exécution moderne et pro</strong> — Sites et tunnels crédibles sur tous les appareils.",
-    "li3_html": "<strong class=\"gold\">Alignés sur vos objectifs réels</strong> — Pas de solution unique ; adaptation à votre audience et votre offre.",
-    "li4_html": "<strong class=\"gold\">Réflexe pub et tunnel</strong> — Nous pensons d’où vient le trafic et comment il convertit.",
-    "li5_html": "<strong class=\"gold\">Communication claire, processus simple</strong> — Pas de jargon inutile ; vous suivez le projet du début au lancement.",
-    "li6_html": "<strong class=\"gold\">Adapté aux PME locales orientées croissance</strong> — Salles de sport, écoles, cliniques, restaurants, événements et PME ambitieuses.",
+    "li1_html": "<strong class=\"accent\">Approche leads d’abord</strong> — Chaque décision vise les demandes, réservations et ventes.",
+    "li2_html": "<strong class=\"accent\">Exécution moderne et pro</strong> — Sites et tunnels crédibles sur tous les appareils.",
+    "li3_html": "<strong class=\"accent\">Alignés sur vos objectifs réels</strong> — Pas de solution unique ; adaptation à votre audience et votre offre.",
+    "li4_html": "<strong class=\"accent\">Réflexe pub et tunnel</strong> — Nous pensons d’où vient le trafic et comment il convertit.",
+    "li5_html": "<strong class=\"accent\">Communication claire, processus simple</strong> — Pas de jargon inutile ; vous suivez le projet du début au lancement.",
+    "li6_html": "<strong class=\"accent\">Adapté aux PME locales orientées croissance</strong> — Salles de sport, écoles, cliniques, restaurants, événements et PME ambitieuses.",
     "cta": "Réserver une consultation gratuite"
   },
-  "process": {
-    "title_html": "Comment nous <span class=\"gold\">travaillons</span>",
-    "desc": "Un processus simple, du premier échange au lancement et au-delà.",
-    "s1h": "Découverte",
-    "s1p": "Nous comprenons votre activité, votre audience et vos objectifs. Qu’offrez-vous ? Qui visez-vous ? À quoi ressemble le succès ?",
-    "s2h": "Stratégie",
-    "s2p": "Nous définissons la structure du site, les messages clés, les points de capture de leads et, si besoin, le rôle des annonces et landing pages.",
-    "s3h": "Conception & lancement",
-    "s3p": "Nous concevons et construisons votre site ou tunnel, testons sur mobile et lançons. Vous obtenez un système prêt à convertir, pas une coquille vide.",
-    "s4h": "Optimisation & croissance",
-    "s4p": "Après le lancement nous suivons, ajustons et améliorons. Meilleurs formulaires, CTA plus clairs, optimisation continue pour des leads durables.",
-    "cta": "Commencer par une consultation gratuite"
-  },
   "cases": {
-    "title_html": "Études de <span class=\"gold\">cas</span>",
+    "title_html": "Études de <span class=\"accent\">cas</span>",
     "desc": "Résultats sur annonces payantes, sites web et pages d’atterrissage.",
     "c1h": "1. Étude de cas — Annonces payantes",
     "c2h": "2. Étude de cas — Refonte de site",
@@ -161,19 +148,19 @@
     "c1d3": "Décideurs 25–44 ans, intérêts outils business et SaaS.",
     "c1d4": "3 formats : statique, carrousel, vidéo — optimisés sur les meilleurs.",
     "c1d5": "10k vues · 40 % de conversion",
-    "c1d5_html": "<strong class=\"gold\">10k vues · 40 % de conversion</strong>",
+    "c1d5_html": "<strong class=\"accent\">10k vues · 40 % de conversion</strong>",
     "c2d1": "Améliorer vitesse, UX et capture de leads.",
     "c2d2": "Audit complet, refonte et migration.",
     "c2d3": "Trafic existant + nouveaux visiteurs organiques.",
     "c2d4": "Design mobile d’abord, chargement plus rapide, CTA plus clairs.",
     "c2d5": "×2 demandes via formulaire · chargement 60 % plus rapide",
-    "c2d5_html": "<strong class=\"gold\">×2 demandes via formulaire · chargement 60 % plus rapide</strong>",
+    "c2d5_html": "<strong class=\"accent\">×2 demandes via formulaire · chargement 60 % plus rapide</strong>",
     "c3d1": "Lancer une page orientée conversion pour une campagne produit.",
     "c3d2": "1–2 semaines du brief au lancement.",
     "c3d3": "Trafic payant Meta + Google.",
     "c3d4": "Variantes hero, placement du formulaire, preuve sociale.",
     "c3d5": "×3 conversion vs. ancienne page",
-    "c3d5_html": "<strong class=\"gold\">×3 conversion vs. ancienne page</strong>",
+    "c3d5_html": "<strong class=\"accent\">×3 conversion vs. ancienne page</strong>",
     "cta": "Obtenir des résultats similaires",
     "comp_goal_k": "Objectif :",
     "comp_did_k": "Ce que nous avons fait :",
@@ -189,7 +176,7 @@
     "c3_res": "Meilleur taux de conversion à trafic égal."
   },
   "testimonials": {
-    "title_html": "Ce que disent les <span class=\"gold\">clients</span>",
+    "title_html": "Ce que disent les <span class=\"accent\">clients</span>",
     "desc": "Retours d’entreprises que nous avons aidées à générer plus de leads en ligne.",
     "q1": "StrategyLab n’a pas seulement fait un site — ils nous ont aidés à réfléchir à la conversion. Nos demandes ont augmenté et le site reflète vraiment notre activité.",
     "a1": "— Dirigeant d’entreprise",
@@ -198,12 +185,12 @@
     "cta": "Demander un devis"
   },
   "final_cta": {
-    "title_html": "Prêt à obtenir <span class=\"gold\">plus de leads</span> ?",
+    "title_html": "Prêt à obtenir <span class=\"accent\">plus de leads</span> ?",
     "desc": "Réservez une consultation gratuite, écrivez sur WhatsApp ou envoyez vos infos. Réponse sous 24 h.",
     "book": "Réserver une consultation gratuite"
   },
   "contact": {
-    "title_html": "Entrer en <span class=\"gold\">contact</span>",
+    "title_html": "Entrer en <span class=\"accent\">contact</span>",
     "lead": "Formulaire court, réponse rapide. Dites-nous ce dont vous avez besoin — nous revenons vers vous sous 24 h.",
     "intro": "Vous préférez écrire ? Utilisez le formulaire ci-dessous — réponse sous 24 h.",
     "wa": "WhatsApp",
@@ -315,7 +302,8 @@
     "ph_lead_goal": "ex. plus de demandes, réservations",
     "lead_submit": "Envoyer mon estimation",
     "lead_success": "Merci ! Nous avons bien reçu vos informations et vous enverrons l’estimation sous peu.",
-    "lead_error": "Une erreur s’est produite. Écrivez à bakorodolph@gmail.com ou contactez-nous sur WhatsApp."
+    "lead_error": "Une erreur s’est produite. Écrivez à bakorodolph@gmail.com ou contactez-nous sur WhatsApp.",
+    "eyebrow": "Estimation instantanée"
   },
   "quote": {
     "r": {
@@ -427,7 +415,7 @@
     "contact_sidebar_cite": "— Client, événementiel"
   },
   "graphics": {
-    "title_html": "Travaux <span class=\"gold\">graphiques</span>",
+    "title_html": "Travaux <span class=\"accent\">graphiques</span>",
     "desc": "Identité de marque et visuels marketing pensés pour un rendu premium qui transforme l’attention en action.",
     "c1h": "Logos & identité de marque",
     "c1p": "Des options d’identité épurées, efficaces sur les réseaux, la signalétique et l’impression.",
@@ -456,7 +444,7 @@
     "note": "Sans pression : utilisez d’abord l’estimateur, puis nous confirmons le périmètre par écrit."
   },
   "pricing": {
-    "title_html": "Des tarifs adaptés à votre <span class=\"gold\">budget</span>",
+    "title_html": "Des tarifs adaptés à votre <span class=\"accent\">budget</span>",
     "results_head": "Honoraires liés à la performance",
     "results_b1": "Périmètre et livrables clairs, confirmés par écrit.",
     "results_b2": "Tranches optionnelles basées sur jalons/KPI sur les offres éligibles.",
@@ -500,7 +488,7 @@
     "note": "Sans surprise : nous confirmons périmètre, livrables et délais par écrit. Utilisez l’estimateur pour une fourchette réaliste, puis nous finalisons lors de l’appel."
   },
   "reporting": {
-    "title_html": "Des tableaux de bord <span class=\"gold\">vraiment utiles</span>",
+    "title_html": "Des tableaux de bord <span class=\"accent\">vraiment utiles</span>",
     "desc": "Vues illustratives — votre rapport en direct s’alimente de Meta, Google et des événements sur le site, pour qu’on optimise sur les mêmes chiffres.",
     "cap1": "Exemple de tableau de bord — vue d’ensemble",
     "cap2": "Exemple de répartition des annonces",
@@ -510,7 +498,7 @@
   },
   "home": {
     "hero": {
-      "title_html": "Conçu pour transformer votre trafic en <span class=\"gold\">clients payants</span>.",
+      "title_html": "Conçu pour transformer votre trafic en <span class=\"accent\">clients payants</span>.",
       "sub": "Nous concevons des sites web, développons des logiciels et automatisons les systèmes qui transforment les clics en messages WhatsApp, réservations et ventes — pour les entreprises en croissance au Ghana et en Afrique de l'Ouest.",
       "cta_secondary": "Réserver un appel stratégique",
       "trust": "La confiance de salles de sport, écoles, restaurants et marques événementielles à travers le Ghana."
@@ -538,9 +526,6 @@
       "t2": "Exécution moderne",
       "t3": "Processus clair",
       "t4": "Expertise locale"
-    },
-    "process": {
-      "eyebrow": "Notre méthode"
     },
     "pricing": {
       "eyebrow": "Tarifs"
