@@ -1,0 +1,5 @@
+# StrategyLab — allow all crawlers
+User-agent: *
+Allow: /
+
+Sitemap: https://strategylab.it.com/sitemap.xml
