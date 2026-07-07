@@ -2,7 +2,7 @@
 
 Web, software, AI-automation & Meta Ads agency site. **EN/FR** language switching, **multi-currency** display (GHS, CFA/XOF), quote estimator, and Formspree contact forms. No build step — plain HTML/CSS/JS, deployable as-is.
 
-> **Status:** `index.html` and `get-a-quote.html` are both on the new design system — cold white / vibrant indigo / night blue. `pdf/influencer-marketing-proposal.html` is still on its original styling, pending the same pass.
+> **Status:** `index.html` and `get-a-quote/` are both on the new design system — cold white / vibrant indigo / night blue. `pdf/influencer-marketing-proposal.html` is still on its original styling, pending the same pass.
 
 ## Run locally
 
@@ -38,9 +38,9 @@ No configuration needed — Vercel auto-detects this as a static site (no `packa
 | Path | Purpose |
 |------|--------|
 | `index.html` | Home |
-| `get-a-quote.html` | Quote estimator |
+| `get-a-quote/` | Quote estimator |
 | `pdf/influencer-marketing-proposal.html` | Standalone client proposal document (previous design, pending update) |
-| `theme.css` | Shared design system used by `index.html` and `get-a-quote.html` |
+| `theme.css` | Shared design system used by `index.html` and `get-a-quote/` |
 | `quote.css` | Quote-page-specific styles (estimator form, results, lead capture) |
 | `main.js` | Shared nav/counter/form interactions (all pages) |
 | `quote.js` | Quote-page estimator logic (budget, pricing, results, lead capture) |

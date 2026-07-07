@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/get-a-quote.html",
+      "destination": "/get-a-quote/",
+      "permanent": true
+    }
+  ]
+}
