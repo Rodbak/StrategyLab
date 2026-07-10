@@ -120,5 +120,71 @@
     /* ---- Current year in footer ---- */
     var yearEls = document.querySelectorAll('[data-year]');
     yearEls.forEach(function (el) { el.textContent = new Date().getFullYear(); });
+
+    /* ---- Clean URL section navigation (no hash anchors) ----
+       Same-page nav links (#services, #pricing, ...) are intercepted:
+       we smooth-scroll and update the address bar with history.pushState
+       to a clean path (e.g. /services) instead of an ugly #hash.
+       Cross-page links already point at clean root paths (/services, /).
+       vercel.json rewrites those paths back to index.html on reload. */
+    var SECTION_PATHS = {
+      'home': '/',
+      'services': '/services',
+      'pricing': '/pricing',
+      'portfolio': '/portfolio',
+      'contact': '/contact',
+      'why-us': '/why-us'
+    };
+    var PATH_TO_ID = {};
+    Object.keys(SECTION_PATHS).forEach(function (id) {
+      PATH_TO_ID[SECTION_PATHS[id]] = id;
+    });
+
+    function scrollToSection(id) {
+      var el = document.getElementById(id);
+      if (!el) return false;
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return true;
+    }
+
+    function sectionFromPath(pathname) {
+      var p = (pathname || '').replace(/\/+$/, '');
+      if (!p) p = '/';
+      return PATH_TO_ID[p] || null;
+    }
+
+    // Intercept clicks on same-page hash links that map to a section.
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var node = e.target;
+      while (node && (node.tagName !== 'A')) node = node.parentNode;
+      if (!node) return;
+      var href = node.getAttribute('href') || '';
+      if (href.charAt(0) !== '#') return;
+      var id = href.slice(1);
+      if (!SECTION_PATHS[id]) return;            // not a section (e.g. #main-content)
+      if (!document.getElementById(id)) return;  // target not on this page
+      e.preventDefault();
+      scrollToSection(id);
+      if (window.history && window.history.pushState) {
+        window.history.pushState({ section: id }, '', SECTION_PATHS[id]);
+      }
+    });
+
+    // Restore the correct section on back/forward navigation.
+    window.addEventListener('popstate', function () {
+      var id = sectionFromPath(window.location.pathname);
+      if (id) scrollToSection(id);
+    });
+
+    // On first load, scroll to the section named in the URL path
+    // (e.g. arriving at /services from the quote page). Skip "/" so a
+    // normal home visit doesn't force a scroll.
+    var initialId = sectionFromPath(window.location.pathname);
+    if (initialId && initialId !== 'home') {
+      window.addEventListener('load', function () {
+        scrollToSection(initialId);
+      });
+    }
   });
 })();

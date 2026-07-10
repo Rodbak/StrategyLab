@@ -5,5 +5,13 @@
       "destination": "/get-a-quote/",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/services", "destination": "/" },
+    { "source": "/pricing", "destination": "/" },
+    { "source": "/portfolio", "destination": "/" },
+    { "source": "/contact", "destination": "/" },
+    { "source": "/why-us", "destination": "/" },
+    { "source": "/home", "destination": "/" }
   ]
 }
