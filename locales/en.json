@@ -26,7 +26,8 @@
     "contact": "Contact",
     "book": "Book Free Consultation",
     "menu": "Toggle menu",
-    "home_aria": "StrategyLab home"
+    "home_aria": "StrategyLab home",
+    "faq": "FAQ"
   },
   "skip": "Skip to main content",
   "skip_quote": "Skip to estimator",
@@ -119,12 +120,12 @@
   "why": {
     "title_html": "Why Choose <span class=\"accent\">StrategyLab</span>",
     "desc": "We focus on leads and conversion, not just visuals. Here’s what sets us apart from generic freelancers or template providers.",
-    "li1_html": "<strong class=\"accent\">Leads-first approach</strong> — Every decision is geared toward inquiries, bookings, and sales.",
-    "li2_html": "<strong class=\"accent\">Modern, professional execution</strong> — Websites and funnels that look credible and work on every device.",
+    "li1_html": "Every decision is geared toward <strong class=\"accent\">inquiries, bookings, and sales</strong> — not vanity metrics.",
+    "li2_html": "Websites and funnels that <strong class=\"accent\">look credible and work flawlessly</strong> on every device.",
     "li3_html": "<strong class=\"accent\">Built for real business goals</strong> — Not one-size-fits-all; we align with your audience and offer.",
     "li4_html": "<strong class=\"accent\">Ads and funnel thinking included</strong> — We think about where traffic comes from and how it converts.",
-    "li5_html": "<strong class=\"accent\">Clear communication, simple process</strong> — No jargon overload; you stay in the loop from start to launch.",
-    "li6_html": "<strong class=\"accent\">Right fit for local, growth-focused businesses</strong> — Gyms, schools, clinics, restaurants, events, and SMEs that want to grow.",
+    "li5_html": "No jargon overload — <strong class=\"accent\">you stay in the loop</strong> from kickoff to launch.",
+    "li6_html": "Gyms, schools, clinics, restaurants, events, and SMEs — <strong class=\"accent\">we know exactly how you grow</strong>.",
     "cta": "Book a Free Consultation"
   },
   "cases": {
@@ -179,9 +180,9 @@
     "title_html": "What Clients <span class=\"accent\">Say</span>",
     "desc": "Results and feedback from businesses we’ve helped get more leads and grow online.",
     "q1": "StrategyLab didn’t just build a site — they helped us think through conversion. Our inquiries went up and the site actually reflects our business.",
-    "a1": "— Business owner",
+    "a1": "Business owner",
     "q2": "Clear communication and a process that made sense. We got a landing page that converts and a partner we’d work with again.",
-    "a2": "— Client, events",
+    "a2": "Client · Events",
     "cta": "Get a quote"
   },
   "final_cta": {
@@ -289,8 +290,8 @@
     "cta_book": "Book a free consultation",
     "cta_wa": "Chat on WhatsApp",
     "btn_send": "Send me this estimate",
-    "lead_h3": "Send this estimate to my inbox",
-    "lead_desc": "We’ll email your estimate and follow up to discuss your project.",
+    "lead_h3": "Request your full quote",
+    "lead_desc": "We'll review your estimate and get back with a detailed proposal within 24 hours — your estimate is attached automatically.",
     "lead_form_aria": "Send estimate form",
     "lbl_lead_name": "Name",
     "lbl_lead_biz": "Business name",
@@ -303,7 +304,8 @@
     "lead_submit": "Send my estimate",
     "lead_success": "Thanks! We’ve received your details and will send your estimate and follow up shortly.",
     "lead_error": "Something went wrong. Please email bakorodolph@gmail.com or message us on WhatsApp.",
-    "eyebrow": "Instant estimate"
+    "eyebrow": "Instant estimate",
+    "wa_prefill": "Hi StrategyLab! I just used your estimator — recommended package: {{pkg}}. I'd like to discuss my project."
   },
   "quote": {
     "r": {
@@ -312,7 +314,9 @@
       "excluded_dt": "Not included (or add separately)",
       "addons_dt": "Possible add-ons",
       "timeline": "Estimated timeline: {{text}}",
-      "next": "Best next step: {{text}}"
+      "next": "Best next step: {{text}}",
+      "range": "Indicative price range: {{low}} – {{high}}",
+      "range_from": "Indicative price range: from {{amount}}"
     },
     "tp": {
       "domain": "Domain (approx. per year)",
@@ -485,7 +489,9 @@
     "t3_f3": "Conversion experiments prioritized",
     "t3_f4": "Priority turnaround",
     "cta_primary": "Book strategy call",
-    "note": "No surprises: we confirm scope, deliverables, and timelines in writing. Use the estimator for a realistic range, then we finalize on the call."
+    "note": "No surprises: we confirm scope, deliverables, and timelines in writing. Use the estimator for a realistic range, then we finalize on the call.",
+    "t1_price_from": "From GHS 1,500/mo",
+    "t2_price_from": "From GHS 3,000/mo"
   },
   "reporting": {
     "title_html": "Dashboards you can <span class=\"accent\">actually use</span>",
@@ -542,6 +548,28 @@
       "col_site": "Site",
       "col_contact": "Contact",
       "rights": "All rights reserved."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title_html": "Frequently Asked <span class=\"accent\">Questions</span>",
+      "sub": "Straight answers to what most clients ask before starting.",
+      "q1": "How much does a website cost?",
+      "a1": "Most business websites land between GHS 4,000 and GHS 25,000 depending on scope; landing pages and simple sites start around GHS 800–4,000. Use our estimator to get an indicative range for your budget in about two minutes — final pricing is always confirmed in writing.",
+      "q2": "How long does a project take?",
+      "a2": "Landing pages typically take 1–2 weeks, most business websites 2–4 weeks, and larger builds 4–8 weeks. We confirm the timeline in your proposal before we start.",
+      "q3": "What does working with you look like?",
+      "a3": "A short strategy call, then a written scope and quote. We build in milestones with WhatsApp check-ins along the way, and finish with launch and a handover so you know how to use everything.",
+      "q4": "Is ad spend included in your fees?",
+      "a4": "No — ad spend goes directly to Meta and you stay in control of the budget (most clients start with GHS 500–2,000 per month). Our management fee covers strategy, targeting, creative, and optimization, and is quoted separately.",
+      "q5": "Do you offer maintenance after launch?",
+      "a5": "Yes. Optional monthly maintenance covers updates, backups, small content changes, and a monthly report — or we hand the site over fully and you run it yourself.",
+      "q6": "Do you work with businesses outside Ghana?",
+      "a6": "Yes — we serve growing businesses across West Africa, in English and French, with pricing shown in GHS or CFA (XOF)."
+    },
+    "cards": {
+      "rev_t": "Client revenue",
+      "rev_s": "Tracked to date",
+      "rev_g": "generated"
     }
   }
 }

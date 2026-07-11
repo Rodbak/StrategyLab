@@ -26,7 +26,8 @@
     "contact": "Contact",
     "book": "Consultation gratuite",
     "menu": "Ouvrir le menu",
-    "home_aria": "StrategyLab accueil"
+    "home_aria": "StrategyLab accueil",
+    "faq": "FAQ"
   },
   "skip": "Aller au contenu principal",
   "skip_quote": "Aller à l’estimateur",
@@ -119,12 +120,12 @@
   "why": {
     "title_html": "Pourquoi choisir <span class=\"accent\">StrategyLab</span>",
     "desc": "Nous visons les leads et la conversion, pas seulement le visuel. Ce qui nous distingue des freelances génériques ou des templates.",
-    "li1_html": "<strong class=\"accent\">Approche leads d’abord</strong> — Chaque décision vise les demandes, réservations et ventes.",
-    "li2_html": "<strong class=\"accent\">Exécution moderne et pro</strong> — Sites et tunnels crédibles sur tous les appareils.",
+    "li1_html": "Chaque décision vise <strong class=\"accent\">les demandes, réservations et ventes</strong> — pas les indicateurs de vanité.",
+    "li2_html": "Sites et tunnels <strong class=\"accent\">crédibles et parfaitement fonctionnels</strong> sur tous les appareils.",
     "li3_html": "<strong class=\"accent\">Alignés sur vos objectifs réels</strong> — Pas de solution unique ; adaptation à votre audience et votre offre.",
     "li4_html": "<strong class=\"accent\">Réflexe pub et tunnel</strong> — Nous pensons d’où vient le trafic et comment il convertit.",
-    "li5_html": "<strong class=\"accent\">Communication claire, processus simple</strong> — Pas de jargon inutile ; vous suivez le projet du début au lancement.",
-    "li6_html": "<strong class=\"accent\">Adapté aux PME locales orientées croissance</strong> — Salles de sport, écoles, cliniques, restaurants, événements et PME ambitieuses.",
+    "li5_html": "Pas de jargon inutile — <strong class=\"accent\">vous suivez le projet</strong> du début au lancement.",
+    "li6_html": "Salles de sport, écoles, cliniques, restaurants, événements et PME — <strong class=\"accent\">on sait exactement comment vous faire grandir</strong>.",
     "cta": "Réserver une consultation gratuite"
   },
   "cases": {
@@ -179,9 +180,9 @@
     "title_html": "Ce que disent les <span class=\"accent\">clients</span>",
     "desc": "Retours d’entreprises que nous avons aidées à générer plus de leads en ligne.",
     "q1": "StrategyLab n’a pas seulement fait un site — ils nous ont aidés à réfléchir à la conversion. Nos demandes ont augmenté et le site reflète vraiment notre activité.",
-    "a1": "— Dirigeant d’entreprise",
+    "a1": "Dirigeant d'entreprise",
     "q2": "Communication claire et processus logique. Une landing page qui convertit et un partenaire avec qui on refera.",
-    "a2": "— Client, événementiel",
+    "a2": "Client · Événementiel",
     "cta": "Demander un devis"
   },
   "final_cta": {
@@ -289,8 +290,8 @@
     "cta_book": "Réserver une consultation gratuite",
     "cta_wa": "Discuter sur WhatsApp",
     "btn_send": "M’envoyer cette estimation",
-    "lead_h3": "Recevoir cette estimation par e-mail",
-    "lead_desc": "Nous vous enverrons l’estimation et vous recontacterons pour discuter du projet.",
+    "lead_h3": "Demandez votre devis complet",
+    "lead_desc": "Nous examinons votre estimation et revenons vers vous avec une proposition détaillée sous 24 h — votre estimation est jointe automatiquement.",
     "lead_form_aria": "Formulaire envoi estimation",
     "lbl_lead_name": "Nom",
     "lbl_lead_biz": "Entreprise",
@@ -303,7 +304,8 @@
     "lead_submit": "Envoyer mon estimation",
     "lead_success": "Merci ! Nous avons bien reçu vos informations et vous enverrons l’estimation sous peu.",
     "lead_error": "Une erreur s’est produite. Écrivez à bakorodolph@gmail.com ou contactez-nous sur WhatsApp.",
-    "eyebrow": "Estimation instantanée"
+    "eyebrow": "Estimation instantanée",
+    "wa_prefill": "Bonjour StrategyLab ! Je viens d'utiliser votre estimateur — formule recommandée : {{pkg}}. J'aimerais discuter de mon projet."
   },
   "quote": {
     "r": {
@@ -312,7 +314,9 @@
       "excluded_dt": "Non inclus (ou en option)",
       "addons_dt": "Options possibles",
       "timeline": "Délai estimé : {{text}}",
-      "next": "Prochaine étape : {{text}}"
+      "next": "Prochaine étape : {{text}}",
+      "range": "Fourchette de prix indicative : {{low}} – {{high}}",
+      "range_from": "Fourchette de prix indicative : à partir de {{amount}}"
     },
     "tp": {
       "domain": "Nom de domaine (env. par an)",
@@ -485,7 +489,9 @@
     "t3_f3": "Expériences de conversion priorisées",
     "t3_f4": "Traitement prioritaire",
     "cta_primary": "Réserver un appel stratégique",
-    "note": "Sans surprise : nous confirmons périmètre, livrables et délais par écrit. Utilisez l’estimateur pour une fourchette réaliste, puis nous finalisons lors de l’appel."
+    "note": "Sans surprise : nous confirmons périmètre, livrables et délais par écrit. Utilisez l’estimateur pour une fourchette réaliste, puis nous finalisons lors de l’appel.",
+    "t1_price_from": "À partir de 1 500 GHS/mois",
+    "t2_price_from": "À partir de 3 000 GHS/mois"
   },
   "reporting": {
     "title_html": "Des tableaux de bord <span class=\"accent\">vraiment utiles</span>",
@@ -542,6 +548,28 @@
       "col_site": "Site",
       "col_contact": "Contact",
       "rights": "Tous droits réservés."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title_html": "Questions <span class=\"accent\">fréquentes</span>",
+      "sub": "Des réponses claires aux questions que la plupart des clients posent avant de se lancer.",
+      "q1": "Combien coûte un site web ?",
+      "a1": "La plupart des sites d'entreprise se situent entre 4 000 et 25 000 GHS selon le périmètre ; les landing pages et sites simples démarrent autour de 800–4 000 GHS. Utilisez notre estimateur pour obtenir une fourchette indicative selon votre budget en deux minutes — le prix final est toujours confirmé par écrit.",
+      "q2": "Combien de temps dure un projet ?",
+      "a2": "Une landing page prend généralement 1 à 2 semaines, la plupart des sites d'entreprise 2 à 4 semaines, et les projets plus ambitieux 4 à 8 semaines. Le calendrier est confirmé dans votre proposition avant de commencer.",
+      "q3": "Comment se passe une collaboration avec vous ?",
+      "a3": "Un court appel stratégique, puis un périmètre et un devis écrits. Nous construisons par étapes avec des points WhatsApp réguliers, et terminons par la mise en ligne et une passation pour que vous sachiez tout utiliser.",
+      "q4": "Le budget publicitaire est-il inclus dans vos honoraires ?",
+      "a4": "Non — le budget publicitaire va directement à Meta et vous en gardez le contrôle (la plupart des clients démarrent avec 500–2 000 GHS par mois). Nos honoraires de gestion couvrent la stratégie, le ciblage, les créations et l'optimisation, et sont chiffrés séparément.",
+      "q5": "Proposez-vous de la maintenance après le lancement ?",
+      "a5": "Oui. La maintenance mensuelle optionnelle couvre les mises à jour, les sauvegardes, les petites modifications de contenu et un rapport mensuel — ou nous vous remettons le site entièrement et vous le gérez vous-même.",
+      "q6": "Travaillez-vous avec des entreprises hors du Ghana ?",
+      "a6": "Oui — nous accompagnons des entreprises en croissance dans toute l'Afrique de l'Ouest, en anglais et en français, avec des prix affichés en GHS ou en FCFA (XOF)."
+    },
+    "cards": {
+      "rev_t": "Revenu client",
+      "rev_s": "Suivi à ce jour",
+      "rev_g": "générés"
     }
   }
 }

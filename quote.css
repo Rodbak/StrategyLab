@@ -159,7 +159,7 @@
   font-family: var(--font-mono);
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--accent-deep);
+  color: var(--accent-bright);
 }
 
 .quote-card select {
@@ -194,7 +194,7 @@
 .option-chip:has(input:checked) {
   border-color: var(--accent);
   background: var(--accent-pale);
-  color: var(--accent-deep);
+  color: var(--accent-bright);
   font-weight: 600;
 }
 
@@ -260,7 +260,7 @@
 }
 .results-list dd:last-child { margin-bottom: 0; }
 .results-list--excluded dt { color: var(--ink-faint); }
-.results-list--addons dt { color: var(--accent-deep); }
+.results-list--addons dt { color: var(--accent-bright); }
 
 .results-timeline, .results-next {
   margin-top: 1.25rem;
@@ -335,7 +335,7 @@
   box-shadow: 0 0 0 4px var(--accent-pale);
 }
 .quote-lead-capture .form-status { margin-top: 0.85rem; font-size: 0.88rem; font-weight: 600; }
-.form-status-success { color: var(--accent-deep); }
+.form-status-success { color: var(--accent-bright); }
 .form-status-error { color: var(--coral); }
 
 @media (max-width: 768px) {
@@ -366,4 +366,29 @@
   .results-card { padding: 1.25rem 1rem; }
   .btn-lg { padding: 0.9rem 1.5rem; min-height: 48px; }
   .checkbox-label { font-size: 0.9rem; min-height: 44px; align-items: center; }
+}
+
+/* Indicative price range line in results */
+.results-range {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-bright);
+  margin: -0.75rem 0 1.25rem;
+}
+
+/* Ambient glow behind the estimator intro (matches homepage hero) */
+.quote-intro { position: relative; }
+.quote-intro::before {
+  content: '';
+  position: absolute;
+  top: -70%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--glow-soft) 0%, transparent 62%);
+  pointer-events: none;
+  z-index: -1;
 }

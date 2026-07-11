@@ -46,6 +46,7 @@ No configuration needed — Vercel auto-detects this as a static site (no `packa
 | `quote.js` | Quote-page estimator logic (budget, pricing, results, lead capture) |
 | `i18n.js` | Shared translation + currency engine (all pages) |
 | `locales/en.json`, `locales/fr.json` | Copy & quote strings |
+| `assets/` | Social-preview image (`og-image.png`), touch icon; drop real portfolio screenshots here as `<img class="pf-shot">` inside `.pf-frame-wrap` to replace the CSS preview tiles |
 
 ## Config you may change
 

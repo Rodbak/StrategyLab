@@ -10,7 +10,30 @@
     else document.addEventListener('DOMContentLoaded', fn);
   }
 
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
+
   ready(function () {
+    /* ---- Conversion tracking (GA4) ---- */
+    document.addEventListener('click', function (e) {
+      var node = e.target;
+      while (node && node.tagName !== 'A') node = node.parentNode;
+      if (!node) return;
+      var href = node.getAttribute('href') || '';
+      if (href.indexOf('wa.me/') !== -1) {
+        var section = node.closest('section, footer, .nav-float-outer');
+        var location = node.classList.contains('wa-float')
+          ? 'floating_button'
+          : (section && (section.id || section.className.split(' ')[0])) || 'page';
+        track('whatsapp_click', { location: location, page: window.location.pathname });
+      } else if (href.indexOf('get-a-quote') !== -1) {
+        track('cta_click', { cta: 'get_a_quote', page: window.location.pathname });
+      } else if (href === '#contact' || href === '/contact') {
+        track('cta_click', { cta: 'contact', page: window.location.pathname });
+      }
+    });
+
     /* ---- Floating nav: scrolled state ---- */
     var navOuter = document.querySelector('.nav-float-outer');
     if (navOuter) {
@@ -73,6 +96,7 @@
           headers: { Accept: 'application/json' }
         }).then(function (res) {
           if (res.ok) {
+            track('contact_form_submit', { page: window.location.pathname });
             contactForm.reset();
             showStatus('success', successMsg);
           } else {

@@ -3,7 +3,20 @@
 
   var DOMAIN_PRICES = { com: 120, org: 110, net: 110, 'com.gh': 85, gh: 180 };
   var HOSTING_ESTIMATE = 400;
-  var LOADING_DURATION = 3200;
+  var LOADING_DURATION = 1400;
+  var WHATSAPP_NUMBER = '233530402249';
+
+  /* Indicative GHS ranges per package — aligned with the budget buckets in computeEstimate(). */
+  var PACKAGE_RANGES_GHS = {
+    starter: [800, 4000],
+    essential: [4000, 12000],
+    growth: [12000, 25000],
+    premium: [25000, null] // "from"
+  };
+
+  function track(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  }
 
   function I() {
     return window.StrategyLabI18n;
@@ -50,6 +63,7 @@
     var packageName = '';
     var timelineText = '';
     var nextStep = qc('next_step');
+    var rangeKey = null;
 
     if (sel.projectType === 'ads-only') {
       packageName = qc('pkg_ads');
@@ -64,6 +78,7 @@
       timelineText = qc('time_ads');
     } else if (budget < 4000) {
       packageName = qc('pkg_starter');
+      rangeKey = 'starter';
       included.push(qc('inc_st_0'));
       included.push(qc('inc_st_1'));
       included.push(qc('inc_st_2'));
@@ -74,6 +89,7 @@
       timelineText = qc('time_st');
     } else if (budget < 12000) {
       packageName = qc('pkg_ess');
+      rangeKey = 'essential';
       included.push(qc('inc_es_0'));
       included.push(qc('inc_es_1'));
       included.push(qc('inc_es_2'));
@@ -87,6 +103,7 @@
       timelineText = qc('time_es');
     } else if (budget < 25000) {
       packageName = qc('pkg_growth');
+      rangeKey = 'growth';
       included.push(qc('inc_gr_0'));
       included.push(qc('inc_gr_1'));
       included.push(qc('inc_gr_2'));
@@ -100,6 +117,7 @@
       timelineText = qc('time_gr');
     } else {
       packageName = qc('pkg_prem');
+      rangeKey = 'premium';
       included.push(qc('inc_pr_0'));
       included.push(qc('inc_pr_1'));
       included.push(qc('inc_pr_2'));
@@ -130,6 +148,7 @@
 
     return {
       packageName: packageName,
+      rangeGhs: rangeKey ? PACKAGE_RANGES_GHS[rangeKey] : null,
       included: included.filter(Boolean),
       excluded: excluded,
       addons: addons,
@@ -183,6 +202,17 @@
     var adsNoteEl = document.getElementById('third-party-ads-note');
 
     if (pkg) pkg.textContent = I().t('quote.r.recommended', { pkg: estimate.packageName });
+    var rangeEl = document.getElementById('results-range');
+    if (rangeEl) {
+      var rangeText = '';
+      if (estimate.rangeGhs) {
+        rangeText = estimate.rangeGhs[1]
+          ? I().t('quote.r.range', { low: fmtGhs(estimate.rangeGhs[0]), high: fmtGhs(estimate.rangeGhs[1]) })
+          : I().t('quote.r.range_from', { amount: fmtGhs(estimate.rangeGhs[0]) });
+      }
+      rangeEl.textContent = rangeText;
+      rangeEl.hidden = !rangeText;
+    }
     if (inc) {
       inc.innerHTML = '';
       var incDt = document.createElement('dt');
@@ -284,6 +314,15 @@
     return parts.join(' | ');
   }
 
+  /* Prefill the results WhatsApp CTA with the visitor's estimate so the
+     conversation starts with full context instead of a blank chat. */
+  function updateWhatsAppCta(sel, estimate) {
+    var wa = document.getElementById('quote-wa-cta');
+    if (!wa || !I()) return;
+    var msg = I().t('quote_page.wa_prefill', { pkg: estimate.packageName }) + '\n' + buildSummaryText(sel, estimate);
+    wa.href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+  }
+
   var budgetSlider = document.getElementById('budget-slider');
   var budgetInput = document.getElementById('budget-input');
   var budgetDisplay = document.getElementById('budget-display');
@@ -326,6 +365,7 @@
       renderResults(q.estimate, q.thirdParty);
       var leadSummary = document.getElementById('lead-estimate-summary');
       if (leadSummary) leadSummary.value = buildSummaryText(q.sel, q.estimate);
+      updateWhatsAppCta(q.sel, q.estimate);
     }
   }
 
@@ -352,7 +392,6 @@
     var leadCapture = document.getElementById('quote-lead-capture');
     var leadForm = document.getElementById('quote-lead-form');
     var leadSummary = document.getElementById('lead-estimate-summary');
-    var btnSendEstimate = document.getElementById('btn-send-estimate');
 
     if (estimatorForm) {
       estimatorForm.addEventListener('submit', function (e) {
@@ -361,19 +400,17 @@
         var estimate = computeEstimate(sel);
         var thirdParty = getThirdParty(sel);
         window.__quoteEstimate = { sel: sel, estimate: estimate, thirdParty: thirdParty };
+        track('estimate_complete', {
+          project_type: sel.projectType,
+          budget_ghs: sel.budget,
+          business_type: sel.businessType || '(none)'
+        });
         showLoading(function () {
           renderResults(estimate, thirdParty);
+          if (leadCapture) leadCapture.hidden = false;
           if (leadSummary) leadSummary.value = buildSummaryText(sel, estimate);
+          updateWhatsAppCta(sel, estimate);
         });
-      });
-    }
-
-    if (btnSendEstimate) {
-      btnSendEstimate.addEventListener('click', function () {
-        if (leadCapture) {
-          leadCapture.hidden = false;
-          leadCapture.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
       });
     }
 
@@ -398,6 +435,7 @@
         })
           .then(function (r) {
             if (r.ok) {
+              track('lead_form_submit', { source: 'quote_estimator' });
               if (status) {
                 status.textContent = I().t('quote_page.lead_success');
                 status.className = 'form-status form-status-success';

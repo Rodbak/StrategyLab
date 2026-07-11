@@ -21,6 +21,22 @@
   <title>Get a Quote | StrategyLab — Project Estimate</title>
   <meta name="description" content="Estimate your website, software, or ads project in minutes. See what fits your budget, then request a full quote from StrategyLab.">
   <link rel="canonical" href="https://strategylab.it.com/get-a-quote/">
+  <meta name="theme-color" content="#04060F">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <!-- Social sharing (WhatsApp, Facebook, LinkedIn, X) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StrategyLab">
+  <meta property="og:title" content="Get a Quote | StrategyLab — Project Estimate">
+  <meta property="og:description" content="Estimate your website, software, or ads project in minutes. See what fits your budget, then request a full quote.">
+  <meta property="og:url" content="https://strategylab.it.com/get-a-quote/">
+  <meta property="og:image" content="https://strategylab.it.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get a Quote | StrategyLab — Project Estimate">
+  <meta name="twitter:description" content="Estimate your website, software, or ads project in minutes. See what fits your budget, then request a full quote.">
+  <meta name="twitter:image" content="https://strategylab.it.com/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,20 +79,31 @@
           </select>
         </div>
         <a href="/contact" class="btn btn-primary btn-sm">
+          <svg class="short-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg>
           <span class="long" data-i18n="nav.book">Book Free Consultation</span>
         </a>
         <button class="nav-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-i18n-aria="nav.menu" aria-label="Toggle menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>
     </div>
   </div>
 
   <div class="nav-mobile" id="mobile-nav">
-      <a href="/services" data-i18n="nav.services">Services</a>
-      <a href="/pricing" data-i18n="nav.pricing">Pricing</a>
-      <a href="/portfolio" data-i18n="nav.work">Work</a>
-      <a href="/contact" data-i18n="nav.contact">Contact</a>
+    <a href="/services" data-i18n="nav.services">Services</a>
+    <a href="/pricing" data-i18n="nav.pricing">Pricing</a>
+    <a href="/portfolio" data-i18n="nav.work">Work</a>
+    <a href="/contact" data-i18n="nav.contact">Contact</a>
+    <div class="nav-mobile-locale">
+      <select class="locale-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <select class="currency-select" aria-label="Currency">
+        <option value="GHS">GHS</option>
+        <option value="XOF">CFA</option>
+      </select>
     </div>
     <a href="/contact" class="btn btn-primary btn-block" data-i18n="nav.book">Book Free Consultation</a>
   </div>
@@ -187,6 +214,7 @@
         <h2 class="quote-section-title" data-i18n="quote_page.results_h2">Your estimate</h2>
         <div class="card results-card" id="results-card">
           <p class="results-package accent" id="results-package"></p>
+          <p class="results-range" id="results-range" hidden></p>
           <dl class="results-list" id="results-included"></dl>
           <dl class="results-list results-list--excluded" id="results-excluded"></dl>
           <dl class="results-list results-list--addons" id="results-addons"></dl>
@@ -211,10 +239,9 @@
         </div>
 
         <div class="quote-ctas">
-          <a href="/contact" class="btn btn-primary" data-i18n="quote_page.cta_quote">Request full quote</a>
+          <a href="#quote-lead-capture" class="btn btn-primary" data-i18n="quote_page.cta_quote">Request full quote</a>
+          <a href="https://wa.me/233530402249?text=Hi%20StrategyLab!%20I%27d%20like%20to%20discuss%20a%20project." id="quote-wa-cta" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" data-i18n="quote_page.cta_wa">Chat on WhatsApp</a>
           <a href="/contact" class="btn btn-outline" data-i18n="quote_page.cta_book">Book a free consultation</a>
-          <a href="https://wa.me/233530402249" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" data-i18n="quote_page.cta_wa">Chat on WhatsApp</a>
-          <button type="button" class="btn btn-outline" id="btn-send-estimate" data-i18n="quote_page.btn_send">Send me this estimate</button>
         </div>
 
         <div class="card quote-card quote-lead-capture" id="quote-lead-capture" hidden>
@@ -262,7 +289,7 @@
           </div>
           <div class="footer-col">
             <h5 data-i18n="home.footer.col_contact">Contact</h5>
-            <a href="https://wa.me/233530402249" data-i18n="contact.wa">WhatsApp</a>
+            <a href="https://wa.me/233530402249?text=Hi%20StrategyLab!%20I%27d%20like%20to%20discuss%20a%20project." data-i18n="contact.wa">WhatsApp</a>
             <a href="mailto:bakorodolph@gmail.com" data-i18n="contact.em">Email</a>
             <a href="/contact" data-i18n="nav.contact">Contact</a>
           </div>

@@ -8,6 +8,14 @@
   var STORAGE_LANG = 'strategylab_locale';
   var STORAGE_CUR = 'strategylab_currency';
 
+  /* Locale files live next to this script, not next to the page —
+     sub-pages (e.g. /get-a-quote/) would otherwise fetch a wrong relative path. */
+  var LOCALES_BASE = (function () {
+    var src = document.currentScript && document.currentScript.src;
+    if (!src) return 'locales/';
+    return src.slice(0, src.lastIndexOf('/') + 1) + 'locales/';
+  })();
+
   /** How many GHS one unit of this currency equals (approximate, as of Jul 2026). */
   var GHS_PER_UNIT = { GHS: 1, XOF: 0.0196 };
 
@@ -304,7 +312,7 @@
 
   function loadBundle(lang) {
     if (bundle[lang]) return Promise.resolve();
-    return fetch('locales/' + lang + '.json')
+    return fetch(LOCALES_BASE + lang + '.json')
       .then(function (r) {
         if (!r.ok) throw new Error('fetch');
         return r.json();
