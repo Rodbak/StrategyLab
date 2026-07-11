@@ -556,6 +556,7 @@ section { position: relative; }
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 .hero-sun-wrap::before {
   content: '';
@@ -590,6 +591,7 @@ section { position: relative; }
   box-shadow: 0 0 8px var(--glow);
   opacity: 0.55;
   pointer-events: none;
+  z-index: 1;
 }
 .ll-tl { left: 25%; top: 30%; width: 15%; }
 .ll-bl { left: 25%; top: 70%; width: 15%; }
@@ -599,6 +601,7 @@ section { position: relative; }
 .float-card {
   position: absolute;
   --rot: 0deg;
+  z-index: 3;
 }
 .float-card-inner {
   background: linear-gradient(160deg, rgba(30, 40, 72, 0.55), rgba(12, 17, 36, 0.65));
