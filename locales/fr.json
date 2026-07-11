@@ -490,8 +490,8 @@
     "t3_f4": "Traitement prioritaire",
     "cta_primary": "Réserver un appel stratégique",
     "note": "Sans surprise : nous confirmons périmètre, livrables et délais par écrit. Utilisez l’estimateur pour une fourchette réaliste, puis nous finalisons lors de l’appel.",
-    "t1_price_from": "À partir de 1 500 GHS/mois",
-    "t2_price_from": "À partir de 3 000 GHS/mois"
+    "from_prefix": "À partir de",
+    "per_mo": "/mois"
   },
   "reporting": {
     "title_html": "Des tableaux de bord <span class=\"accent\">vraiment utiles</span>",

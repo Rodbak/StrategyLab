@@ -490,8 +490,8 @@
     "t3_f4": "Priority turnaround",
     "cta_primary": "Book strategy call",
     "note": "No surprises: we confirm scope, deliverables, and timelines in writing. Use the estimator for a realistic range, then we finalize on the call.",
-    "t1_price_from": "From GHS 1,500/mo",
-    "t2_price_from": "From GHS 3,000/mo"
+    "from_prefix": "From",
+    "per_mo": "/mo"
   },
   "reporting": {
     "title_html": "Dashboards you can <span class=\"accent\">actually use</span>",

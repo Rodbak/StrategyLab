@@ -127,6 +127,23 @@
       });
     }
 
+    /* Elements with [data-amount-ghs-mo] show a full (non-compact) figure
+       with no "+" — used for recurring monthly prices like tier cards,
+       where "GHS 1.5K/mo" would read oddly compared to "GHS 1,500/mo". */
+    function renderAmountMo(el) {
+      var i18n = window.StrategyLabI18n;
+      var ghs = parseFloat(el.getAttribute('data-amount-ghs-mo'));
+      if (!i18n || isNaN(ghs)) return;
+      el.textContent = i18n.formatMoneyRounded(i18n.ghsToDisplay(ghs));
+    }
+    var amountMoEls = document.querySelectorAll('[data-amount-ghs-mo]');
+    if (amountMoEls.length && window.StrategyLabI18n) {
+      amountMoEls.forEach(renderAmountMo);
+      window.StrategyLabI18n.onChange(function () {
+        amountMoEls.forEach(renderAmountMo);
+      });
+    }
+
     /* ---- Count-up stats when scrolled into view ---- */
     var counters = document.querySelectorAll('[data-counter]');
     if (counters.length && 'IntersectionObserver' in window) {
@@ -137,13 +154,14 @@
         var start = null;
         if (ghsAttr !== null && i18n) {
           var targetDisplay = i18n.ghsToDisplay(parseFloat(ghsAttr));
-          (function stepMoney(ts) {
+          var stepMoney = function (ts) {
             if (start === null) start = ts;
             var p = Math.min(1, (ts - start) / dur);
             var eased = 1 - Math.pow(1 - p, 3);
             el.textContent = i18n.formatMoneyCompact(targetDisplay * eased) + '+';
             if (p < 1) requestAnimationFrame(stepMoney);
-          })();
+          };
+          requestAnimationFrame(stepMoney);
           return;
         }
         var target = parseFloat(el.getAttribute('data-counter'));
