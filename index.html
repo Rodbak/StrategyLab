@@ -137,6 +137,12 @@
             <option value="en">EN</option>
             <option value="fr">FR</option>
           </select>
+          <select class="currency-select" aria-label="Currency">
+            <option value="GHS">GHS</option>
+            <option value="XOF">CFA</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
         </div>
         <a href="get-a-quote/" class="btn btn-primary btn-sm">
           <svg class="short-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg>
@@ -159,6 +165,12 @@
       <select class="locale-select" aria-label="Language">
         <option value="en">English</option>
         <option value="fr">Français</option>
+      </select>
+      <select class="currency-select" aria-label="Currency">
+        <option value="GHS">GHS</option>
+        <option value="XOF">CFA</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
       </select>
     </div>
     <a href="get-a-quote/" class="btn btn-primary btn-block" data-i18n="nav.quote">Get a Quote</a>
@@ -188,7 +200,14 @@
         </div>
 
         <div class="hero-stage" aria-hidden="true">
-          <div class="hero-orb"></div>
+          <div class="hero-orb">
+            <div class="hero-orb-inner">
+              <div class="lava-blob lava-blob-1"></div>
+              <div class="lava-blob lava-blob-2"></div>
+              <div class="lava-blob lava-blob-3"></div>
+              <div class="lava-blob lava-blob-4"></div>
+            </div>
+          </div>
           <span class="link-line ll-tl"></span>
           <span class="link-line ll-bl"></span>
           <span class="link-line ll-tr"></span>
@@ -199,11 +218,11 @@
               <div class="fc-head">
                 <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a6 6 0 00-6 6c0 5-2 6-2 6h16s-2-1-2-6a6 6 0 00-6-6z"/><path d="M10 20a2 2 0 004 0"/></svg></span>
                 <span>
-                  <span class="fc-title">New lead</span>
-                  <span class="fc-sub">2 min ago</span>
+                  <span class="fc-title" data-i18n="home.cards.lead_t">New lead</span>
+                  <span class="fc-sub" data-i18n="home.cards.lead_s">2 min ago</span>
                 </span>
               </div>
-              <p class="fc-body">Website contact form · Growth package inquiry</p>
+              <p class="fc-body" data-i18n="home.cards.lead_b">Website contact form · Growth package inquiry</p>
             </div>
           </div>
 
@@ -212,8 +231,8 @@
               <div class="fc-head">
                 <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
                 <span>
-                  <span class="fc-title">Leads this month</span>
-                  <span class="fc-sub">Live tracking</span>
+                  <span class="fc-title" data-i18n="home.cards.chart_t">Leads this month</span>
+                  <span class="fc-sub" data-i18n="home.cards.chart_s">Live tracking</span>
                 </span>
               </div>
               <svg class="fc-chart-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
@@ -221,7 +240,7 @@
                 <polygon points="4,50 40,38 76,44 112,20 148,26 196,6 196,60 4,60" fill="url(#fc-lg)"/>
                 <polyline points="4,50 40,38 76,44 112,20 148,26 196,6" fill="none" stroke="#7CC7FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <p class="fc-stat">+38% <span>vs last month</span></p>
+              <p class="fc-stat">+38% <span data-i18n="home.cards.chart_vs">vs last month</span></p>
             </div>
           </div>
 
@@ -230,11 +249,11 @@
               <div class="fc-head">
                 <span class="fc-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></span>
                 <span>
-                  <span class="fc-title">WhatsApp</span>
-                  <span class="fc-sub">Fastest way to reach us</span>
+                  <span class="fc-title" data-i18n="home.cards.wa_t">WhatsApp</span>
+                  <span class="fc-sub" data-i18n="home.cards.wa_s">Fastest way to reach us</span>
                 </span>
               </div>
-              <p class="fc-bubble">"Hi! I'd like a quote for a new website 👋"</p>
+              <p class="fc-bubble" data-i18n="home.cards.wa_bubble">"Hi! I'd like a quote for a new website 👋"</p>
             </div>
           </div>
 
@@ -247,7 +266,7 @@
                   <span class="fc-sub" data-i18n="home.cards.rev_s">Tracked to date</span>
                 </span>
               </div>
-              <p class="fc-stat">GHS 2.4M+ <span data-i18n="home.cards.rev_g">generated</span></p>
+              <p class="fc-stat"><span data-amount-ghs="2400000">GHS 2.4M+</span> <span data-i18n="home.cards.rev_g">generated</span></p>
             </div>
           </div>
         </div>
@@ -255,9 +274,9 @@
 
       <div class="container">
         <div class="stats-strip">
-          <div class="stat-chip"><span class="num"><span data-counter="2.4" data-prefix="GHS " data-suffix="M+" data-decimals="1">GHS 0.0M+</span></span><span class="label" data-i18n="home.stats.revenue">Revenue generated</span></div>
+          <div class="stat-chip"><span class="num"><span data-counter="1" data-amount-ghs="2400000">GHS 0.0M+</span></span><span class="label" data-i18n="home.stats.revenue">Revenue generated</span></div>
           <div class="stat-chip"><span class="num"><span data-counter="14000" data-suffix="+">0+</span></span><span class="label" data-i18n="home.stats.leads">Leads driven</span></div>
-          <div class="stat-chip"><span class="num"><span data-counter="380" data-prefix="GHS " data-suffix="K+">GHS 0K+</span></span><span class="label" data-i18n="home.stats.adspend">Ad spend managed</span></div>
+          <div class="stat-chip"><span class="num"><span data-counter="1" data-amount-ghs="380000">GHS 0K+</span></span><span class="label" data-i18n="home.stats.adspend">Ad spend managed</span></div>
         </div>
       </div>
     </section>
@@ -273,7 +292,19 @@
 
         <div class="services-grid">
           <article class="card service-card">
-            <span class="icon-badge floaty-wrap" style="--delay:-0.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6L2 12L8 18"/><path d="M16 6L22 12L16 18"/></svg></span>
+            <div class="svc-visual svc-web" aria-hidden="true">
+              <svg viewBox="0 0 200 110">
+                <rect x="4" y="4" width="192" height="102" rx="10" class="svc-web-frame"/>
+                <circle cx="16" cy="16" r="2.5" class="svc-web-dot"/>
+                <circle cx="25" cy="16" r="2.5" class="svc-web-dot"/>
+                <circle cx="34" cy="16" r="2.5" class="svc-web-dot"/>
+                <line x1="4" y1="26" x2="196" y2="26" class="svc-web-divider"/>
+                <rect x="16" y="38" width="120" height="7" rx="3.5" class="svc-web-bar svc-web-bar-1"/>
+                <rect x="16" y="53" width="160" height="7" rx="3.5" class="svc-web-bar svc-web-bar-2"/>
+                <rect x="16" y="68" width="90" height="7" rx="3.5" class="svc-web-bar svc-web-bar-3"/>
+                <rect x="16" y="84" width="54" height="14" rx="7" class="svc-web-btn"/>
+              </svg>
+            </div>
             <h3 data-i18n="home.services.web_h">Web Development</h3>
             <p data-i18n="home.services.web_p">Conversion-first websites and landing funnels that turn visitors into inquiries — fast to load, clear to act on.</p>
             <div class="fx"><span>Websites</span><span>Funnels</span><span>SEO</span></div>
@@ -281,7 +312,17 @@
           </article>
 
           <article class="card service-card">
-            <span class="icon-badge floaty-wrap" style="--delay:-2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+            <div class="svc-visual svc-software" aria-hidden="true">
+              <svg viewBox="0 0 200 110">
+                <path d="M30 90 C 60 90, 60 30, 100 30" class="svc-sw-line"/>
+                <path d="M100 30 C 140 30, 140 90, 170 90" class="svc-sw-line"/>
+                <circle cx="30" cy="90" r="7" class="svc-sw-node"/>
+                <circle cx="100" cy="30" r="7" class="svc-sw-node"/>
+                <circle cx="170" cy="90" r="7" class="svc-sw-node"/>
+                <circle r="4" class="svc-sw-packet svc-sw-packet-1"/>
+                <circle r="4" class="svc-sw-packet svc-sw-packet-2"/>
+              </svg>
+            </div>
             <h3 data-i18n="home.services.software_h">Software Development</h3>
             <p data-i18n="home.services.software_p">Custom web apps and internal tools built around how your business actually runs — not a generic template.</p>
             <div class="fx"><span>Web apps</span><span>Dashboards</span><span>Integrations</span></div>
@@ -289,7 +330,20 @@
           </article>
 
           <article class="card service-card">
-            <span class="icon-badge floaty-wrap" style="--delay:-3.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 8 8 2-8 2-2 8-2-8-8-2 8-2 2-8z"/></svg></span>
+            <div class="svc-visual svc-ai" aria-hidden="true">
+              <svg viewBox="0 0 200 110">
+                <line x1="100" y1="55" x2="28" y2="20" class="svc-ai-line"/>
+                <line x1="100" y1="55" x2="172" y2="20" class="svc-ai-line"/>
+                <line x1="100" y1="55" x2="100" y2="96" class="svc-ai-line"/>
+                <circle cx="28" cy="20" r="6" class="svc-ai-node"/>
+                <circle cx="172" cy="20" r="6" class="svc-ai-node"/>
+                <circle cx="100" cy="96" r="6" class="svc-ai-node"/>
+                <circle cx="100" cy="55" r="10" class="svc-ai-hub"/>
+                <circle r="3.5" class="svc-ai-pulse svc-ai-pulse-1"/>
+                <circle r="3.5" class="svc-ai-pulse svc-ai-pulse-2"/>
+                <circle r="3.5" class="svc-ai-pulse svc-ai-pulse-3"/>
+              </svg>
+            </div>
             <h3 data-i18n="home.services.ai_h">AI &amp; System Automation</h3>
             <p data-i18n="home.services.ai_p">AI-powered workflows that handle follow-ups, bookings, and repetitive admin — so leads stop slipping through the cracks.</p>
             <div class="fx"><span>Chatbots</span><span>Workflows</span><span>CRM</span></div>
@@ -297,7 +351,17 @@
           </article>
 
           <article class="card service-card">
-            <span class="icon-badge floaty-wrap" style="--delay:-1.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>
+            <div class="svc-visual svc-ads" aria-hidden="true">
+              <svg viewBox="0 0 200 110">
+                <circle cx="100" cy="55" r="42" class="svc-ads-ring"/>
+                <circle cx="100" cy="55" r="26" class="svc-ads-ring"/>
+                <circle cx="100" cy="55" r="10" class="svc-ads-ring svc-ads-ripple svc-ads-ripple-1"/>
+                <circle cx="100" cy="55" r="10" class="svc-ads-ring svc-ads-ripple svc-ads-ripple-2"/>
+                <circle cx="100" cy="55" r="10" class="svc-ads-ring svc-ads-ripple svc-ads-ripple-3"/>
+                <circle cx="100" cy="55" r="4" class="svc-ads-center"/>
+                <line x1="100" y1="55" x2="142" y2="55" class="svc-ads-sweep-line svc-ads-sweep"/>
+              </svg>
+            </div>
             <h3 data-i18n="home.services.ads_h">Meta Ads</h3>
             <p data-i18n="home.services.ads_p">Facebook and Instagram campaigns built for leads, not vanity metrics — targeting, creative, and landing pages aligned.</p>
             <div class="fx"><span>Facebook</span><span>Instagram</span><span>Retargeting</span></div>
@@ -358,8 +422,13 @@
           <p class="section-sub" data-i18n="pricing.desc">Use the estimator to see a realistic range for your budget. We confirm scope and final pricing in writing after a short strategy call.</p>
         </div>
 
-        <div class="pricing-dual">
-          <article class="card price-panel">
+        <div class="pricing-toggle" role="group" aria-label="Pricing view">
+          <button type="button" class="toggle-btn is-active" data-view="once" aria-pressed="true" data-i18n="pricing.dual_once_title">One-time projects</button>
+          <button type="button" class="toggle-btn" data-view="retainer" aria-pressed="false" data-i18n="pricing.dual_ret_title">Monthly retainers</button>
+        </div>
+
+        <div class="pricing-view" data-view-panel="once">
+          <article class="card price-panel price-panel--solo">
             <div class="pp-top">
               <div>
                 <h3 data-i18n="pricing.dual_once_title">One-time projects</h3>
@@ -372,7 +441,9 @@
             </ul>
             <a href="get-a-quote/" class="btn btn-primary btn-block" data-i18n="pricing.dual_once_cta">Estimate a project</a>
           </article>
+        </div>
 
+        <div class="pricing-view" data-view-panel="retainer" hidden>
           <article class="card price-panel">
             <div class="pp-top">
               <div>
@@ -386,47 +457,47 @@
             </ul>
             <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.dual_ret_cta">Book strategy call</a>
           </article>
-        </div>
 
-        <div class="pricing-grid">
-          <article class="card tier-card">
-            <span class="tier-badge" data-i18n="pricing.t1_for">Consistency on social</span>
-            <h4 data-i18n="pricing.t1_name">Launch</h4>
-            <p class="tier-price" data-i18n="pricing.t1_price_from">From GHS 1,500/mo</p>
-            <p class="tier-hint" data-i18n="pricing.t1_price_hint">A lean starting scope to build consistency.</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f1">Content calendar + posting workflow</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f2">Creative direction (static + short-form)</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f3">Monthly performance snapshot</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
-          </article>
+          <div class="pricing-grid">
+            <article class="card tier-card">
+              <span class="tier-badge" data-i18n="pricing.t1_for">Consistency on social</span>
+              <h4 data-i18n="pricing.t1_name">Launch</h4>
+              <p class="tier-price" data-i18n="pricing.t1_price_from">From GHS 1,500/mo</p>
+              <p class="tier-hint" data-i18n="pricing.t1_price_hint">A lean starting scope to build consistency.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f1">Content calendar + posting workflow</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f2">Creative direction (static + short-form)</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t1_f3">Monthly performance snapshot</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+            </article>
 
-          <article class="card tier-card is-featured">
-            <span class="tier-badge" data-i18n="pricing.ribbon">Most booked</span>
-            <h4 data-i18n="pricing.t2_name">Growth</h4>
-            <p class="tier-price" data-i18n="pricing.t2_price_from">From GHS 3,000/mo</p>
-            <p class="tier-hint" data-i18n="pricing.t2_price_hint">Adds structured testing and optimization.</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f1">Everything in Launch</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f2">Paid social or search setup + optimization</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f3">Landing alignment for campaigns</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f4">Bi-weekly reviews + creative tests</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
-          </article>
+            <article class="card tier-card is-featured">
+              <span class="tier-badge" data-i18n="pricing.ribbon">Most booked</span>
+              <h4 data-i18n="pricing.t2_name">Growth</h4>
+              <p class="tier-price" data-i18n="pricing.t2_price_from">From GHS 3,000/mo</p>
+              <p class="tier-hint" data-i18n="pricing.t2_price_hint">Adds structured testing and optimization.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f1">Everything in Launch</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f2">Paid social or search setup + optimization</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f3">Landing alignment for campaigns</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t2_f4">Bi-weekly reviews + creative tests</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+            </article>
 
-          <article class="card tier-card">
-            <span class="tier-badge" data-i18n="pricing.t3_for">Launches &amp; aggressive growth</span>
-            <h4 data-i18n="pricing.t3_name">Scale</h4>
-            <p class="tier-hint" data-i18n="pricing.t3_price">Custom retainer + project fees</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f1">Multi-platform content + community</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f2">Full-funnel ads (prospect + retarget)</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f3">Conversion experiments prioritized</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
-          </article>
+            <article class="card tier-card">
+              <span class="tier-badge" data-i18n="pricing.t3_for">Launches &amp; aggressive growth</span>
+              <h4 data-i18n="pricing.t3_name">Scale</h4>
+              <p class="tier-hint" data-i18n="pricing.t3_price">Custom retainer + project fees</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f1">Multi-platform content + community</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f2">Full-funnel ads (prospect + retarget)</span></li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="pricing.t3_f3">Conversion experiments prioritized</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-outline btn-block" data-i18n="pricing.cta_primary">Book strategy call</a>
+            </article>
+          </div>
         </div>
         <p class="form-note" style="margin-top:1.25rem;" data-i18n="common.currency_note">Amounts in your selected currency are indicative (approximate exchange vs. GHS). Final quotes may be in GHS or as agreed.</p>
       </div>
@@ -445,9 +516,8 @@
           <a href="https://kaizennights.com/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#3424B0;--art-b:#150E46" aria-hidden="true">
-                <span class="pf-art-mono">KN</span>
-                <span class="pf-art-label">kaizennights.com</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://kaizennights.com/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of Kaizen Nights" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">
@@ -460,9 +530,8 @@
           <a href="https://rodbak.github.io/EATME/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#C74722;--art-b:#571708" aria-hidden="true">
-                <span class="pf-art-mono">EM</span>
-                <span class="pf-art-label">eat-me</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://rodbak.github.io/EATME/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of EAT ME" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">
@@ -475,9 +544,8 @@
           <a href="https://rodbak.github.io/BoothAndBeyond/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#A594F5;--art-b:#3424B0" aria-hidden="true">
-                <span class="pf-art-mono">BB</span>
-                <span class="pf-art-label">booths-and-beyond</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://rodbak.github.io/BoothAndBeyond/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of Booths &amp; Beyond" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">
@@ -490,9 +558,8 @@
           <a href="https://rodbak.github.io/OneManThousandWebsite/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#191256;--art-b:#0D092C" aria-hidden="true">
-                <span class="pf-art-mono">OMT</span>
-                <span class="pf-art-label">one-man-thousand</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://rodbak.github.io/OneManThousandWebsite/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of One Man Thousand" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">
@@ -505,9 +572,8 @@
           <a href="https://tmtodds.vercel.app/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#2A1D8F;--art-b:#0D092C" aria-hidden="true">
-                <span class="pf-art-mono">TO</span>
-                <span class="pf-art-label">tmtodds</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://tmtodds.vercel.app/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of TMTODDS" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">
@@ -520,9 +586,8 @@
           <a href="https://tmtvotes.vercel.app/" target="_blank" rel="noopener noreferrer" class="card portfolio-card">
             <div class="pf-preview">
               <div class="pf-browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="pf-frame-wrap pf-art" style="--art-a:#6D5AE6;--art-b:#2A1D8F" aria-hidden="true">
-                <span class="pf-art-mono">TV</span>
-                <span class="pf-art-label">tmtvotes</span>
+              <div class="pf-frame-wrap">
+                <iframe src="https://tmtvotes.vercel.app/" loading="lazy" tabindex="-1" aria-hidden="true" title="Live preview of TMT Votes" sandbox="allow-scripts allow-same-origin"></iframe>
               </div>
             </div>
             <div class="pf-body">

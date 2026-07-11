@@ -569,7 +569,16 @@
     "cards": {
       "rev_t": "Client revenue",
       "rev_s": "Tracked to date",
-      "rev_g": "generated"
+      "rev_g": "generated",
+      "lead_t": "New lead",
+      "lead_s": "2 min ago",
+      "lead_b": "Website contact form · Growth package inquiry",
+      "chart_t": "Leads this month",
+      "chart_s": "Live tracking",
+      "chart_vs": "vs last month",
+      "wa_t": "WhatsApp",
+      "wa_s": "Fastest way to reach us",
+      "wa_bubble": "\"Hi! I'd like a quote for a new website 👋\""
     }
   }
 }

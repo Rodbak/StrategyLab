@@ -569,7 +569,16 @@
     "cards": {
       "rev_t": "Revenu client",
       "rev_s": "Suivi à ce jour",
-      "rev_g": "générés"
+      "rev_g": "générés",
+      "lead_t": "Nouveau prospect",
+      "lead_s": "il y a 2 min",
+      "lead_b": "Formulaire du site · Demande forfait Croissance",
+      "chart_t": "Prospects ce mois-ci",
+      "chart_s": "Suivi en direct",
+      "chart_vs": "vs mois dernier",
+      "wa_t": "WhatsApp",
+      "wa_s": "Le moyen le plus rapide de nous joindre",
+      "wa_bubble": "\"Bonjour ! J'aimerais un devis pour un nouveau site 👋\""
     }
   }
 }

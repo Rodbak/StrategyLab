@@ -17,10 +17,10 @@
   })();
 
   /** How many GHS one unit of this currency equals (approximate, as of Jul 2026). */
-  var GHS_PER_UNIT = { GHS: 1, XOF: 0.0196 };
+  var GHS_PER_UNIT = { GHS: 1, XOF: 0.0196, USD: 12.5, EUR: 13.5 };
 
   var SUPPORTED_LANGS = ['en', 'fr'];
-  var SUPPORTED_CUR = ['GHS', 'XOF'];
+  var SUPPORTED_CUR = ['GHS', 'XOF', 'USD', 'EUR'];
 
   var bundle = {};
   var currentLang = 'en';
@@ -113,6 +113,21 @@
     return formatMoney(Math.round(displayAmount));
   }
 
+  /** Compact form (e.g. "GHS 2.4M", "$192K") — used for headline stats. */
+  function formatMoneyCompact(displayAmount) {
+    var loc = currentLang === 'fr' ? 'fr-FR' : 'en-GB';
+    try {
+      return new Intl.NumberFormat(loc, {
+        style: 'currency',
+        currency: currentCur,
+        notation: 'compact',
+        maximumFractionDigits: 1
+      }).format(displayAmount);
+    } catch (e) {
+      return formatMoneyRounded(displayAmount);
+    }
+  }
+
   function getSliderLimitsGhs() {
     return { min: 800, max: 80000, maxInput: 150000 };
   }
@@ -133,6 +148,13 @@
       localStorage.setItem(STORAGE_LANG, lang);
     } catch (e) {}
     document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+    /* Soft default: switching language re-defaults the currency (GHS/XOF only —
+       USD/EUR are manual-only picks), but the visitor can still override it
+       afterward via the currency selector. */
+    currentCur = detectCurrencyFromLang(lang);
+    try {
+      localStorage.setItem(STORAGE_CUR, currentCur);
+    } catch (e) {}
     applyDom(document);
     updateMeta();
     syncControls();
@@ -372,6 +394,7 @@
     },
     formatMoney: formatMoney,
     formatMoneyRounded: formatMoneyRounded,
+    formatMoneyCompact: formatMoneyCompact,
     displayToGhs: displayToGhs,
     ghsToDisplay: ghsToDisplay,
     getSliderLimitsGhs: getSliderLimitsGhs,

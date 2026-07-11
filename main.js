@@ -110,16 +110,46 @@
       });
     }
 
+    /* ---- Currency-aware amounts (hero card + stat chips) ----
+       Elements with [data-amount-ghs] show a compact, currency-converted
+       figure (e.g. "GHS 2.4M+", "$192K+") via the shared i18n engine, and
+       re-render instantly whenever the visitor changes language/currency. */
+    function renderAmount(el) {
+      var i18n = window.StrategyLabI18n;
+      var ghs = parseFloat(el.getAttribute('data-amount-ghs'));
+      if (!i18n || isNaN(ghs)) return;
+      el.textContent = i18n.formatMoneyCompact(i18n.ghsToDisplay(ghs)) + '+';
+    }
+    var amountEls = document.querySelectorAll('[data-amount-ghs]');
+    if (amountEls.length && window.StrategyLabI18n) {
+      window.StrategyLabI18n.onChange(function () {
+        amountEls.forEach(renderAmount);
+      });
+    }
+
     /* ---- Count-up stats when scrolled into view ---- */
     var counters = document.querySelectorAll('[data-counter]');
     if (counters.length && 'IntersectionObserver' in window) {
       var animate = function (el) {
+        var ghsAttr = el.getAttribute('data-amount-ghs');
+        var i18n = window.StrategyLabI18n;
+        var dur = 1400;
+        var start = null;
+        if (ghsAttr !== null && i18n) {
+          var targetDisplay = i18n.ghsToDisplay(parseFloat(ghsAttr));
+          (function stepMoney(ts) {
+            if (start === null) start = ts;
+            var p = Math.min(1, (ts - start) / dur);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = i18n.formatMoneyCompact(targetDisplay * eased) + '+';
+            if (p < 1) requestAnimationFrame(stepMoney);
+          })();
+          return;
+        }
         var target = parseFloat(el.getAttribute('data-counter'));
         var prefix = el.getAttribute('data-prefix') || '';
         var suffix = el.getAttribute('data-suffix') || '';
         var decimals = el.getAttribute('data-decimals') ? parseInt(el.getAttribute('data-decimals'), 10) : 0;
-        var dur = 1400;
-        var start = null;
         function step(ts) {
           if (start === null) start = ts;
           var p = Math.min(1, (ts - start) / dur);
@@ -139,6 +169,31 @@
         });
       }, { threshold: 0.5 });
       counters.forEach(function (c) { io.observe(c); });
+    }
+
+    /* Static (non-countup) currency amounts, e.g. the hero revenue card,
+       render immediately on load rather than waiting for scroll. */
+    document.querySelectorAll('[data-amount-ghs]:not([data-counter])').forEach(renderAmount);
+
+    /* ---- Pricing: One-time / Retainer toggle ---- */
+    var pricingToggle = document.querySelector('.pricing-toggle');
+    if (pricingToggle) {
+      var toggleBtns = pricingToggle.querySelectorAll('.toggle-btn');
+      var pricingViews = document.querySelectorAll('.pricing-view');
+      toggleBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var view = btn.getAttribute('data-view');
+          toggleBtns.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          pricingViews.forEach(function (v) {
+            v.hidden = v.getAttribute('data-view-panel') !== view;
+          });
+          track('pricing_toggle', { view: view });
+        });
+      });
     }
 
     /* ---- Current year in footer ---- */
